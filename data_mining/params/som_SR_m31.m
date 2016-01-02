@@ -61,7 +61,9 @@ n_nei=2;  % #of Neighbours; each neuran can be connected with (n_nei) nth Neighb
 %%%   Generating plots and tables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+   %for nameing
+  n1st=int2str(n_1);
+  n2st=int2str(n_2);
 for k1=1:n_1*n_2
  at{k1}=find(sim_t(k1,:)==1); %create 1X(n1*n2) cell and show regions which are going to same neuran 
 end 
@@ -103,16 +105,86 @@ end
     size_temp = size(TAB_1{j});
     Mtx_TAB_1(1:size_temp(1),j) = TAB_1{j};
   end
+  
+  
+for h1=n_1:-1:1
+    for   h2=1:1:n_2
+        
+    end
+end
 %>>>>end
+
 figure(1)
     plotsomnd(net,annt) %MATLAB som built-in SOM plots; shows distance between each neuran' Neighbours
  
 figure(2)
     plotsomhits(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
- 
-figure(3) %test plots
-    
-    
+
+figure(3)  
+    for h1=n_1:-1:1
+        m1=0
+            for h2=1:1:n_2
+                m1=m1+1
+                check_s=CAT_1{h1,h2};
+                size_ch=size(check_s);
+                if (size_ch(2) > 0) 
+                    params=CAT_1{h1,h2};
+                    s=scatter(params(28,:)/params(29,:),params(54,:));
+                    s.MarkerFaceColor = [m1/10 h1/10 h2/10];
+                    hold on
+                    xlabel('F(FUV)/F(NUV)')
+                    ylabel('RHI')
+                end
+            end
+    end
+%>>>> test plots
+count=2;
+for i=1:20
+    i_name=int2str(i);
+    m1=0;
+    count=count+2;
+    figure(count)
+    for ind=21:36
+        m1=m1+1;
+        subplot(4,4,m1)
+        for h1=n_1:-1:1
+            for h2=1:1:n_2
+                check_s=CAT_1{h1,h2};
+                size_ch=size(check_s);
+                if (size_ch(2) > 0) 
+                    params=CAT_1{h1,h2};
+                    s=scatter(params(ind,:),params(i,:));
+                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
+                    hold on
+                end
+            end
+        end
+    end
+    name1 = strcat(dir,i_name,'_vs_raws_21_to_36_for_',n1st,'by',n2st,'.pdf');
+    saveas(figure(count),name1,'pdf')    
+    m1=0;
+    figure(count+1)
+    for ind=37:52
+        m1=m1+1;
+        subplot(4,4,m1)
+        for h1=n_1:-1:1
+            for h2=1:1:n_2
+                check_s=CAT_1{h1,h2};
+                size_ch=size(check_s);
+                if (size_ch(2) > 0) 
+                    params=CAT_1{h1,h2};
+                    s=scatter(params(ind,:),params(i,:));
+                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
+                    hold on
+                end
+            end
+        end
+    end
+    name2 = strcat(dir,i_name,'_vs_raws_37_to_53_for_',n1st,'by',n2st,'.pdf');
+    saveas(figure(count+1),name2,'pdf')    
+end
+
+
 
 
 
@@ -122,7 +194,11 @@ figure(3) %test plots
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%for nameing
-  n1st=int2str(n_1);
-  n2st=int2str(n_2);
-
+  fig1 = strcat(dir,'dist',n1st,'by',n2st,'.pdf');
+  fig2 = strcat(dir,'hits',n1st,'by',n2st,'.pdf');
+  fig3 = strcat(dir,'plot_radiation_hardness_index_vs_ratio_of_galex',n1st,'by',n2st,'.pdf');
+  
+  
+saveas(figure(1),fig1,'pdf')
+saveas(figure(2),fig2,'pdf')
+saveas(figure(3),fig3,'pdf')
