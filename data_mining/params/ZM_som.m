@@ -1,7 +1,7 @@
 clear
 clc
 
-dir= '~/Desktop/project/data_minning/new_paper_2012/';
+dir= '~/Desktop/';
 %>>>>  load your input dara in the Excel format
 %>>>> new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 %>>>> by this command 'Null' is converted to NaN which is readable by Matlab 
@@ -11,8 +11,8 @@ dir= '~/Desktop/project/data_minning/new_paper_2012/';
 %>>>> if all components are numbers then you can us 'txt' format then run this to load the data and inactive the above commend by % 
 
 %load m31.txt
-load ~/Desktop/project/data_minning/new_paper_2012/only_observed_values.txt
-cat=only_observed_values;
+load ~/Desktop/project/data_mining/m31/acsii_tables/total_m31_table_nohd_noNAN.txt
+cat=total_m31_table_nohd_noNAN;
 %>>>>---------------------------------------------------------------------------------------------------
 %>>>>  Inverse  'cat' to N x M  for normalization and other processes
 
@@ -40,8 +40,8 @@ nums=sz(2); % #of galaxies (regions)
 %>>>>---------------------------------------------------------------------------------------------------
 %>>>> Map size (n_1 x n_2) of the Network parametrs 
 
-n_1=1;
-n_2=12;
+n_1=2;
+n_2=2;
 n1st=int2str(n_1);
 n2st=int2str(n_2);
 %>>>>---------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ n2st=int2str(n_2);
 %>>>> each neuran can be connected with (n_nei) nth Neighbours
 
 n_cen=100;    
-n_nei=2;  
+n_nei=1;  
 %>>>>---------------------------------------------------------------------------------------------------
 %>>>> MATLAB NETWORK  ; should not change
  net = newsom(annt,[n_2,n_1],'hextop','linkdist',n_cen,n_nei);
@@ -120,7 +120,7 @@ pos=strcat(dir,'pos',n1st,'by',n2st,'.csv');
 
 figure(1)
  plotsomnd(net,annt);
-saveas(figure(1),'~/Desktop/project/data_minning/new_paper_2012/dist_only_observed_values.pdf','pdf')
+saveas(figure(1),'~/Desktop/dist_only_observed_values.pdf','pdf')
 
 %figure(2)
  %plotsomnc(net,annt);
@@ -128,7 +128,7 @@ saveas(figure(1),'~/Desktop/project/data_minning/new_paper_2012/dist_only_observ
 
 figure(3)
 plotsomhits(net,annt);
-saveas(figure(3),'~/Desktop/project/data_minning/new_paper_2012/hits_only_observed_values.pdf','pdf')
+saveas(figure(3),'~/Desktop/hits_only_observed_values.pdf','pdf')
 
 %figure(4)
 %plotsomplanes(net,annt);

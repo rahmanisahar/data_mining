@@ -18,11 +18,8 @@ clc
 
 %>>>> Loading data in "txt" format
 %>>>> Make sure there is no "NAN" values in this file; replace them with proper # or remove them
-load m31.txt
-cat = m31; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
-%>>>> If there is any "NAN", fix it by takining avarage and assign a number to NaN and flag the NaN
-%>>>> Network can not accept NaN or NULL
- cat_fix=fixunknowns(cat);
+load ~/Desktop/project/data_mining/m31/acsii_tables/total_m31_table_nohd_noNAN.txt
+cat = total_m31_table_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,6 +28,10 @@ cat = m31; % new name 'cat':  M x N  (M=regions, N= parameters; this is the form
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 cat=cat'; %Inverse  'cat' to N x M
+
+%>>>> If there is any "NAN", fix it by takining avarage and assign a number to NaN and flag the NaN
+%>>>> Network can not accept NaN or NULL
+ cat_fix=fixunknowns(cat);
 
 %>>>> normalization data, select only one  
 %>>>> mapminmax: mormalization between -1 and 1.
@@ -130,8 +131,8 @@ figure(3)
                 size_ch=size(check_s);
                 if (size_ch(2) > 0) 
                     params=CAT_1{h1,h2};
-                    s=scatter(params(28,:)/params(29,:),params(54,:));
-                    s.MarkerFaceColor = [m1/10 h1/10 h2/10];
+                    s=scatter(params(24,:)./params(25,:),params(50,:));
+                    s.MarkerFaceColor = [0 h1/20 h2/20];
                     hold on
                     xlabel('F(FUV)/F(NUV)')
                     ylabel('RHI')
@@ -140,12 +141,12 @@ figure(3)
     end
 %>>>> test plots
 count=2;
-for i=1:20
+for i=1:17
     i_name=int2str(i);
     m1=0;
     count=count+2;
     figure(count)
-    for ind=21:36
+    for ind=18:33
         m1=m1+1;
         subplot(4,4,m1)
         for h1=n_1:-1:1
@@ -155,17 +156,17 @@ for i=1:20
                 if (size_ch(2) > 0) 
                     params=CAT_1{h1,h2};
                     s=scatter(params(ind,:),params(i,:));
-                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
+                    s.MarkerFaceColor = [0 h1/20 h2/20];
                     hold on
                 end
             end
         end
     end
-    name1 = strcat(dir,i_name,'_vs_raws_21_to_36_for_',n1st,'by',n2st,'.pdf');
+    name1 = strcat(dir,i_name,'_vs_raws_18_to_33_for_',n1st,'by',n2st,'.pdf');
     saveas(figure(count),name1,'pdf')    
     m1=0;
     figure(count+1)
-    for ind=37:53
+    for ind=34:49
         m1=m1+1;
         subplot(4,4,m1)
         for h1=n_1:-1:1
@@ -175,13 +176,13 @@ for i=1:20
                 if (size_ch(2) > 0) 
                     params=CAT_1{h1,h2};
                     s=scatter(params(ind,:),params(i,:));
-                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
+                    s.MarkerFaceColor = [0 h1/20 h2/20];
                     hold on
                 end
             end
         end
     end
-    name2 = strcat(dir,i_name,'_vs_raws_37_to_53_for_',n1st,'by',n2st,'.pdf');
+    name2 = strcat(dir,i_name,'_vs_raws_34_to_49_for_',n1st,'by',n2st,'.pdf');
     saveas(figure(count+1),name2,'pdf')    
 end
 

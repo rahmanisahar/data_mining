@@ -143,14 +143,14 @@ RAdeg=[10.64583333333333d,10.376708333333333d,11.345208333333332d,10.15570833333
 Decdeg=[41.35027777777778d,40.718833333333336d,41.64808333333333d,41.02483333333333d,41.11938888888889d,41.317527777777784d,41.3875d,40.98302777777778d,41.1215d,40.60563888888889d]
 ;ID=['Bulge','irc1','irc2','irc3','irc4','irac5','irc6','irc7','irc8','isocvf']
 
-   data = {Pub_ID:'', RAdeg:0.0, Decdeg:0.0, pacs100:0.0d}
+   data = {Pub_ID:'', RAdeg:0.0, Decdeg:0.0, Rband:0.0d}
    datas = replicate(data, n_elements(phot))
    datas.Pub_ID = pub_id
    datas.RAdeg = RAdeg
    datas.Decdeg = Decdeg
    ;datas.ID = ID
    ;datas.area_arcsec_sq= area_arcsec_sq
-   datas.pacs100=phot
+   datas.Rband=phot
    
    mwrfits,datas, dirout+out+'.fits', /create
 

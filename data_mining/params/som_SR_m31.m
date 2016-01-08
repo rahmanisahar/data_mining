@@ -1,7 +1,7 @@
 clear
 clc
 
-dir= '~/Desktop/project/data_minning/new_paper_2012/'; %results' file directory 
+dir= '~/Desktop/project/data_mining/SOM/total_m31/2by2/'; %results' file directory 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -11,11 +11,8 @@ dir= '~/Desktop/project/data_minning/new_paper_2012/'; %results' file directory
 
 %>>>> Loading data in "txt" format
 %>>>> Make sure there is no "NAN" values in this file; replace them with proper # or remove them
-load m31.txt
-cat = m31; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
-%>>>> If there is any "NAN", fix it by takining avarage and assign a number to NaN and flag the NaN
-%>>>> Network can not accept NaN or NULL
- cat_fix=fixunknowns(cat);
+load ~/Desktop/project/data_mining/m31/acsii_tables/total_m31_table_nohd_noNAN.txt
+cat = total_m31_table_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,6 +21,9 @@ cat = m31; % new name 'cat':  M x N  (M=regions, N= parameters; this is the form
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 cat=cat'; %Inverse  'cat' to N x M
+%>>>> If there is any "NAN", fix it by takining avarage and assign a number to NaN and flag the NaN
+%>>>> Network can not accept NaN or NULL
+ cat_fix=fixunknowns(cat);
 
 %>>>> normalization data, select only one  
 %>>>> mapminmax: mormalization between -1 and 1.
@@ -42,8 +42,8 @@ nums=sz(2); % #of regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %>>>> Map size (n_1 x n_2) of the Network parametrs 
- n_1=1;
- n_2=12;
+ n_1=2;
+ n_2=2;
 
 n_cen=100; % number of training steps; the smaler n_cen the more separated groups (more covering space)
 n_nei=2;  % #of Neighbours; each neuran can be connected with (n_nei) nth Neighbours
@@ -64,9 +64,11 @@ n_nei=2;  % #of Neighbours; each neuran can be connected with (n_nei) nth Neighb
    %for nameing
   n1st=int2str(n_1);
   n2st=int2str(n_2);
+
 for k1=1:n_1*n_2
  at{k1}=find(sim_t(k1,:)==1); %create 1X(n1*n2) cell and show regions which are going to same neuran 
-end 
+end
+
 for k1=1:n_1*n_2
 inpt{k1}=annt(:,at{k1}); % initial data in for each of the regions in each "at" cell
 end
@@ -122,15 +124,15 @@ figure(2)
 
 figure(3)  
     for h1=n_1:-1:1
-        m1=0
+        m1=0;
             for h2=1:1:n_2
-                m1=m1+1
+                m1=m1+1;
                 check_s=CAT_1{h1,h2};
                 size_ch=size(check_s);
                 if (size_ch(2) > 0) 
                     params=CAT_1{h1,h2};
-                    s=scatter(params(28,:)/params(29,:),params(54,:));
-                    s.MarkerFaceColor = [m1/10 h1/10 h2/10];
+                    s=scatter(params(24,:)./params(25,:),params(51,:));
+                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
                     hold on
                     xlabel('F(FUV)/F(NUV)')
                     ylabel('RHI')
@@ -139,12 +141,12 @@ figure(3)
     end
 %>>>> test plots
 count=2;
-for i=1:20
+for i=1:17
     i_name=int2str(i);
     m1=0;
     count=count+2;
     figure(count)
-    for ind=21:36
+    for ind=18:33
         m1=m1+1;
         subplot(4,4,m1)
         for h1=n_1:-1:1
@@ -160,11 +162,11 @@ for i=1:20
             end
         end
     end
-    name1 = strcat(dir,i_name,'_vs_raws_21_to_36_for_',n1st,'by',n2st,'.pdf');
+    name1 = strcat(dir,i_name,'_vs_raws_18_to_33_for_',n1st,'by',n2st,'.pdf');
     saveas(figure(count),name1,'pdf')    
     m1=0;
     figure(count+1)
-    for ind=37:52
+    for ind=34:49
         m1=m1+1;
         subplot(4,4,m1)
         for h1=n_1:-1:1
@@ -180,7 +182,7 @@ for i=1:20
             end
         end
     end
-    name2 = strcat(dir,i_name,'_vs_raws_37_to_53_for_',n1st,'by',n2st,'.pdf');
+    name2 = strcat(dir,i_name,'_vs_raws_34_to_49_for_',n1st,'by',n2st,'.pdf');
     saveas(figure(count+1),name2,'pdf')    
 end
 
