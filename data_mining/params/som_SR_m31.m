@@ -1,7 +1,7 @@
 clear
 clc
 
-dir= '~/Desktop/project/data_mining/SOM/total_m31/2by2/'; %results' file directory 
+dir= '~/Desktop/project/data_mining/SOM/without_UVRIBJHKS/2by2_nei1/'; %results' file directory 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -11,8 +11,8 @@ dir= '~/Desktop/project/data_mining/SOM/total_m31/2by2/'; %results' file directo
 
 %>>>> Loading data in "txt" format
 %>>>> Make sure there is no "NAN" values in this file; replace them with proper # or remove them
-load ~/Desktop/project/data_mining/m31/acsii_tables/total_m31_table_nohd_noNAN.txt
-cat = total_m31_table_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
+load ~/Desktop/project/data_mining/m31/acsii_tables/m31_table_without_UBVRIJHKs_nohd_noNAN.txt
+cat = m31_table_without_UBVRIJHKs_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,8 +46,8 @@ nums=sz(2); % #of regions
  n_2=2;
 
 n_cen=100; % number of training steps; the smaler n_cen the more separated groups (more covering space)
-n_nei=2;  % #of Neighbours; each neuran can be connected with (n_nei) nth Neighbours
-
+n_nei=1;  % #of Neighbours; each neuran can be connected with (n_nei) nth Neighbours
+    
 %>>>> MATLAB NETWORK
  net = newsom(annt,[n_2,n_1],'hextop','linkdist',n_cen,n_nei);
  net.trainParam.epochs = 200;
@@ -102,12 +102,12 @@ end
        max = size_tab_1(1);
     end
   end 
-  Mtx_TAB_1 = zeros(max,n_1*n_2);
+  Mtx_TAB_1 = zeros(n_1*n_2,max);
   for j=1:n_1*n_2
     size_temp = size(TAB_1{j});
     Mtx_TAB_1(1:size_temp(1),j) = TAB_1{j};
   end
-  
+  Mtx_TAB_1=Mtx_TAB_1'
   
 for h1=n_1:-1:1
     for   h2=1:1:n_2
@@ -122,23 +122,27 @@ figure(1)
 figure(2)
     plotsomhits(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
 
-figure(3)  
-    for h1=n_1:-1:1
-        m1=0;
-            for h2=1:1:n_2
-                m1=m1+1;
-                check_s=CAT_1{h1,h2};
-                size_ch=size(check_s);
-                if (size_ch(2) > 0) 
-                    params=CAT_1{h1,h2};
-                    s=scatter(params(24,:)./params(25,:),params(51,:));
-                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
-                    hold on
-                    xlabel('F(FUV)/F(NUV)')
-                    ylabel('RHI')
-                end
-            end
-    end
+figure(3)
+    plotsompos(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
+
+% figure(3)  
+%     for h1=n_1:-1:1
+%         m1=0;
+%             for h2=1:1:n_2
+%                 m1=m1+1;
+%                 check_s=CAT_1{h1,h2};
+%                 size_ch=size(check_s);
+%                 if (size_ch(2) > 0) 
+%                     params=CAT_1{h1,h2};
+%                     s=scatter(params(24,:)./params(25,:),params(51,:));
+%                     s.MarkerFaceColor = [m1/20 h1/10 h2/10];
+%                     hold on
+%                     xlabel('F(FUV)/F(NUV)')
+%                     ylabel('RHI')
+%                 end
+%             end
+%     end
+
 %>>>> test plots
 count=2;
 for i=1:17
@@ -156,19 +160,19 @@ for i=1:17
                 if (size_ch(2) > 0) 
                     params=CAT_1{h1,h2};
                     s=scatter(params(ind,:),params(i,:));
-                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
+                    s.MarkerFaceColor = [0 h1/20 h2/20];
                     hold on
                 end
             end
         end
     end
-    name1 = strcat(dir,i_name,'_vs_raws_18_to_33_for_',n1st,'by',n2st,'.pdf');
+    name1 = strcat(dir,i_name,'vs_raws_18_to_33_for_',n1st,'by',n2st,'.pdf');
     saveas(figure(count),name1,'pdf')    
     m1=0;
     figure(count+1)
-    for ind=34:49
+    for ind=34:43
         m1=m1+1;
-        subplot(4,4,m1)
+        subplot(2,5,m1)
         for h1=n_1:-1:1
             for h2=1:1:n_2
                 check_s=CAT_1{h1,h2};
@@ -176,18 +180,39 @@ for i=1:17
                 if (size_ch(2) > 0) 
                     params=CAT_1{h1,h2};
                     s=scatter(params(ind,:),params(i,:));
-                    s.MarkerFaceColor = [m1/20 h1/10 h2/10];
+                    s.MarkerFaceColor = [0 h1/20 h2/20];
                     hold on
                 end
             end
         end
     end
-    name2 = strcat(dir,i_name,'_vs_raws_34_to_49_for_',n1st,'by',n2st,'.pdf');
-    saveas(figure(count+1),name2,'pdf')    
+    name2 = strcat(dir,i_name,'vs_raws_34_to_49_for_',n1st,'by',n2st,'.pdf');
+    saveas(figure(count+1),name2,'pdf')
 end
 
-
-
+for i=1:17
+    for ind=18:43
+    i_name=int2str(i);
+    j_name=int2str(ind);
+    corr_mat=zeros(n_1,n_2)+0.000000006;
+        for h1=n_1:-1:1
+            for h2=1:1:n_2
+                check_s=CAT_1{h1,h2};
+                size_ch=size(check_s);
+                if (size_ch(2) > 2) 
+                    params=CAT_1{h1,h2};
+                    corr_mat(h1,h2)=corr(params(i,:)',params(ind,:)');
+                end
+            end
+        end
+        if (abs(corr_mat) > 0.5)
+          name1 = strcat(dir,i_name,'_',j_name,n1st,'_','by',n2st,'.csv');   
+          % table1 = cell2table(corr_mat);
+         csvwrite(name1,corr_mat);
+        end
+    end
+    
+end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -198,9 +223,14 @@ end
 
   fig1 = strcat(dir,'dist',n1st,'by',n2st,'.pdf');
   fig2 = strcat(dir,'hits',n1st,'by',n2st,'.pdf');
-  fig3 = strcat(dir,'plot_radiation_hardness_index_vs_ratio_of_galex',n1st,'by',n2st,'.pdf');
-  
-  
+  fig3 = strcat(dir,'weigth',n1st,'by',n2st,'.pdf');
+  pers= strcat(dir,'pers',n1st,'by',n2st,'.csv');
+  pos = strcat(dir,'pos',n1st,'by',n2st,'.csv');
+
+table = cell2table(pers_result);
+writetable(table,pers);
+csvwrite(pos,Mtx_TAB_1); 
 saveas(figure(1),fig1,'pdf')
 saveas(figure(2),fig2,'pdf')
 saveas(figure(3),fig3,'pdf')
+close all

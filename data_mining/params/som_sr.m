@@ -121,7 +121,8 @@ figure(1)
  
 figure(2)
     plotsomhits(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
-
+figure(100)
+    plotsompos(net,annt)
 figure(3)  
     for h1=n_1:-1:1
         m1=0;
