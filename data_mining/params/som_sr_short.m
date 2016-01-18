@@ -108,7 +108,7 @@ end
     size_temp = size(TAB_1{j});
     Mtx_TAB_1(1:size_temp(1),j) = TAB_1{j};
   end
-  Mtx_TAB_1=Mtx_TAB_1'
+  Mtx_TAB_1=Mtx_TAB_1';
 
   
   
@@ -161,6 +161,13 @@ for i=1:17
                     params=CAT_1{h1,h2};
                     s=scatter(params(ind,:),params(i,:));
                     s.MarkerFaceColor = [0 h1/20 h2/20];
+                    if (size_ch(2) > 2) 
+                        corr_mat(h1,h2)=corr(params(i,:)',params(ind,:)');
+                        if (abs(corr_mat(h1,h2)) > 0.5)
+                            strmax = ['p=',num2str(corr_mat(h1,h2))];
+                             text(mean(params(ind,:)),mean(params(i,:)),strmax,'Color',[h1*h2/400 h1*5/20 h2*4/20]);
+                        end
+                    end
                     hold on
                 end
             end
@@ -181,13 +188,20 @@ for i=1:17
                     params=CAT_1{h1,h2};
                     s=scatter(params(ind,:),params(i,:));
                     s.MarkerFaceColor = [0 h1/20 h2/20];
+                    if (size_ch(2) > 2) 
+                        corr_mat(h1,h2)=corr(params(i,:)',params(ind,:)');
+                        if (abs(corr_mat(h1,h2)) > 0.5)
+                            strmax = ['p=',num2str(corr_mat(h1,h2))];
+                            text(mean(params(ind,:)),mean(params(i,:)),strmax,'Color',[h1*h2/400 h1*5/20 h2*4/20]);
+                        end
+                    end
                     hold on
                 end
             end
         end
     end
-    name2 = strcat(dir,i_name,'vs_raws_34_to_49_for_',n1st,'by',n2st,'.pdf');
-    saveas(figure(count+1),name2,'pdf')    
+    name2 = strcat(dir,i_name,'vs_raws_34_to_43_for_',n1st,'by',n2st,'.pdf');
+    saveas(figure(count+1),name2,'pdf')
 end
 
 for i=1:17
@@ -205,13 +219,14 @@ for i=1:17
                 end
             end
         end
-        if (abs(corr_mat) > 0.5)
-          name1 = strcat(dir,i_name,'_',j_name,n1st,'_','by',n2st,'.csv');   
+        II= find(abs(corr_mat) >=0.5) ;
+        if (II > 0)
+          name1 = strcat(dir,i_name,'_',j_name,'_',n1st,'_by',n2st,'.csv');   
           % table1 = cell2table(corr_mat);
          csvwrite(name1,corr_mat);
         end
     end
-
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -224,7 +239,8 @@ for i=1:17
   fig3 = strcat(dir,'weigth',n1st,'by',n2st,'.pdf');
   pers= strcat(dir,'pers',n1st,'by',n2st,'.csv');
   pos = strcat(dir,'pos',n1st,'by',n2st,'.csv');
-
+  nett= strcat(dir,'net',n1st,'by',n2st);
+save(nett, 'net')
 table = cell2table(pers_result);
 writetable(table,pers);
 csvwrite(pos,Mtx_TAB_1); 
