@@ -1,0 +1,7 @@
+papers/*
+*.fits*
+use_less/
+H_paper_2012_som/
+SOM/without_UVRIBJHKS/to_report/*
+*.zip
+m101/images/*

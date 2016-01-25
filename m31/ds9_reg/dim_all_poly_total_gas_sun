@@ -1,0 +1,13 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+image
+polygon(131.0795,177.82702,131.53218,177.38244,130.73208,176.56786,130.27966,177.01227) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(147.82427,125.90063,148.33981,125.39959,147.57337,124.61123,147.05784,125.11234) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(88.000897,202.48862,88.515975,201.98702,87.748729,201.19913,87.233643,201.7008) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(161.48683,151.17623,162.00025,150.67284,161.20071,149.85787,160.68754,150.3611) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(150.98257,158.90295,151.49505,158.39882,150.69433,157.58493,150.18185,158.08915) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(114.42265,175.18011,114.93583,174.67661,114.13616,173.86175,113.62298,174.36511) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(115.42767,180.93547,115.94142,180.43274,115.14275,179.61681,114.629,180.11962) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(134.51936,159.03389,135.03182,158.5298,134.23126,157.71586,133.71879,158.22003) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(155.80471,116.64908,156.31875,116.14669,155.52077,115.33006,155.00648,115.83252) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(157.20807,147.71198,157.72192,147.20956,156.92383,146.39318,156.40971,146.89567) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
