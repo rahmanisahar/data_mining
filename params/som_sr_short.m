@@ -18,8 +18,8 @@ clc
 
 %>>>> Loading data in "txt" format
 %>>>> Make sure there is no "NAN" values in this file; replace them with proper # or remove them
-load ~/Desktop/project/data_mining/m101/ascii_table/m101_phot_data_nohd_noreg.txt
-cat = m101_phot_data_nohd_noreg; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
+load ~/Desktop/project/data_mining/m31/ascii_tables/m31_table_without_UBVRIJHKs_nohd_noNAN.txt
+cat = m31_table_without_UBVRIJHKs_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +52,7 @@ nums=sz(2); % #of regions
 
 %>>>> MATLAB NETWORK
  net = newsom(annt,[n_2,n_1],'hextop','linkdist',n_cen,n_nei);
- net.trainParam.epochs = 200;
+ net.trainParam.epochs = n_cen*3;
  net.trainParam.showWindow =false;
  net.trainParam.showCommandLine=true;
  net.trainParam.show=10;
@@ -66,6 +66,8 @@ nums=sz(2); % #of regions
    %for nameing
   n1st=int2str(n_1);
   n2st=int2str(n_2);
+  neist=int2str(n_nei);
+  n_censt=int2str(n_cen);
 for k1=1:n_1*n_2
  at{k1}=find(sim_t(k1,:)==1); %create 1X(n1*n2) cell and show regions which are going to same neuran 
 end 
@@ -102,7 +104,7 @@ end
        max = size_tab_1(1);
     end
   end 
-  
+  max
    Mtx_TAB_1 = zeros(n_1*n_2,max);
   for j=1:n_1*n_2
     size_temp = size(TAB_1{j});
@@ -166,7 +168,7 @@ figure(3)
 %                         corr_mat(h1,h2)=corr(params(i,:)',params(ind,:)');
 %                         if (abs(corr_mat(h1,h2)) > 0.5)
 %                             strmax = ['p=',num2str(corr_mat(h1,h2))];
-%                              text(mean(params(ind,:)),mean(params(i,:)),strmax,'Color',[h1*h2/400 h1*5/20 h2*4/20]);
+%                              text(mean(params(ind,:)),mean(params(i,:)),strmax,'Color',[h1*h2/4000 h1*5/2000 h2*4/2000]);
 %                         end
 %                     end
 %                     hold on
@@ -174,8 +176,8 @@ figure(3)
 %             end
 %         end
 %     end
-%     name1 = strcat(dir,i_name,'vs_raws_18_to_33_for_',n1st,'by',n2st,'.pdf');
-%     saveas(figure(count),name1,'pdf')    
+%     name1 = strcat(dir,i_name,'vs_raws_18_to_33_for_',n1st,'by',n2st,neist,n_censt,'.jpeg');
+%     saveas(figure(count),name1,'jpeg')    
 %     m1=0;
 %     figure(count+1)
 %     for ind=34:39
@@ -193,7 +195,7 @@ figure(3)
 %                         corr_mat(h1,h2)=corr(params(i,:)',params(ind,:)');
 %                         if (abs(corr_mat(h1,h2)) > 0.5)
 %                             strmax = ['p=',num2str(corr_mat(h1,h2))];
-%                             text(mean(params(ind,:)),mean(params(i,:)),strmax,'Color',[h1*h2/400 h1*5/20 h2*4/20]);
+%                             text(mean(params(ind,:)),mean(params(i,:)),strmax,'Color',[h1*h2/4000 h1*5/2000 h2*4/2000]);
 %                         end
 %                     end
 %                     hold on
@@ -201,8 +203,8 @@ figure(3)
 %             end
 %         end
 %     end
-%     name2 = strcat(dir,i_name,'vs_raws_34_to_43_for_',n1st,'by',n2st,'.pdf');
-%     saveas(figure(count+1),name2,'pdf')
+%     name2 = strcat(dir,i_name,'vs_raws_34_to_43_for_',n1st,'by',n2st,neist,n_censt,'.jpeg');
+%     saveas(figure(count+1),name2,'jpeg')
 % end
 % 
 % for i=1:17
@@ -222,7 +224,7 @@ figure(3)
 %         end
 %         II= find(abs(corr_mat) >=0.5) ;
 %         if (II > 0)
-%           name1 = strcat(dir,i_name,'_',j_name,'_',n1st,'_by',n2st,'.csv');   
+%           name1 = strcat(dir,i_name,'_',j_name,'_',n1st,'_by',n2st,neist,n_censt,'.csv');   
 %           % table1 = cell2table(corr_mat);
 %          csvwrite(name1,corr_mat);
 %         end
@@ -235,18 +237,18 @@ figure(3)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  fig1 = strcat(dir,'dist',n1st,'by',n2st,'.pdf');
-  fig2 = strcat(dir,'hits',n1st,'by',n2st,'.pdf');
-  fig3 = strcat(dir,'weigth',n1st,'by',n2st,'.pdf');
-  pers= strcat(dir,'pers',n1st,'by',n2st,'.csv');
-  pos = strcat(dir,'pos',n1st,'by',n2st,'.csv');
-  nett= strcat(dir,'net',n1st,'by',n2st);
+  fig1 = strcat(dir,'dist',n1st,'by',n2st,neist,n_censt,'.jpeg');
+  fig2 = strcat(dir,'hits',n1st,'by',n2st,neist,n_censt,'.jpeg');
+  fig3 = strcat(dir,'weigth',n1st,'by',n2st,neist,n_censt,'.jpeg');
+  pers= strcat(dir,'pers',n1st,'by',n2st,neist,n_censt,'.csv');
+  pos = strcat(dir,'pos',n1st,'by',n2st,neist,n_censt,'.csv');
+  nett= strcat(dir,'net',n1st,'by',n2st,neist,n_censt);
 save(nett, 'net')
 table = cell2table(pers_result);
 writetable(table,pers);
 csvwrite(pos,Mtx_TAB_1); 
-saveas(figure(1),fig1,'pdf')
-saveas(figure(2),fig2,'pdf')
-saveas(figure(3),fig3,'pdf')
+saveas(figure(1),fig1,'jpeg')
+saveas(figure(2),fig2,'jpeg')
+saveas(figure(3),fig3,'jpeg')
 close all
 end
