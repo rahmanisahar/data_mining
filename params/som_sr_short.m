@@ -104,7 +104,7 @@ end
        max = size_tab_1(1);
     end
   end 
-  max
+ 
    Mtx_TAB_1 = zeros(n_1*n_2,max);
   for j=1:n_1*n_2
     size_temp = size(TAB_1{j});
@@ -250,5 +250,5 @@ csvwrite(pos,Mtx_TAB_1);
 saveas(figure(1),fig1,'jpeg')
 saveas(figure(2),fig2,'jpeg')
 saveas(figure(3),fig3,'jpeg')
-close all
+%close all
 end
