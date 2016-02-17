@@ -1,7 +1,7 @@
 clear
 clc
 
-dir= '~/Desktop/project/data_mining/SOM/derived/2by2/'; %results' file directory 
+dir= '~/Desktop/'; %results' file directory 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -11,8 +11,8 @@ dir= '~/Desktop/project/data_mining/SOM/derived/2by2/'; %results' file directory
 
 %>>>> Loading data in "txt" format
 %>>>> Make sure there is no "NAN" values in this file; replace them with proper # or remove them
-load ~/Desktop/project/data_mining/m31/ascii_tables/derived_values_nonan_nohead.txt
-cat = derived_values_nonan_nohead; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
+load ~/Desktop/project/data_mining/m31/ascii_tables/m31_table_without_UBVRIJHKs_nohd_noNAN.txt
+cat = m31_table_without_UBVRIJHKs_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,14 +46,15 @@ nums=sz(2); % #of regions
  n_2=2;
 
 n_cen=500*n_1*n_2; % number of training steps; the smaler n_cen the more separated groups (more covering space)
-n_nei=2;  % #of Neighbours; each neuran can be connected with (n_nei) nth Neighbours
+n_nei=1;  % #of Neighbours; each neuran can be connected with (n_nei) nth Neighbours
     
 %>>>> MATLAB NETWORK
- net = newsom(annt,[n_2,n_1],'hextop','linkdist',n_cen,n_nei);
- net.trainParam.epochs = 40*n_cen;
- net.trainParam.showWindow =false;
- net.trainParam.showCommandLine=true;
- net.trainParam.show=10;
+ net = newsom(annt,[n_2,n_1],'hextop','linkdist',0.9,n_cen,0.02,n_nei);
+ LP.init_neighborhood=4;
+ net.trainParam.epochs = n_cen*40;
+ net.trainParam.showWindow =true;
+% net.trainParam.showCommandLine=true;
+ %net.trainParam.show=10;
  net = train(net,annt);
  sim_t=sim(net,annt);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,7 +112,6 @@ end
   
 for h1=n_1:-1:1
     for   h2=1:1:n_2
-        
     end
 end
 %>>>>end
@@ -249,4 +249,3 @@ csvwrite(pos,Mtx_TAB_1);
 saveas(figure(1),fig1,'pdf')
 saveas(figure(2),fig2,'pdf')
 saveas(figure(3),fig3,'pdf')
-close all

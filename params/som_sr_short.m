@@ -1,13 +1,10 @@
-function som_sr_short(n_1,n_2,n_cen,n_nei,dir)
+function som_sr_short(filename,n_1,n_2,dir)
+
 clc
 %This function creats a som for available data in m31 (54 raws for 10
-%regions) and plots som plots plus F(FUV)/F(NUV) vs RHI and PAH lin in
+%regions) and plots som plots plus F(FUV)/F(NUV) vs RHI and PAH line in
 %lambda vs all the other parameters in M31. 
 % Map size (n_1 x n_2) of the Network parametrs 
-%n_cen number of training steps; the smaler n_cen the more separated groups
-%(more covering space) (suggestion between 1 to 200)
-%n_nei of Neighbours; each neuran can be connected with (n_nei) nth
-%Neighbours (suggestion between 1 to 5)
 %dir: results' file directory 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -18,9 +15,13 @@ clc
 
 %>>>> Loading data in "txt" format
 %>>>> Make sure there is no "NAN" values in this file; replace them with proper # or remove them
-load ~/Desktop/project/data_mining/m31/ascii_tables/m31_table_without_UBVRIJHKs_nohd_noNAN.txt
-cat = m31_table_without_UBVRIJHKs_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
+%load ~/Desktop/project/data_mining/m31/ascii_tables/m31_table_without_UBVRIJHKs_nohd_noNAN.txt
+%cat = m31_table_without_UBVRIJHKs_nohd_noNAN; % new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 
+
+%>>>> Loading data in "CSV" format; When first raw is header and first
+%three column are region name, RA and DEC, respectively.
+cat = csvread(filename,1,4);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%  Making file ready for Network
@@ -49,14 +50,16 @@ nums=sz(2); % #of regions
 %%%  Create a SOM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%n_cen: Ordering phase steps
+%n_nei: Tuning phase neighborhood distance, default = 1.
+n_cen=n_1*n_2*500;
 %>>>> MATLAB NETWORK
- net = newsom(annt,[n_2,n_1],'hextop','linkdist',n_cen,n_nei);
+ net = newsom(annt,[n_2,n_1],'hextop','linkdist',0.9,n_cen,0.02,1);
  net.trainParam.epochs = n_cen*3;
  net.trainParam.showWindow =false;
  net.trainParam.showCommandLine=true;
- net.trainParam.show=10;
- net = train(net,annt);
+ net.trainParam.show=1000;
+ [net,tr] = train(net,annt);
  sim_t=sim(net,annt);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,8 +69,8 @@ nums=sz(2); % #of regions
    %for nameing
   n1st=int2str(n_1);
   n2st=int2str(n_2);
-  neist=int2str(n_nei);
-  n_censt=int2str(n_cen);
+%  neist=int2str(n_nei);
+ % n_censt=int2str(n_cen);
 for k1=1:n_1*n_2
  at{k1}=find(sim_t(k1,:)==1); %create 1X(n1*n2) cell and show regions which are going to same neuran 
 end 
@@ -176,7 +179,7 @@ figure(3)
 %             end
 %         end
 %     end
-%     name1 = strcat(dir,i_name,'vs_raws_18_to_33_for_',n1st,'by',n2st,neist,n_censt,'.jpeg');
+%     name1 = strcat(dir,i_name,'vs_raws_18_to_33_for_',n1st,'by',n2st,'.jpeg');
 %     saveas(figure(count),name1,'jpeg')    
 %     m1=0;
 %     figure(count+1)
@@ -203,7 +206,7 @@ figure(3)
 %             end
 %         end
 %     end
-%     name2 = strcat(dir,i_name,'vs_raws_34_to_43_for_',n1st,'by',n2st,neist,n_censt,'.jpeg');
+%     name2 = strcat(dir,i_name,'vs_raws_34_to_43_for_',n1st,'by',n2st,'.jpeg');
 %     saveas(figure(count+1),name2,'jpeg')
 % end
 % 
@@ -224,7 +227,7 @@ figure(3)
 %         end
 %         II= find(abs(corr_mat) >=0.5) ;
 %         if (II > 0)
-%           name1 = strcat(dir,i_name,'_',j_name,'_',n1st,'_by',n2st,neist,n_censt,'.csv');   
+%           name1 = strcat(dir,i_name,'_',j_name,'_',n1st,'_by',n2st,'.csv');   
 %           % table1 = cell2table(corr_mat);
 %          csvwrite(name1,corr_mat);
 %         end
@@ -237,12 +240,12 @@ figure(3)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  fig1 = strcat(dir,'dist',n1st,'by',n2st,neist,n_censt,'.jpeg');
-  fig2 = strcat(dir,'hits',n1st,'by',n2st,neist,n_censt,'.jpeg');
-  fig3 = strcat(dir,'weigth',n1st,'by',n2st,neist,n_censt,'.jpeg');
-  pers= strcat(dir,'pers',n1st,'by',n2st,neist,n_censt,'.csv');
-  pos = strcat(dir,'pos',n1st,'by',n2st,neist,n_censt,'.csv');
-  nett= strcat(dir,'net',n1st,'by',n2st,neist,n_censt);
+  fig1 = strcat(dir,'dist',n1st,'by',n2st,'.jpeg');
+  fig2 = strcat(dir,'hits',n1st,'by',n2st,'.jpeg');
+  fig3 = strcat(dir,'weigth',n1st,'by',n2st,'.jpeg');
+  pers= strcat(dir,'pers',n1st,'by',n2st,'.csv');
+  pos = strcat(dir,'pos',n1st,'by',n2st,'.csv');
+  nett= strcat(dir,'net',n1st,'by',n2st);
 save(nett, 'net')
 table = cell2table(pers_result);
 writetable(table,pers);
@@ -250,5 +253,5 @@ csvwrite(pos,Mtx_TAB_1);
 saveas(figure(1),fig1,'jpeg')
 saveas(figure(2),fig2,'jpeg')
 saveas(figure(3),fig3,'jpeg')
-%close all
+close all
 end

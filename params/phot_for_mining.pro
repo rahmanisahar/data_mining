@@ -20,24 +20,24 @@ v1 = v3
 END
 
 
-pro phot_for_mining, file, out
+pro phot_for_mining, file, colname, out
 
 ;dirin='~/Desktop/project/data_mining/m31/images/'
-dirout='~/Desktop/project/data_mining/m31/fits_tables/'
+dirout='~/Desktop/phot_res/'
 
 image=mrdfits(file,0,hdr)
 image=double(image)
 
 imsize = size(image,/dimen)
 
-ra1=[10.642846, 10.374729, 11.3433, 10.153179, 10.321883, 10.912417, 10.896379,10.587492, 10.247504, 10.222404]
-dec1=[41.357708, 40.726258, 41.655525, 41.032617, 41.127169, 41.325325, 41.395297, 41.129289, 40.613422, 40.990814]
-ra2=[10.635521,10.366492,11.334863,10.144958,10.31365,10.904092,10.888038,10.579233,10.239317,10.214175]
-dec2=[41.352303,40.720147,41.649478,41.026461,41.121017,41.319222,41.389203,41.123156,40.607286,40.984675]
-ra3=[10.648479,10.378825,11.347242,10.157917,10.326621,10.916996,10.900942,10.592162,10.252154,10.227092]
-dec3=[41.342408,40.7106,41.639833,41.016617,41.111167,41.309294,41.379264,41.113275,40.597411,40.974806]
-ra4=[10.6558,10.387063,11.355679,10.166133,10.334854,10.925321,10.909283,10.600421,10.260346,10.235325]
-dec4=[41.347811,40.716711,41.645881,41.022769,41.117319,41.315394,41.385358,41.119408,40.603547,40.980944]
+ra1=[10.374729, 11.3433, 10.153179, 10.321883, 10.912417, 10.896379, 10.222404, 10.587492,10.247504,10.642846]
+dec1=[40.726258, 41.655525, 41.032617, 41.127169, 41.325325, 41.395297,40.990814,41.129289, 40.613422,41.357708]
+ra2=[10.366492,11.334863,10.144958,10.31365,10.904092,10.888038,10.214175,10.579233,10.239317,10.635521]
+dec2=[40.720147,41.649478,41.026461,41.121017,41.319222,41.389203,40.984675,41.123156,40.607286,41.352303]
+ra3=[10.378825,11.347242,10.157917,10.326621,10.916996,10.900942,10.227092,10.592162,10.252154,10.648479]
+dec3=[40.7106,41.639833,41.016617,41.111167,41.309294,41.379264,40.974806,41.113275,40.597411,41.342408]
+ra4=[10.387063,11.355679,10.166133,10.334854,10.925321,10.909283,10.235325,10.600421,10.260346,10.6558]
+dec4=[40.716711,41.645881,41.022769,41.117319,41.315394,41.385358,40.980944,41.119408,40.603548,41.347813]
 
 adxy,hdr,ra1,dec1,x1,y1
 
@@ -128,31 +128,44 @@ free_lun, ds9
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 size_of_arcsec= 3.7815467d      ;pc in distance of M31
 size_of_arcsec_kpc= size_of_arcsec*10^(-3d)
-area_arcsec_sq= [1455.34d,1649.38d,1455.34d,1649.38d,1649.38d,1552.36d,1455.34d,1455.34d,1649.38d,1649.38d] ;area of regions in arcswc^2
-;phot_per_arcsec=phot/area_arcsec_sq
-;area_pc_sq=area_arcsec_sq*(size_of_arcsec^2d) ;area of regions in pc^2
+;area_arcsec_sq= [1649.38d,1455.34d,1649.38d,1649.38d,1552.36d,1455.34d,1455.34d,1649.38d,1649.38d,1455.34d] ;area of regions in arcswc^2
+area_arcsec_sq=[1503.8489d,1503.8489d,1552.36d,1552.36d,1600.87d,1576.62d,1552.36d,1552.36d,1576.62d,1382.5707d]
+phot_per_arcsec=phot/area_arcsec_sq
+area_pc_sq=area_arcsec_sq*(size_of_arcsec^2d) ;area of regions in pc^2
 ;area_kpc_sq=area_arcsec_sq*(size_of_arcsec_kpc^2d) ;area of regions in kpc^2
-;phot_per_pc_sq=phot/area_pc_sq
+phot_per_pc_sq=phot/area_pc_sq
 ;phot_per_kpc_sq=phot/area_kpc_sq
 ;stop
 ;;;;;;;;;;;;;
 ;;making_table
 ;;;;;;;;;;;;;
-pub_id=['Region 10','Region 1','Region 2','Region 3','Region 4','Region 5','Region 6','Region 7','Region 8','Region 9']
-RAdeg=[10.64583333333333d,10.376708333333333d,11.345208333333332d,10.155708333333331d,10.324416666666664d,10.914874999999999d,10.898833333333332d,10.224916666666665d,10.589999999999998d,10.249999999999998d]
-Decdeg=[41.35027777777778d,40.718833333333336d,41.64808333333333d,41.02483333333333d,41.11938888888889d,41.317527777777784d,41.3875d,40.98302777777778d,41.1215d,40.60563888888889d]
+pub_id=['Region 1','Region 2','Region 3','Region 4','Region 5','Region 6','Region 7','Region 8','Region 9','Region 10']
+RAdeg=[10.376708333333333d,11.345208333333332d,10.155708333333331d,10.324416666666664d,10.914874999999999d,10.898833333333332d,10.224916666666665d,10.589999999999998d,10.249999999999998d,10.64583333333333d]
+Decdeg=[40.718833333333336d,41.64808333333333d,41.02483333333333d,41.11938888888889d,41.317527777777784d,41.3875d,40.98302777777778d,41.1215d,40.60563888888889d,41.35027777777778d]
 ;ID=['Bulge','irc1','irc2','irc3','irc4','irac5','irc6','irc7','irc8','isocvf']
 
-   data = {Pub_ID:'', RAdeg:0.0, Decdeg:0.0, Rband:0.0d}
+   data = {Pub_ID:'', RAdeg:0.0, Decdeg:0.0, col_phot:0.0d}
    datas = replicate(data, n_elements(phot))
    datas.Pub_ID = pub_id
    datas.RAdeg = RAdeg
    datas.Decdeg = Decdeg
    ;datas.ID = ID
    ;datas.area_arcsec_sq= area_arcsec_sq
-   datas.Rband=phot
+   datas.col_phot=phot
+   change_col_name=strarr(2)
+   change_col_name[0]='col_phot'
+   change_col_name[1]=colname
    
-   mwrfits,datas, dirout+out+'.fits', /create
+   mwrfits,datas, alias=change_col_name, dirout+out+'.fits', /create
+
+   data2 = {Pub_ID:'', RAdeg:0.0, Decdeg:0.0, col_phot:0.0d}
+   datas2 = replicate(data, n_elements(phot))
+   datas2.Pub_ID = pub_id
+   datas2.RAdeg = RAdeg
+   datas2.Decdeg = Decdeg
+   datas2.col_phot=phot_per_arcsec
+
+   mwrfits,datas2, alias=change_col_name, dirout+out+'_perarcsecsq.fits', /create
 
 ;stop
 
