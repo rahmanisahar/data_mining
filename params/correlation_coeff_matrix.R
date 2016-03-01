@@ -18,7 +18,7 @@ cor.mtest <- function(mat, conf.level = 0.95) {
 
 library(ggplot2)
 library(corrplot)
-pdf(outfile)
+pdf(outfile)g <- 
 m31 <- read.csv(infile,heade=TRUE, sep=',')
 #small_m31=m31[c(2,3,4,5,7,8),]
 small_m31 = m31

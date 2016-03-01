@@ -22,7 +22,7 @@ clc
 
 %>>>> Loading data in "CSV" format; When first raw is header and first
 %three column are region name, RA and DEC, respectively.
-cat = csvread(filename,1,4);
+cat = csvread(filename,1,3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%  Making file ready for Network
@@ -39,8 +39,15 @@ cat=cat'; %Inverse  'cat' to N x M
 %>>>> mapminmax: mormalization between -1 and 1.
 %>>>> mapstd: Gaussian normalization to sigma=1 and mean=0
 %>>>> cat_fix_norm= (cat_fix)  DO Nothing 
- cat_fix_norm= (cat_fix);
+ %cat_fix_norm= (cat_fix);
  %cat_fix_norm= mapminmax(cat_fix);
+y_min = -1;
+y_max = 1;
+sz = size(cat_fix);
+catt_min = min(cat_fix')' * ones(1,sz(2));
+catt_max = max(cat_fix')' * ones(1,sz(2));
+cat_fix_norm = (y_max - y_min) * (cat_fix - catt_min) ./ (catt_max - catt_min) + y_min;
+ 
  %cat_fix_norm= mapstd(cat_fix);
 
 annt=cat_fix_norm; %changing namme to introduce to network
@@ -53,13 +60,13 @@ nums=sz(2); % #of regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %n_cen: Ordering phase steps
 %n_nei: Tuning phase neighborhood distance, default = 1.
-n_cen=1000;
+n_cen=500;
 %>>>> MATLAB NETWORK
  net = newsom(annt,[n_2,n_1],'hextop','linkdist',0.9,n_cen,0.02,3);
- net.trainParam.epochs = n_cen*3;
+ net.trainParam.epochs = 2000;
  net.trainParam.showWindow =false;
  net.trainParam.showCommandLine=true;
- net.trainParam.show=1000;
+ net.trainParam.show=100;
  net = train(net,annt);
  sim_t=sim(net,annt);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,15 +108,15 @@ end
 
 %>>>>Following creats matrix version of TAB_1 an to be able to save them as
 %csv files
-  max = 0;
+  max_n = 0;
   for j=1:n_1*n_2
     size_tab_1 = size(TAB_1{j}); 
-    if size_tab_1(1) > max 
-       max = size_tab_1(1);
+    if size_tab_1(1) > max_n 
+       max_n = size_tab_1(1);
     end
   end 
  
-   Mtx_TAB_1 = zeros(n_1*n_2,max);
+   Mtx_TAB_1 = zeros(n_1*n_2,max_n);
   for j=1:n_1*n_2
     size_temp = size(TAB_1{j});
     Mtx_TAB_1(1:size_temp(1),j) = TAB_1{j};
@@ -127,8 +134,9 @@ figure(2)
     plotsomhits(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
 figure(3)
    plotsompos(net,annt)
-figure(4)
-    plotsomnd_s(net,annt)
+figure(3)
+    plotsomplanes_sahar(net) %MATLAB som built-in SOM plots; shows density of each neurans
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,15 +147,17 @@ figure(4)
   fig1 = strcat(dir,'dist',n1st,'by',n2st,'.jpeg');
   fig2 = strcat(dir,'hits',n1st,'by',n2st,'.jpeg');
   fig3 = strcat(dir,'weigth',n1st,'by',n2st,'.jpeg');
-  pers= strcat(dir,'pers',n1st,'by',n2st,'.csv');
+  fig4 = strcat(dir,'weigth_planes',n1st,'by',n2st,'.jpeg');
+  %pers= strcat(dir,'pers',n1st,'by',n2st,'.csv');
   pos = strcat(dir,'pos',n1st,'by',n2st,'.csv');
   nett= strcat(dir,'net',n1st,'by',n2st);
 save(nett, 'net')
-table = cell2table(pers_result);
-writetable(table,pers);
+%table = cell2table(pers_result);
+%writetable(table,pers);
 csvwrite(pos,Mtx_TAB_1); 
 saveas(figure(1),fig1,'jpeg')
 saveas(figure(2),fig2,'jpeg')
 saveas(figure(3),fig3,'jpeg')
-%close all
+saveas(figure(4),fig4,'jpeg')
+close all
 end
