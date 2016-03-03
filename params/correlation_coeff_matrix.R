@@ -18,11 +18,11 @@ cor.mtest <- function(mat, conf.level = 0.95) {
 
 library(ggplot2)
 library(corrplot)
-pdf(outfile)g <- 
+pdf(outfile)
 m31 <- read.csv(infile,heade=TRUE, sep=',')
 #small_m31=m31[c(2,3,4,5,7,8),]
 small_m31 = m31
-small_m31_1=small_m31[c(2:ncol(m31))]
+small_m31_1=small_m31[c(4:ncol(m31))]
 x_cor=cor(small_m31_1, use='pairwise',method="pearson")
 res1 <- cor.mtest(x_cor, 0.95)
 res2 <- cor.mtest(x_cor, 0.99)
