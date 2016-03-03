@@ -1,4 +1,4 @@
-function som_sr_short(filename,n_1,n_2,dir)
+function som_sr_short(infile,col1,col2,n_1,n_2,dir)
 
 clc
 %This function creats a som for available data in m31 (54 raws for 10
@@ -22,7 +22,7 @@ clc
 
 %>>>> Loading data in "CSV" format; When first raw is header and first
 %three column are region name, RA and DEC, respectively.
-cat = csvread(filename,1,3);
+cat = csvread(infile,1,col1,[1,col1,10,col2]);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%  Making file ready for Network
@@ -62,7 +62,7 @@ nums=sz(2); % #of regions
 %n_nei: Tuning phase neighborhood distance, default = 1.
 n_cen=500;
 %>>>> MATLAB NETWORK
- net = newsom(annt,[n_2,n_1],'hextop','linkdist',0.9,n_cen,0.02,3);
+ net = newsom(annt,[n_2,n_1],'hextop','linkdist',0.9,n_cen,0.02,1);
  net.trainParam.epochs = 2000;
  net.trainParam.showWindow =false;
  net.trainParam.showCommandLine=true;
@@ -77,6 +77,8 @@ n_cen=500;
    %for nameing
   n1st=int2str(n_1);
   n2st=int2str(n_2);
+  col1st=int2str(col1);
+  col2st=int2str(col2);
 %  neist=int2str(n_nei);
  % n_censt=int2str(n_cen);
 for k1=1:n_1*n_2
@@ -91,8 +93,6 @@ for h1=n_1:-1:1
  for   h2=1:1:n_2
     m1=m1+1;
     TAB_1{h1,h2}=at{m1}'; % create n1 X n2 cell; shows which regions goes to which Neuran 
-    dummy=size(TAB_1{h1,h2});
-    pers_result{h1,h2}=dummy(1)*100/nums; %%Shows percentage of regions in each neuran 
 end
 end
 
@@ -124,7 +124,19 @@ end
   Mtx_TAB_1=Mtx_TAB_1';
 
   
- 
+  names=char('names','RADEg','DECDEG','PAH6.2flx','PAH7.7flx','PAH8.3flx','PAH8.6flx','PAH11.3flx','PAH12.0flx', ...
+           'PAH12.7flx','PAH17.0flx','halpha','OIII continuum','SII continumm','IRAC3', ...
+           'PACS100','SPIRE250','SPIRE350','SPIRE500','Dust luminosity','Dust Mass', ...
+           'SFR','Stellar Mass', 'TIR', 'Total gas mass', 'RHI','X12plogOH');
+diff=col1-1;
+for K = col1:1:col2
+    
+    new_names(K-diff,:)=names(K+1,:);
+   
+end
+
+net.inputs{1}.userdata = new_names;
+
 %>>>>end
 
 figure(1)
@@ -132,10 +144,10 @@ figure(1)
  
 figure(2)
     plotsomhits(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
-figure(3)
-   plotsompos(net,annt)
-figure(3)
-    plotsomplanes_sahar(net) %MATLAB som built-in SOM plots; shows density of each neurans
+%figure(3)
+ %  plotsomplanes(net,annt)
+figure(4)
+    plotsomplanes_sahar(net) %MATLAB som built-in SOM plots with small changes; shows weights for each input
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,20 +156,20 @@ figure(3)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  fig1 = strcat(dir,'dist',n1st,'by',n2st,'.jpeg');
-  fig2 = strcat(dir,'hits',n1st,'by',n2st,'.jpeg');
-  fig3 = strcat(dir,'weigth',n1st,'by',n2st,'.jpeg');
-  fig4 = strcat(dir,'weigth_planes',n1st,'by',n2st,'.jpeg');
-  %pers= strcat(dir,'pers',n1st,'by',n2st,'.csv');
-  pos = strcat(dir,'pos',n1st,'by',n2st,'.csv');
-  nett= strcat(dir,'net',n1st,'by',n2st);
+  fig1 = strcat(dir,'dist',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig2 = strcat(dir,'hits',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
+  %fig3 = strcat(dir,'weigth',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig4 = strcat(dir,'weigth_planes',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
+  %pers= strcat(dir,'pers',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
+  pos = strcat(dir,'pos',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
+  nett= strcat(dir,'net',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st);
 save(nett, 'net')
 %table = cell2table(pers_result);
 %writetable(table,pers);
 csvwrite(pos,Mtx_TAB_1); 
 saveas(figure(1),fig1,'jpeg')
 saveas(figure(2),fig2,'jpeg')
-saveas(figure(3),fig3,'jpeg')
+%saveas(figure(3),fig3,'jpeg')
 saveas(figure(4),fig4,'jpeg')
 close all
 end
