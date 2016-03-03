@@ -293,10 +293,6 @@ function plotData = update_plot(param,fig,plotData,net)
 
     plotcols = ceil(sqrt(numInputs));
     plotrows = ceil(numInputs/plotcols);
-    names=char('PAH6.2flx','PAH7.7flx','PAH8.3flx','PAH8.6flx','PAH11.3flx','PAH12.0flx', ...
-           'PAH12.7flx','PAH17.0flx','halpha','OIII continuum','SII continumm','IRAC3', ...
-           'PACS100','SPIRE250','SPIRE350','SPIRE500','Dust luminosity','Dust Mass', ...
-           'SFR','Stellar Mass', 'TIR', 'Total gas mass', 'RHI','X12plogOH');
     plotData.patches = cell(numInputs);
     for i=1:plotrows
       for j=1:plotcols
@@ -316,6 +312,7 @@ function plotData = update_plot(param,fig,plotData,net)
             set(z,'EdgeColor','none');
             plotData.patches{k}(ii) = z;
           end
+          names=net.inputs{1}.userdata;
 
           set(a,'XLim',[-1 (dim1-0.5)*dx + 1]);
           set(a,'YLim',[-1 (dim2-0.5)*dy + 0.5]);
