@@ -1,9 +1,9 @@
 
 
-net10by10=load('~/Desktop/project/data_mining/SOM/derived/per_arcsec_sq/minmax_ost500/net10by10.mat'); %Load network
+net10by10=load('~/Desktop/project/data_mining/SOM/derived/per_arcsec_sq/subsets/net_subset9.mat'); %Load network
 net=net10by10.net;
-catv = csvread('~/Desktop/project/data_mining/m31/ascii_tables/derived_ones_with_mean_per_arcsec.csv',1,21,[1,21,10,21]); %load data
-%catv = csvread('~/Desktop/project/data_mining/m101/ascii_table/m101_total_with_mean_per_arcsecsq.csv',1,2);
+%catv = csvread('~/Desktop/project/data_mining/m31/ascii_tables/derived_ones_with_mean_per_arcsec.csv',1,3,[1,3,10,26]); %load data
+catv = csvread('~/Desktop/project/data_mining/m101/ascii_table/m101_total_with_mean_per_arcsecsq_same_as_derived_ones.csv',1,1);
 %load m101_va.txt
 %catv=m101_va(:,1:end);
 catv=catv';
@@ -70,7 +70,7 @@ figure(2)
 figure(3)
     plotsomplanes_sahar(net) %MATLAB som built-in SOM plots; shows density of each neurans
 
-    saveas(figure(1),'~/Desktop/v_with_m101.jpeg','jpeg')
+    saveas(figure(2),'~/Desktop/v_with_m101.jpeg','jpeg')
      saveas(figure(3),'~/Desktop/planes_weight.jpeg','jpeg')
    
 

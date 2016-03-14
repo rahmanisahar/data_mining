@@ -145,8 +145,8 @@ figure(4)
 
   fig1 = strcat(dir,'dist_',outname,'.jpeg');
   fig2 = strcat(dir,'hits_',outname,'.jpeg');
-  %fig3 = strcat(dir,'weigth_',outname,'.jpeg');
-  fig4 = strcat(dir,'weigth_planes_',outname,'.jpeg');
+  %fig3 = strcat(dir,'weight_',outname,'.jpeg');
+  fig4 = strcat(dir,'weight_planes_',outname,'.jpeg');
   %pers= strcat(dir,'pers_',outname,'.csv');
   pos = strcat(dir,'pos_',outname,'.csv');
   nett= strcat(dir,'net_',outname);
