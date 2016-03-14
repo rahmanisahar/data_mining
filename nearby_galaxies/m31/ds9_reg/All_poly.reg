@@ -1,0 +1,19 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk5
+polygon(0:42:34.283,+41:21:27.75,0:42:32.525,+41:21:08.29,0:42:35.635,+41:20:32.67,0:42:37.392,+41:20:52.12) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:41:29.935,+40:43:34.53,0:41:27.958,+40:43:12.53,0:41:30.918,+40:42:38.16,0:41:32.895,+40:43:00.16) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:45:22.392,+41:39:19.89,0:45:20.367,+41:38:58.12,0:45:23.338,+41:38:23.40,0:45:25.363,+41:38:45.17) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:40:36.763,+41:01:57.42,0:40:34.790,+41:01:35.26,0:40:37.900,+41:00:59.82,0:40:39.872,+41:01:21.97) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:41:17.252,+41:07:37.81,0:41:15.276,+41:07:15.66,0:41:18.389,+41:06:40.20,0:41:20.365,+41:07:02.35) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:43:38.980,+41:19:31.17,0:43:36.982,+41:19:09.20,0:43:40.079,+41:18:33.46,0:43:42.077,+41:18:55.42) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:43:35.131,+41:23:43.07,0:43:33.129,+41:23:21.13,0:43:36.226,+41:22:45.35,0:43:38.228,+41:23:07.29) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:42:20.998,+41:07:45.44,0:42:19.016,+41:07:23.36,0:42:22.119,+41:06:47.79,0:42:24.101,+41:07:09.87) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:40:19.592,+40:45:22.01,0:40:17.629,+40:44:59.84,0:40:20.726,+40:44:24.41,0:40:22.690,+40:44:46.57) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:42:43.712,+41:16:37.45,0:42:41.722,+41:16:15.41,0:42:44.825,+41:15:39.77,0:42:46.816,+41:16:01.80) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:40:59.401,+40:36:48.32,0:40:57.436,+40:36:26.23,0:41:00.517,+40:35:50.68,0:41:02.483,+40:36:12.77) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:40:53.377,+40:59:26.93,0:40:51.402,+40:59:04.83,0:40:54.502,+40:58:29.30,0:40:56.478,+40:58:51.40) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:42:53.082,+41:14:57.22,0:42:52.486,+41:16:01.36,0:42:51.050,+41:17:57.19,0:42:34.763,+41:17:29.78,0:42:35.046,+41:16:21.22,0:42:37.125,+41:14:34.26) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:42:34.773,+41:23:14.31,0:42:23.722,+41:21:07.65,0:42:35.360,+41:18:59.66,0:42:46.412,+41:21:06.25) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:40:45.172,+40:46:48.84,0:40:33.969,+40:44:37.10,0:40:45.637,+40:42:21.79,0:40:56.840,+40:44:33.46) # color=white width=2 font="helvetica 10 normal" edit=0 move=0
+polygon(0:40:59.631,+40:38:32.04,0:40:48.755,+40:36:24.85,0:41:00.391,+40:34:09.46,0:41:11.579,+40:36:21.03) # color=white width=2 font="helvetica 10 normal" edit=0 move=0

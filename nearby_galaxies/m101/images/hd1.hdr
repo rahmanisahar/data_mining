@@ -1,0 +1,415 @@
+SIMPLE  =                    T / Written by IDL:  Thu Jan 21 18:43:25 2016
+BITPIX  =                  -32
+NAXIS   =                    2
+NAXIS1  =                  343 / Number of positions along axis 1
+NAXIS2  =                  333 / Number of positions along axis 2
+EXTEND  =                    T
+COMMENT   FITS (Flexible Image Transport System) format is defined in 'Astronomy
+COMMENT   and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H
+COMMENT   FITS (Flexible Image Transport System) format is defined in 'Astronomy
+COMMENT   and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H
+BSCALE  =    1.00000000000E+00
+BZERO   =    0.00000000000E+00
+OBSRA   =    2.10801994134E+02
+OBSDEC  =    5.43486929321E+01
+TELESCOP= 'HATCREEK'
+CDELT1  =   -2.77777780634E-04
+CRPIX1  =    1.72000000000E+02
+CRVAL1  =    2.10801994134E+02
+CTYPE1  = 'RA---SIN'
+CDELT2  =    2.77777780634E-04
+CRPIX2  =    1.67000000000E+02
+CRVAL2  =    5.43486929321E+01
+CTYPE2  = 'DEC--SIN'
+CDELT3  =    1.00000000000E+04
+CRPIX3  =    1.00000000000E+00
+CRVAL3  =    1.50000000000E+05
+CTYPE3  = 'VELO-LSR'
+CDELT4  =    1.00000000000E+00
+CRPIX4  =    1.00000000000E+00
+CRVAL4  =    1.00000000000E+00
+CTYPE4  = 'STOKES  '
+DATE-OBS= '1999-03-18T11:19:48.2'
+RESTFREQ=    1.15271200000E+11
+CELLSCAL= '1/F     '
+BMAJ    =    1.58857600763E-03
+BMIN    =    1.49664969649E-03
+BPA     =    5.87786865234E+01
+BUNIT   = 'W/m2'
+VOBS    =   -1.34767961502E+00
+LSTEP   =    1.00000000000E+01
+LWIDTH  =    1.00000000000E+01
+LSTART  =    1.50000000000E+02
+LTYPE   = 'velocity'
+OBJECT  = 'NGC5457 '
+NITERS  =                15481
+EPOCH   =    2.00000000000E+03
+BTYPE   = 'intensity'
+DATAMIN =   -3.26513439417E-01
+DATAMAX =    7.14082300663E-01
+HISTORY         Berkeley Illinois Maryland Array
+HISTORY         Hat Creek Radio Observatory data
+HISTORY PROGRAM: MINTERFEROMETER (version 5.9 7jun97)
+HISTORY COMMAND: Executed on: 98APR11:10:48:07.0
+HISTORY COMMAND: Command line inputs follow:
+HISTORY COMMAND:   source=ngc5457
+HISTORY COMMAND:   catalog=galsurvey.cat
+HISTORY COMMAND:   ants=*
+HISTORY COMMAND:   itime=60
+HISTORY COMMAND:   grid=dra(0,-0.733,-0.367,+0.367,+0.733,+0.367,-0.367),ddec(0,
+HISTORY COMMAND:   nreps=1,4
+HISTORY COMMAND:   nchan=1
+HISTORY COMMAND:   vis=ngc5457
+HISTORY COMMAND:   stop=+35
+HISTORY OBSERVER:
+HISTORY LINE:    co
+HISTORY COROPT=  0 (Crosscorrelation    )
+HISTORY CORMODE=  4 (4 windows           )
+HISTORY CORMPX=  0 (no mpx              )
+HISTORY HAN= N (Hanning smoothing)
+HISTORY CORBITS= 2
+HISTORY CORSPEC= 1111111111111111 (windows written)
+HISTORY CPASSCAL=Y (Passband correction switch)
+HISTORY CAPLCAL=Y (Calibration switch)
+HISTORY CORSHIFT=   50.0  50.0 (shiftrates<MHz>)
+HISTORY         Berkeley Illinois Maryland Array
+HISTORY         Hat Creek Radio Observatory data
+HISTORY PROGRAM: MINTERFEROMETER (version 5.9 7jun97)
+HISTORY COMMAND: Executed on: 98APR11:11:27:50.0
+HISTORY COMMAND: Command line inputs follow:
+HISTORY COMMAND:   source=ngc5457
+HISTORY COMMAND:   catalog=galsurvey.cat
+HISTORY COMMAND:   ants=*
+HISTORY COMMAND:   itime=60
+HISTORY COMMAND:   grid=dra(0,-0.733,-0.367,+0.367,+0.733,+0.367,-0.367),ddec(0,
+HISTORY COMMAND:   nreps=1,4
+HISTORY COMMAND:   nchan=1
+HISTORY COMMAND:   vis=ngc5457
+HISTORY COMMAND:   stop=+35
+HISTORY OBSERVER:
+HISTORY LINE:    co
+HISTORY COROPT=  0 (Crosscorrelation    )
+HISTORY CORMODE=  4 (4 windows           )
+HISTORY CORMPX=  0 (no mpx              )
+HISTORY HAN= N (Hanning smoothing)
+HISTORY CORBITS= 2
+HISTORY CORSPEC= 1111111111111111 (windows written)
+HISTORY CPASSCAL=Y (Passband correction switch)
+HISTORY CAPLCAL=Y (Calibration switch)
+HISTORY CORSHIFT=   50.0  50.0 (shiftrates<MHz>)
+HISTORY         Berkeley Illinois Maryland Array
+HISTORY         Hat Creek Radio Observatory data
+HISTORY PROGRAM: MINTERFEROMETER (version 5.9 7jun97)
+HISTORY COMMAND: Executed on: 98APR11:12:07:33.0
+HISTORY COMMAND: Command line inputs follow:
+HISTORY COMMAND:   source=ngc5457
+HISTORY COMMAND:   catalog=galsurvey.cat
+HISTORY COMMAND:   ants=*
+HISTORY COMMAND:   itime=60
+HISTORY COMMAND:   grid=dra(0,-0.733,-0.367,+0.367,+0.733,+0.367,-0.367),ddec(0,
+HISTORY COMMAND:   nreps=1,4
+HISTORY COMMAND:   nchan=1
+HISTORY COMMAND:   vis=ngc5457
+HISTORY COMMAND:   stop=+35
+HISTORY OBSERVER:
+HISTORY LINE:    co
+HISTORY COROPT=  0 (Crosscorrelation    )
+HISTORY CORMODE=  4 (4 windows           )
+HISTORY CORMPX=  0 (no mpx              )
+HISTORY HAN= N (Hanning smoothing)
+HISTORY CORBITS= 2
+HISTORY CORSPEC= 1111111111111111 (windows written)
+HISTORY CPASSCAL=Y (Passband correction switch)
+HISTORY CAPLCAL=Y (Calibration switch)
+HISTORY CORSHIFT=   50.0  50.0 (shiftrates<MHz>)
+HISTORY         Berkeley Illinois Maryland Array
+HISTORY         Hat Creek Radio Observatory data
+HISTORY PROGRAM: MINTERFEROMETER (version 5.9 7jun97)
+HISTORY COMMAND: Executed on: 98APR11:12:47:08.0
+HISTORY COMMAND: Command line inputs follow:
+HISTORY COMMAND:   source=ngc5457
+HISTORY COMMAND:   catalog=galsurvey.cat
+HISTORY COMMAND:   ants=*
+HISTORY COMMAND:   itime=60
+HISTORY COMMAND:   grid=dra(0,-0.733,-0.367,+0.367,+0.733,+0.367,-0.367),ddec(0,
+HISTORY COMMAND:   nreps=1,4
+HISTORY COMMAND:   nchan=1
+HISTORY COMMAND:   vis=ngc5457
+HISTORY COMMAND:   stop=+35
+HISTORY OBSERVER:
+HISTORY LINE:    co
+HISTORY COROPT=  0 (Crosscorrelation    )
+HISTORY CORMODE=  4 (4 windows           )
+HISTORY CORMPX=  0 (no mpx              )
+HISTORY HAN= N (Hanning smoothing)
+HISTORY CORBITS= 2
+HISTORY CORSPEC= 1111111111111111 (windows written)
+HISTORY CPASSCAL=Y (Passband correction switch)
+HISTORY CAPLCAL=Y (Calibration switch)
+HISTORY CORSHIFT=   50.0  50.0 (shiftrates<MHz>)
+HISTORY         Berkeley Illinois Maryland Array
+HISTORY         Hat Creek Radio Observatory data
+HISTORY PROGRAM: MINTERFEROMETER (version 5.9 7jun97)
+HISTORY COMMAND: Executed on: 98APR11:13:26:40.0
+HISTORY COMMAND: Command line inputs follow:
+HISTORY COMMAND:   source=ngc5457
+HISTORY COMMAND:   catalog=galsurvey.cat
+HISTORY COMMAND:   ants=*
+HISTORY COMMAND:   itime=60
+HISTORY COMMAND:   grid=dra(0,-0.733,-0.367,+0.367,+0.733,+0.367,-0.367),ddec(0,
+HISTORY COMMAND:   nreps=1,4
+HISTORY COMMAND:   nchan=1
+HISTORY COMMAND:   vis=ngc5457
+HISTORY COMMAND:   stop=+35
+HISTORY OBSERVER:
+HISTORY LINE:    co
+HISTORY COROPT=  0 (Crosscorrelation    )
+HISTORY CORMODE=  4 (4 windows           )
+HISTORY CORMPX=  0 (no mpx              )
+HISTORY HAN= N (Hanning smoothing)
+HISTORY CORBITS= 2
+HISTORY CORSPEC= 1111111111111111 (windows written)
+HISTORY CPASSCAL=Y (Passband correction switch)
+HISTORY CAPLCAL=Y (Calibration switch)
+HISTORY CORSHIFT=   50.0  50.0 (shiftrates<MHz>)
+HISTORY         Berkeley Illinois Maryland Array
+HISTORY         Hat Creek Radio Observatory data
+HISTORY PROGRAM: MINTERFEROMETER (version 5.9 7jun97)
+HISTORY COMMAND: Executed on: 98APR11:14:06:18.0
+HISTORY COMMAND: Command line inputs follow:
+HISTORY COMMAND:   source=ngc5457
+HISTORY COMMAND:   catalog=galsurvey.cat
+HISTORY COMMAND:   ants=*
+HISTORY COMMAND:   itime=60
+HISTORY COMMAND:   grid=dra(0,-0.733,-0.367,+0.367,+0.733,+0.367,-0.367),ddec(0,
+HISTORY COMMAND:   nreps=1,4
+HISTORY COMMAND:   nchan=1
+HISTORY COMMAND:   vis=ngc5457
+HISTORY COMMAND:   stop=+35
+HISTORY OBSERVER:
+HISTORY LINE:    co
+HISTORY COROPT=  0 (Crosscorrelation    )
+HISTORY CORMODE=  4 (4 windows           )
+HISTORY CORMPX=  0 (no mpx              )
+HISTORY HAN= N (Hanning smoothing)
+HISTORY CORBITS= 2
+HISTORY CORSPEC= 1111111111111111 (windows written)
+HISTORY CPASSCAL=Y (Passband correction switch)
+HISTORY CAPLCAL=Y (Calibration switch)
+HISTORY CORSHIFT=   50.0  50.0 (shiftrates<MHz>)
+HISTORY         Berkeley Illinois Maryland Array
+HISTORY         Hat Creek Radio Observatory data
+HISTORY PROGRAM: MINTERFEROMETER (version 5.9 7jun97)
+HISTORY COMMAND: Executed on: 98APR11:14:45:56.0
+HISTORY COMMAND: Command line inputs follow:
+HISTORY COMMAND:   source=ngc5457
+HISTORY COMMAND:   catalog=galsurvey.cat
+HISTORY COMMAND:   ants=*
+HISTORY COMMAND:   itime=60
+HISTORY COMMAND:   grid=dra(0,-0.733,-0.367,+0.367,+0.733,+0.367,-0.367),ddec(0,
+HISTORY COMMAND:   nreps=1,4
+HISTORY COMMAND:   nchan=1
+HISTORY COMMAND:   vis=ngc5457
+HISTORY COMMAND:   stop=+16
+HISTORY OBSERVER:
+HISTORY LINE:    co
+HISTORY COROPT=  0 (Crosscorrelation    )
+HISTORY CORMODE=  4 (4 windows           )
+HISTORY CORMPX=  0 (no mpx              )
+HISTORY HAN= N (Hanning smoothing)
+HISTORY CORBITS= 2
+HISTORY CORSPEC= 1111111111111111 (windows written)
+HISTORY CPASSCAL=Y (Passband correction switch)
+HISTORY CAPLCAL=Y (Calibration switch)
+HISTORY CORSHIFT=   50.0  50.0 (shiftrates<MHz>)
+HISTORY GPCOPY: Miriad GpCopy: version 10-Dec-97
+HISTORY GPCOPY: Executed on: 00AUG11:22:18:40.0
+HISTORY GPCOPY: Command line inputs follow:
+HISTORY GPCOPY:   vis=linecal
+HISTORY GPCOPY:   out=ngc5457.copy
+HISTORY UVCAL: Miriad UVCAL: version 1.0 20-jun-98
+HISTORY UVCAL: Executed on: 00AUG11:22:18:54.0
+HISTORY UVCAL: Command line inputs follow:
+HISTORY UVCAL:   vis=ngc5457.copy
+HISTORY UVCAL:   out=ngc5457.ll
+HISTORY UVFLAG: Executed on: 00AUG11:22:20:59.0
+HISTORY UVFLAG: Command line inputs follow:
+HISTORY UVFLAG:   vis=ngc5457.ll
+HISTORY UVFLAG:   flagval=u
+HISTORY UVFLAG:   select=-shadow(5)
+HISTORY UVFLAG: Overview of flagging on visibility file ngc5457.ll
+HISTORY UVFLAG: Changed flags set to TRUE (data flagged as good)
+HISTORY UVFLAG: Total number of records selected: 7803; out of 8235 records
+HISTORY UVFLAG: Antennas used: 1,2,3,4,5,6,7,8,9,10
+HISTORY UVFLAG: Counts of correlations within selected channels
+HISTORY UVFLAG: channel   Originally  Currently
+HISTORY UVFLAG: Good:        3755520    3995136
+HISTORY UVFLAG: Bad:          239616          0    Changed to good:     239616
+HISTORY UVFLAG: wide      Originally  Currently
+HISTORY UVFLAG: Good:          73350      78030
+HISTORY UVFLAG: Bad:            4680          0    Changed to good:       4680
+HISTORY UVFLAG: Executed on: 00AUG11:22:21:20.0
+HISTORY UVFLAG: Command line inputs follow:
+HISTORY UVFLAG:   vis=ngc5457.ll
+HISTORY UVFLAG:   flagval=f
+HISTORY UVFLAG:   edge=2
+HISTORY UVFLAG: Overview of flagging on visibility file ngc5457.ll
+HISTORY UVFLAG: Changed flags set to FALSE (data flagged as bad)
+HISTORY UVFLAG: Total number of records selected: 8235; out of 8235 records
+HISTORY UVFLAG: Antennas used: 1,2,3,4,5,6,7,8,9,10
+HISTORY UVFLAG: Counts of correlations within selected channels
+HISTORY UVFLAG: channel   Originally  Currently
+HISTORY UVFLAG: Good:        3995136    3745440    Changed to bad:     249696
+HISTORY UVFLAG: Bad:          221184     470880
+HISTORY UVFLAG: Executed on: 00AUG11:22:21:25.0
+HISTORY UVFLAG: Command line inputs follow:
+HISTORY UVFLAG:   vis=ngc5457.ll
+HISTORY UVFLAG:   flagval=f
+HISTORY UVFLAG:   select=amp(100)
+HISTORY UVFLAG: Overview of flagging on visibility file ngc5457.ll
+HISTORY UVFLAG: Changed flags set to FALSE (data flagged as bad)
+HISTORY UVFLAG: Total number of records selected: 8235; out of 8235 records
+HISTORY UVFLAG: Antennas used: 1,2,3,4,5,6,7,8,9,10
+HISTORY UVFLAG: Counts of correlations within selected channels
+HISTORY UVFLAG: channel   Originally  Currently
+HISTORY UVFLAG: Good:        3745440    3745393    Changed to bad:         47
+HISTORY UVFLAG: Bad:          470880     470927
+HISTORY UVFLAG: wide      Originally  Currently
+HISTORY UVFLAG: Good:          78030      78030    Changed to bad:          0
+HISTORY UVFLAG: Bad:            4320       4320
+HISTORY GAPPLY: GAPPLY: Version 28-jul-99 PJT
+HISTORY GAPPLY: Executed on: 00AUG11:22:25:43.0
+HISTORY GAPPLY: Command line inputs follow:
+HISTORY GAPPLY:   vis=ngc5457.ll
+HISTORY GAPPLY:   gvis=1419+543.gfid
+HISTORY GAPPLY:   out=ngc5457.gcal
+HISTORY GAPPLY:   options=jyperk,extra
+HISTORY GAPPLY:   8235 good visibilities
+HISTORY GAPPLY:      0 visibilities flagged bad
+HISTORY GAPPLY: Range in JyperK:  290.8 to  591.1
+HISTORY UVCAT: Miriad UvCat: version 1.0 23-Sep-99
+HISTORY UVCAT: Executed on: 00AUG12:12:23:58.0
+HISTORY UVCAT: Command line inputs follow:
+HISTORY UVCAT:   vis=/gmc4/twong/5457/bimavis/11apr98/ngc5457.gcal
+HISTORY UVCAT:   out=11apr98.scal
+HISTORY UVCAT:   options=unflagged
+HISTORY SELFCAL: Miriad MSelfcal: version 1.0 5-Aug-99 MWR
+HISTORY SELFCAL: Executed on: 00AUG12:12:29:23.0
+HISTORY SELFCAL: Command line inputs follow:
+HISTORY SELFCAL:   vis=11apr98.scal
+HISTORY SELFCAL:   interval=31
+HISTORY SELFCAL:   model=n5457.mod*
+HISTORY SELFCAL:   refant=7
+HISTORY SELFCAL:   options=mosaic,phase
+HISTORY SELFCAL: Total number of visibilities processed: 15606
+HISTORY SELFCAL: Total number of solution intervals: 7
+HISTORY SELFCAL: Antenna 1 Avg Sigma=43.98 Avg Uncertainty=15.85 Avg delta phase
+HISTORY SELFCAL: Antenna 2 Avg Sigma=38.64 Avg Uncertainty=14.11 Avg delta phase
+HISTORY SELFCAL: Antenna 3 Avg Sigma=63.17 Avg Uncertainty=22.76 Avg delta phase
+HISTORY SELFCAL: Antenna 4 Avg Sigma=37.65 Avg Uncertainty=13.31 Avg delta phase
+HISTORY SELFCAL: Antenna 5 Avg Sigma=41.80 Avg Uncertainty=15.21 Avg delta phase
+HISTORY SELFCAL: Antenna 6 Avg Sigma=55.87 Avg Uncertainty=20.14 Avg delta phase
+HISTORY SELFCAL: Antenna 7 Avg Sigma=42.64 Avg Uncertainty=15.43 Avg delta phase
+HISTORY SELFCAL: Antenna 8 Avg Sigma=36.99 Avg Uncertainty=13.32 Avg delta phase
+HISTORY SELFCAL: Antenna 9 Avg Sigma=35.59 Avg Uncertainty=12.95 Avg delta phase
+HISTORY SELFCAL: Antenna10 Avg Sigma=49.25 Avg Uncertainty=17.83 Avg delta phase
+HISTORY SELFCAL: Average Overall Uncertainty =   7.58
+HISTORY SELFCAL: Rms of the gain phases (degrees):  20.6
+HISTORY SELFCAL: Rms deviation of gain from 1: 5.298E-08
+HISTORY SELFCAL: Ratio of Actual to Theoretical noise:  1.46
+HISTORY SELFCAL: Miriad MSelfcal: version 1.0 5-Aug-99 MWR
+HISTORY SELFCAL: Executed on: 00AUG12:12:35:47.0
+HISTORY SELFCAL: Command line inputs follow:
+HISTORY SELFCAL:   vis=11apr98.scal
+HISTORY SELFCAL:   interval=31
+HISTORY SELFCAL:   model=n5457.mod*
+HISTORY SELFCAL:   refant=7
+HISTORY SELFCAL:   options=mosaic,phase
+HISTORY SELFCAL: Total number of visibilities processed: 15606
+HISTORY SELFCAL: Total number of solution intervals: 7
+HISTORY SELFCAL: Antenna 1 Avg Sigma=47.31 Avg Uncertainty=17.01 Avg delta phase
+HISTORY SELFCAL: Antenna 2 Avg Sigma=36.39 Avg Uncertainty=13.24 Avg delta phase
+HISTORY SELFCAL: Antenna 3 Avg Sigma=60.42 Avg Uncertainty=21.86 Avg delta phase
+HISTORY SELFCAL: Antenna 4 Avg Sigma=35.87 Avg Uncertainty=12.68 Avg delta phase
+HISTORY SELFCAL: Antenna 5 Avg Sigma=36.72 Avg Uncertainty=13.36 Avg delta phase
+HISTORY SELFCAL: Antenna 6 Avg Sigma=53.02 Avg Uncertainty=19.16 Avg delta phase
+HISTORY SELFCAL: Antenna 7 Avg Sigma=46.47 Avg Uncertainty=16.79 Avg delta phase
+HISTORY SELFCAL: Antenna 8 Avg Sigma=35.38 Avg Uncertainty=12.71 Avg delta phase
+HISTORY SELFCAL: Antenna 9 Avg Sigma=35.43 Avg Uncertainty=12.82 Avg delta phase
+HISTORY SELFCAL: Antenna10 Avg Sigma=45.04 Avg Uncertainty=16.19 Avg delta phase
+HISTORY SELFCAL: Average Overall Uncertainty =   7.43
+HISTORY SELFCAL: Rms of the gain phases (degrees):  25.6
+HISTORY SELFCAL: Rms deviation of gain from 1: 5.699E-08
+HISTORY SELFCAL: Ratio of Actual to Theoretical noise:  1.46
+HISTORY SELFCAL: Miriad MSelfcal: version 1.0 5-Aug-99 MWR
+HISTORY SELFCAL: Executed on: 00AUG12:12:41:12.0
+HISTORY SELFCAL: Command line inputs follow:
+HISTORY SELFCAL:   vis=11apr98.scal
+HISTORY SELFCAL:   interval=31
+HISTORY SELFCAL:   model=n5457.mod*
+HISTORY SELFCAL:   refant=7
+HISTORY SELFCAL:   options=mosaic,phase
+HISTORY SELFCAL: Total number of visibilities processed: 15606
+HISTORY SELFCAL: Total number of solution intervals: 7
+HISTORY SELFCAL: Antenna 1 Avg Sigma=49.55 Avg Uncertainty=17.89 Avg delta phase
+HISTORY SELFCAL: Antenna 2 Avg Sigma=36.40 Avg Uncertainty=13.23 Avg delta phase
+HISTORY SELFCAL: Antenna 3 Avg Sigma=59.76 Avg Uncertainty=21.65 Avg delta phase
+HISTORY SELFCAL: Antenna 4 Avg Sigma=33.76 Avg Uncertainty=11.94 Avg delta phase
+HISTORY SELFCAL: Antenna 5 Avg Sigma=34.39 Avg Uncertainty=12.51 Avg delta phase
+HISTORY SELFCAL: Antenna 6 Avg Sigma=47.69 Avg Uncertainty=17.26 Avg delta phase
+HISTORY SELFCAL: Antenna 7 Avg Sigma=49.18 Avg Uncertainty=17.81 Avg delta phase
+HISTORY SELFCAL: Antenna 8 Avg Sigma=33.59 Avg Uncertainty=12.08 Avg delta phase
+HISTORY SELFCAL: Antenna 9 Avg Sigma=34.65 Avg Uncertainty=12.53 Avg delta phase
+HISTORY SELFCAL: Antenna10 Avg Sigma=42.35 Avg Uncertainty=15.24 Avg delta phase
+HISTORY SELFCAL: Average Overall Uncertainty =   7.28
+HISTORY SELFCAL: Rms of the gain phases (degrees):  28.4
+HISTORY SELFCAL: Rms deviation of gain from 1: 6.464E-08
+HISTORY SELFCAL: Ratio of Actual to Theoretical noise:  1.46
+HISTORY INVERT: Miriad Invert: version 1.0 1-Jul-99
+HISTORY INVERT: Executed on: 00AUG12:13:06:59.0
+HISTORY INVERT: Command line inputs follow:
+HISTORY INVERT:   vis=11apr98.scal 15may99.scal 17may99.scal 22may99.scal 26mar9
+HISTORY INVERT:   map=n5457.map
+HISTORY INVERT:   beam=n5457.beam
+HISTORY INVERT:   imsize=257
+HISTORY INVERT:   cell=1
+HISTORY INVERT:   line=velocity,24,150,10,10
+HISTORY INVERT:   robust=0.5
+HISTORY INVERT:   sup=88
+HISTORY INVERT:   slop=0.1
+HISTORY INVERT:   options=systemp,double,mosaic
+HISTORY MATHS: Miriad Maths: version 1.0 30-Nov-98
+HISTORY MATHS: Executed on: 00AUG12:18:01:13.0
+HISTORY MATHS: Command line inputs follow:
+HISTORY MATHS:   exp=(1*<n5457.map>+0.0102*<n5457.otf.gain>)/(1.+0.0102)
+HISTORY MATHS:   out=n5457comb.map
+HISTORY MATHS: Bounding region is Blc=(1,1,1,1),Trc=(343,333,24,1)
+HISTORY MOSSDI2: Miriad MosSDI2: version 1.2 19-Aug-99
+HISTORY MOSSDI2: Executed on: 00AUG12:18:39:08.0
+HISTORY MOSSDI2: Command line inputs follow:
+HISTORY MOSSDI2:   map=n5457comb.map
+HISTORY MOSSDI2:   beam=n5457comb.beam
+HISTORY MOSSDI2:   out=n5457comb.sdi
+HISTORY MOSSDI2:   cutoff=1.5
+HISTORY MOSSDI2:   niters=50000
+HISTORY MOSSDI2:   clip=0.9
+HISTORY MOSSDI2:   gain=.1
+HISTORY MOSSDI2: Bounding region is Blc=(25,26,1),Trc=(319,308,24)
+HISTORY MOSSDI2: Total Iterations = 15481
+HISTORY RESTOR: Miriad Restor: version 1.2 25-Feb-98
+HISTORY RESTOR: Executed on: 00AUG12:18:39:08.0
+HISTORY RESTOR: Command line inputs follow:
+HISTORY RESTOR:   map=n5457comb.map
+HISTORY RESTOR:   beam=n5457comb.beam
+HISTORY RESTOR:   model=n5457comb.sdi
+HISTORY RESTOR:   out=n5457comb.cm
+HISTORY RESTOR: Beam =  5.719E+00 x  5.388E+00 arcsec, pa =  5.878E+01 degrees
+HISTORY FITS: Miriad fits: Fits: version 1.1 27-nov-00
+HISTORY FITS: Executed on: 02MAY30:17:12:17.0
+HISTORY FITS: Command line inputs follow:
+HISTORY FITS:    in=n5457/comb/n5457comb.cm
+HISTORY FITS:    out=/thor/tj/PUBLIC/FITS/NGC5457.bima12m.cm.fits
+HISTORY FITS:    op=xyout
+HISTORY FITS: NOTE: Use options=varwt if loading into Miriad
+ORIGIN  = 'Miriad Fits: version 1.1 27-nov-00'
+END

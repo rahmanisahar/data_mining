@@ -1,0 +1,6 @@
+names=char('Total PAH','halpha','OIII continuum','SII continumm','IRAC3', ...
+           'PACS100','SPIRE350','Dust luminosity','Dust Mass', ...
+           'SFR','Stellar Mass', 'TIR', 'Total gas mass', 'RHI','X12plogOH');
+
+
+

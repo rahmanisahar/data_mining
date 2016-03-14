@@ -1,0 +1,8 @@
+global color=red dashlist=8 3 width=1 font="helvetica 10 normal" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk5
+box(9.9423496,40.353078,329.54055",329.54055",310) # color=red width=4
+box(10.193087,40.610698,329.54055",329.54055",310) # color=red width=4
+box(10.327691,40.832465,329.54055",329.54055",285) # color=red width=4
+box(9.4019,40.008,329.54055",329.54055",275) # color=red width=4
+box(10.9562,41.4236,329.54055",329.54055",275) # color=red width=4
+box(11.7502,42.4719,329.54055",329.54055",265) # color=red width=4
