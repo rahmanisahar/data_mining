@@ -1,7 +1,7 @@
 clear
 clc
 
-load ~/Desktop/project/data_mining/high_z_galaxies/data/info_model.txt
+load info_model.txt
 %>>>>  load your input dara in the Excel format
 %>>>> new name 'cat':  M x N  (M=regions, N= parameters; this is the format of original file)
 %>>>> by this command 'Null' is converted to NaN which is readable by Matlab 
@@ -10,10 +10,10 @@ load ~/Desktop/project/data_mining/high_z_galaxies/data/info_model.txt
 %>>>>---------------------------------------------------------------------------------------------------
 %>>>> if all components are numbers then you can us 'txt' format then run this to load the data and inactive the above commend by % 
 
-load ~/Desktop/project/data_mining/high_z_galaxies/data/kinney_n.txt
+load kinney_n.txt
 cat=kinney_n(:,1:end);
 
-load ~/Desktop/project/data_mining/high_z_galaxies/data/model_n.txt
+load model_n.txt
 catv=model_n(:,1:end);
 
 %>>>>---------------------------------------------------------------------------------------------------
@@ -54,18 +54,18 @@ annv=catv_fix_norm';
 %>>>>  Parameters of Neighbours (n_nei) and number of training steps (n_cen) 
 %>>>> the smaler n_cen the more separated groups (more covering space) 
 %>>>> each neuran can be connected with (n_nei) nth Neighbours
-n_1=3;
-n_2=4;
+n_1=1
+n_2=8
 
 
-ost=1000;
-tnd=1;
+ost=1000
+tnd=2
 
-orl=.9;
-tlr=0.02;
+orl=.9
+tlr=0.02
 
 
-n_epoch =ost*3;
+n_epoch =100*n_1*n_2;
 %>>>>---------------------------------------------------------------------------------------------------
 %>>>> MATLAB NETWORK  ; should not change
 %net = newsom(PR,[D1,D2,...],TFCN,DFCN,OLR,OSTEPS,TLR,TND)
@@ -139,7 +139,7 @@ end
 figure(4)
 plotsomhits(net,annv)
 
-%ssfr=info_model(Tabv_1{h1,h2},33)-info_model(Tabv_1{h1,h2},31)-9;
+
 if n_1==1
 
 m1=0;
@@ -149,7 +149,7 @@ for h1=1:1:n_1
     
     
     MEDv_mass(h1,h2)=median(info_model(Tabv_1{h1,h2},31));
-    MEDv_ssfr(h1,h2)=median(info_model(Tabv_1{h1,h2},33)-info_model(Tabv_1{h1,h2},31)-9);
+    MEDv_sfr(h1,h2)=median(info_model(Tabv_1{h1,h2},33));
     MEDv_age(h1,h2)=median(info_model(Tabv_1{h1,h2},37));
     MEDv_frac(h1,h2)=median(info_model(Tabv_1{h1,h2},49));
 
@@ -161,19 +161,12 @@ end
 figure(5)
 subplot(2,2,1)
 plot(MEDv_mass, '-O')
-title('Stellar Mass')
-ylabel('log M_{star} [M_{Sun}]')
 subplot(2,2,2)
 plot(MEDv_age, '-O')
-title('Age')
-ylabel('log ^{t}D4000 [Gyr]')
 subplot(2,2,3)
-plot(MEDv_ssfr, '-O')
-title('SSFR')
-ylabel('log \phi [Gyr^{-1}]')
+plot(MEDv_sfr, '-O')
 subplot(2,2,4)
 plot(MEDv_frac, '-O')
-title('Fraction')
 
 end
  

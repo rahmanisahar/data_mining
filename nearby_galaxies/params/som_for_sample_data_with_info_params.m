@@ -241,7 +241,7 @@ for h1=n_1:-1:1
     
     stellar_mass{h1,h2}=params(TAB_1{h1,h2},31);
     D4000{h1,h2}=params(TAB_1{h1,h2},37);
-    ssfr{h1,h2}=params(TAB_1{h1,h2},33)-params(TAB_1{h1,h2},29);
+    ssfr{h1,h2}=params(TAB_1{h1,h2},33)-params(TAB_1{h1,h2},29)-9;
     
     
 end
