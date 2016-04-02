@@ -54,15 +54,15 @@ annv=catv_fix_norm';
 %>>>>  Parameters of Neighbours (n_nei) and number of training steps (n_cen) 
 %>>>> the smaler n_cen the more separated groups (more covering space) 
 %>>>> each neuran can be connected with (n_nei) nth Neighbours
-n_1=1
-n_2=8
+n_1=1;
+n_2=8;
 
 
-ost=1000
-tnd=2
+ost=1000;
+tnd=2;
 
-orl=.9
-tlr=0.02
+orl=.9;
+tlr=0.02;
 
 
 n_epoch =100*n_1*n_2;
