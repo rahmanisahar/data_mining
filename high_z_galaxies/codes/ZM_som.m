@@ -1,5 +1,5 @@
 close all, clear, clc
-dir='~/Desktop/project/data_mining/high_z_galaxies/results_SED/2D/';
+dir='~/Desktop/project/data_mining/high_z_galaxies/results_SED/2D/new_type_of_plots/';
 load ~/Desktop/project/data_mining/high_z_galaxies/data/info_model.txt
 params = info_model;
 %>>>>  load your input dara in the Excel format
@@ -59,8 +59,8 @@ annv=catv_fix_norm';
 %>>>>  Parameters of Neighbours (n_nei) and number of training steps (n_cen) 
 %>>>> the smaler n_cen the more separated groups (more covering space) 
 %>>>> each neuran can be connected with (n_nei) nth Neighbours
-n_1=1;
-n_2=22;
+n_1=12;
+n_2=12;
  n1st=int2str(n_1);
  n2st=int2str(n_2);
 
@@ -111,14 +111,18 @@ end
 end
 
 %elseif
-colorim = strcat(dir,'dist_',n1st,'_by_',n2st,'.png');
-hitim_t= strcat(dir,'hit_t_',n1st,'_by_',n2st,'.png');
- figure(1)
- plotsomnd(net,annt)
+colorim = strcat(dir,'dist_',n1st,'_by_',n2st,'.fig');
+hitim_t= strcat(dir,'hit_t_',n1st,'_by_',n2st,'.fig');
+plot_combined = strcat(dir,'combined_t_',n1st,'_by_',n2st,'.fig');
+  figure(1)
+ plotsomnd_shar(net,annt)
 figure(2)
-plotsomhits(net,annt)
-saveas(figure(1),colorim,'png')
-saveas(figure(2),hitim_t,'png')
+plotsomhits_sahar(net,annt)
+ %figure(3)
+ %plotsom_sahar(net,annt)
+saveas(figure(1),colorim,'fig')
+saveas(figure(2),hitim_t,'fig')
+%saveas(figure(3),plot_combined,'fig')
 %-------------------
 
 for k1=1:n_1*n_2
@@ -143,12 +147,12 @@ for h1=n_1:-1:1
     
 end
 end
-hitim_v= strcat(dir,'hit_v_',n1st,'_by_',n2st,'.png');
+hitim_v= strcat(dir,'hit_v_',n1st,'_by_',n2st,'.fig');
 %  figure(3)
 %  plotsomnd(net,annv)
 figure(3)
 plotsomhits(net,annv)
-saveas(figure(3),hitim_v,'png')
+saveas(figure(3),hitim_v,'fig')
 
 if n_1==1
 
@@ -173,23 +177,23 @@ if n_1==1
     plot(x,MEDv_mass, '-O')
     set(gca,'xtick',1:n_2);
     title('Stellar Mass')
-    ylabel('log M_{star} [M_{Sun}]')
+    ylabel('log(M_{star} [M_{Sun}])')
     subplot(2,2,2)
     plot(x,MEDv_age, '-O')
     set(gca,'xtick',1:n_2);
     title('Age')
-    ylabel('log ^{t}D4000 [Gyr]')
+    ylabel('log(^{t}D4000 [Gyr])')
     subplot(2,2,3)
     plot(x,MEDv_ssfr, '-O')
     set(gca,'xtick',1:n_2);
     title('SSFR')
-    ylabel('log \phi [Gyr^{-1}]')
+    ylabel('log(\phi [Gyr^{-1}])')
     subplot(2,2,4)
     plot(x,MEDv_frac, '-O')
     set(gca,'xtick',1:n_2);
-    title('log f_{burst}')
-prop= strcat(dir,'prop',n1st,'_by_',n2st,'.png');
-saveas(figure(5),prop,'png')
+    title('log(f_{burst})')
+prop= strcat(dir,'prop',n1st,'_by_',n2st,'.fig');
+saveas(figure(5),prop,'fig')
 end
  
 
@@ -255,8 +259,8 @@ for h1=1:1:n_1
  end
 end
 %text(-10,10.2,'Wavelength(\AA)')
-SEDim = strcat(dir,'SED_total',n1st,'by',n2st,'.png');
-saveas(figure(10),SEDim,'png')
+SEDim = strcat(dir,'SED_total',n1st,'by',n2st,'.fig');
+saveas(figure(10),SEDim,'fig')
 % figure(11)
 % m1=0;
 % 
@@ -497,8 +501,8 @@ for h1=n_1:-1:1
 end
 end   
 
-rep = strcat(dir,'prop_vs_prop',n1st,'by',n2st,'.png');
- saveas(figure(12),rep,'png')
+rep = strcat(dir,'prop_vs_prop',n1st,'by',n2st,'.fig');
+ saveas(figure(12),rep,'fig')
 
 
 %>>>>---------------------------------------------------------------------------------------------------
