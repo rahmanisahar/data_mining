@@ -1,5 +1,5 @@
 close all, clear, clc
-dir='~/Desktop/project/data_mining/high_z_galaxies/results_SED/2D/new_type_of_plots/';
+dir='~/Desktop/';
 load ~/Desktop/project/data_mining/high_z_galaxies/data/info_model.txt
 params = info_model;
 %>>>>  load your input dara in the Excel format
@@ -59,8 +59,8 @@ annv=catv_fix_norm';
 %>>>>  Parameters of Neighbours (n_nei) and number of training steps (n_cen) 
 %>>>> the smaler n_cen the more separated groups (more covering space) 
 %>>>> each neuran can be connected with (n_nei) nth Neighbours
-n_1=12;
-n_2=12;
+n_1=1;
+n_2=22;
  n1st=int2str(n_1);
  n2st=int2str(n_2);
 
