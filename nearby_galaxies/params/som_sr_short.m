@@ -84,9 +84,9 @@ n_cen=500;
 for k1=1:n_1*n_2
  at{k1}=find(sim_t(k1,:)==1); %create 1X(n1*n2) cell and show regions which are going to same neuran 
 end 
-for k1=1:n_1*n_2
-inpt{k1}=annt(:,at{k1}); % initial data in for each of the regions in each "at" cell
-end
+% for k1=1:n_1*n_2
+% inpt{k1}=annt(:,at{k1}); % initial data in for each of the regions in each "at" cell
+% end
 
 m1=0;
 for h1=n_1:-1:1
@@ -140,14 +140,13 @@ net.inputs{1}.userdata = new_names;
 %>>>>end
 
 figure(1)
-    plotsomnd(net,annt) %MATLAB som built-in SOM plots; shows distance between each neuran' Neighbours
- 
+    plotsomnd_shar(net,annt) %MATLAB som built-in SOM plots; shows distance between each neuran' Neighbours
 figure(2)
-    plotsomhits(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
-%figure(3)
- %  plotsomplanes(net,annt)
+    plotsomhits_sahar(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
+figure(3)
+    plotsomplanes_sahar(net) %MATLAB som built-in SOM plots; shows density of each neurans
 figure(4)
-    plotsomplanes_sahar(net) %MATLAB som built-in SOM plots with small changes; shows weights for each input
+    plotsom_sahar(net,annt) %MATLAB som built-in SOM plots; shows distance between each neuran' Neighbours
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,8 +157,8 @@ figure(4)
 
   fig1 = strcat(dir,'dist',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
   fig2 = strcat(dir,'hits',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
-  %fig3 = strcat(dir,'weigth',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
-  fig4 = strcat(dir,'weigth_planes',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig4 = strcat(dir,'combine',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig3 = strcat(dir,'weigth_planes',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
   %pers= strcat(dir,'pers',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
   pos = strcat(dir,'pos',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
   nett= strcat(dir,'net',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st);
@@ -169,7 +168,7 @@ save(nett, 'net')
 csvwrite(pos,Mtx_TAB_1); 
 saveas(figure(1),fig1,'jpeg')
 saveas(figure(2),fig2,'jpeg')
-%saveas(figure(3),fig3,'jpeg')
+saveas(figure(3),fig3,'jpeg')
 saveas(figure(4),fig4,'jpeg')
 close all
 end

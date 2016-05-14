@@ -303,7 +303,7 @@ function plotData = update_plot(param,fig,plotData,net)
           set(a,...
             'DataAspectRatio',[1 1 1], ...
             'Box','on',...
-            'Color',[1 1 1]*0.5)
+            'Color',[1 1 1],'FontSize',14)%% background colour is white
           hold on
 
           plotData.patches{k} = zeros(1,numNeurons);
@@ -343,10 +343,11 @@ function plotData = update_plot(param,fig,plotData,net)
       %blue = -max(-1,min(0,level)*2); % negative
       %green = max(0,abs(level)*2-1); % very positive/negative
       level = (level-mn(i))/rng(i);
-      red = min(1,level*2);
-      green = max(0,level*2-1);
-      blue = 0;
-      c = [red green blue];
+     % red = min(1,level*2);
+     % green = max(0,level*2-1);
+     % blue = 0;
+     % c = [red green blue];
+      c = [1 1 1]*(level);
       set(plotData.patches{i}(j),'FaceColor',c);
     end
   end

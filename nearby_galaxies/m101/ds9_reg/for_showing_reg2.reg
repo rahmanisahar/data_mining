@@ -1,0 +1,19 @@
+# Region file format: DS9 version 4.1
+global color=black dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk4
+circle(14:01:26.287,+54:35:17.76,10") #color=white
+# text(14:01:30.361,+54:36:00.85) font="helvetica 12 normal" text={Region 7} color=white
+circle(14:01:24.014,+54:35:20.25,10") #color=white
+# text(14:01:11.420,+54:35:19.15) font="helvetica 12 normal" text={Region 1} color=white
+circle(14:01:08.798,+54:36:49.61,10")
+# text(14:01:07.072,+54:36:36.15) font="helvetica 12 normal" text={Region 8}
+circle(14:01:55.282,+54:33:26.19,10")
+# text(14:01:54.914,+54:32:51.70) font="helvetica 12 normal" text={Region 4}
+circle(14:02:07.270,+54:36:27.15,10")
+# text(14:02:07.767,+54:35:54.11) font="helvetica 12 normal" text={Region 5}
+circle(14:01:14.683,+54:28:51.49,10")
+# text(14:01:21.242,+54:29:21.21) font="helvetica 12 normal" text={Region 3}
+circle(14:00:41.597,+54:30:50.31,10")
+# text(14:00:40.746,+54:31:20.31) font="helvetica 12 normal" text={Region 2}
+circle(14:02:43.692,+54:38:05.89,10")
+# text(14:02:40.136,+54:38:86.09) font="helvetica 12 normal" text={Region 6}

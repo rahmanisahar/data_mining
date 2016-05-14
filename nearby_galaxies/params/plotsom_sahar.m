@@ -282,7 +282,7 @@ function plotData = update_plot(param,fig,plotData,net,inputs)
     set(a,...
       'DataAspectRatio',[1 1 1],...
       'Box','on',...
-      'Color',[1 1 1]) %background colour
+      'Color',[1 1 1],'FontSize',14) %background colour
     hold on
 
      plotData.p = zeros(1,numNeurons);
@@ -310,35 +310,60 @@ function plotData = update_plot(param,fig,plotData,net,inputs)
         plotData.patches(k) = fill(edgePos(1)+ex,edgePos(2)+ey,[1 1 1],...
           'FaceColor',rand(1,3),...
           'EdgeColor','none');
-        plot([p1(1) p2(1)],[p1(2) p2(2)],'-','Color',[0 1 0]); %blue lines between neighbours
+        %plot([p1(1) p2(1)],[p1(2) p2(2)],'-','Color',[0 1 0]); %blue lines between neighbours
         k = k + 1;
       end
     end
 
-    % Setup neurons
-      outputs = nncalc.y(net,{inputs});
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%writing the number of the region on dist_map
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Setup neurons
+   outputs = nncalc.y(net,{inputs});
   outputs = outputs{1};
   hits = sum(outputs,2);
  % norm_hits = sqrt(hits/max(hits));
+ att=zeros(1,numNeurons);
+ sim_t=sim(net, inputs);
+for k1=1:numNeurons
+    if (find(sim_t(k1,:)==1) > 0)
+     at{k1}=find(sim_t(k1,:)==1);
+    else
+        at{k1}=[0];
+    end
+end
+
+% for k1=1:numNeurons
+%  att(1,k1)=at{1,k1};
+% end
+
+
 
     for i=1:numNeurons
       fill(pos(1,i)+shapex,pos(2,i)+shapey,[1 1 1], ...
-        'FaceColor',[1 1 1], ... %neuron colour is white now
+        'FaceColor',[188./255 143./255 188./255], ... %neuron colour is putple now
         'EdgeColor',[0 0 0]) %Edge colour of the neurons  
-
-      plotData.t(i) = text(pos(1,i),pos(2,i),'', ...
-        'HorizontalAlignment','center',...
-        'VerticalAlignment','middle',...
-        'FontWeight','bold',...
-        'Color',[0 0 0], ...
-        'FontSize',12);
-      set(plotData.t(i),'String',num2str(hits(i)));
+         if (hits(i) ~= 0) 
+             plotData.t(i) = text(pos(1,i),pos(2,i),'', ...
+            'HorizontalAlignment','center',...
+            'VerticalAlignment','middle',...
+         'FontWeight','bold',...
+         'Color',[0 0 0], ...
+         'FontSize',25);
+         set(plotData.t(i),'String',num2str(at{1,i}));
+         end
     end
     set(a,'XLim',[-1 (dim1-0.5)*dx + 1]);
     set(a,'YLim',[-1 (dim2-0.5)*dy + 0.5]);
     
   end
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Done with writing the number of the region on dist_map
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   %%% Finding weights between neurons and plot the colours between neurons.
 
@@ -361,10 +386,10 @@ function plotData = update_plot(param,fig,plotData,net,inputs)
       level = 1-levels(k);
       red = min(level*2,1); % positive
       green = max(level*2-1,0); % very positive/negative
-      c = [red green 0];   %colours between neurons
+      %c = [red green 0];   %colours between neurons
       %c = min(1,nngui.red*2*(1-level));
-      %c = [1 1 1]*(1-level));
-      set(plotData.patches(k),'FaceColor',c);
+      c = [1 1 1]*(level);
+      set(plotData.patches(k),'FaceColor',c,'EdgeColor',[0 0 0]);
       k = k + 1;
     end
   end
