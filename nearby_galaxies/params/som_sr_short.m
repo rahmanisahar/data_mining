@@ -60,10 +60,28 @@ nums=sz(2); % #of regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %n_cen: Ordering phase steps
 %n_nei: Tuning phase neighborhood distance, default = 1.
-n_cen=500;
+%>>>>---------------------------------------------------------------------------------------------------
+%>>>>  Parameters of Neighbours (n_nei) and number of training steps (n_cen) 
+%>>>> the smaler n_cen the more separated groups (more covering space) 
+%>>>> each neuran can be connected with (n_nei) nth Neighbours
+n_1=10;
+n_2=10;
+ n1st=int2str(n_1);
+ n2st=int2str(n_2);
+
+
+ost=1000;
+tnd=1;
+
+orl=.9;
+tlr=0.02;
+
+
+n_epoch =ost*2;
+
 %>>>> MATLAB NETWORK
- net = newsom(annt,[n_2,n_1],'hextop','linkdist',0.9,n_cen,0.02,1);
- net.trainParam.epochs = 2000;
+ net = newsom(annt,[n_2,n_1],'hextop','dist',orl,ost,tlr,tnd);
+ net.trainParam.epochs = n_epoch;
  net.trainParam.showWindow =false;
  net.trainParam.showCommandLine=true;
  net.trainParam.show=100;
@@ -155,14 +173,20 @@ figure(4)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  fig1 = strcat(dir,'dist',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
-  fig2 = strcat(dir,'hits',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
-  fig4 = strcat(dir,'combine',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
-  fig3 = strcat(dir,'weigth_planes',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig1 = strcat(dir,'dist_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig2 = strcat(dir,'hits_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig4 = strcat(dir,'combine_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig3 = strcat(dir,'weigth_planes_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
   %pers= strcat(dir,'pers',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
-  pos = strcat(dir,'pos',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
-  nett= strcat(dir,'net',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st);
+  pos = strcat(dir,'pos_2D_data_between_cols',col1st,'and',col2st,'.csv');
+  nett= strcat(dir,'net_2D_data_between_cols',col1st,'and',col2st);
 save(nett, 'net')
+
+
+  fig1 = strcat(dir,'dist_2D_data_between_cols',col1st,'and',col2st,'.png');
+  fig2 = strcat(dir,'hits_2D_data_between_cols',col1st,'and',col2st,'.png');
+  fig4 = strcat(dir,'combine_2D_data_between_cols',col1st,'and',col2st,'.png');
+  fig3 = strcat(dir,'weigth_planes_2D_data_between_cols',col1st,'and',col2st,'.png');
 %table = cell2table(pers_result);
 %writetable(table,pers);
 csvwrite(pos,Mtx_TAB_1); 
@@ -170,5 +194,10 @@ saveas(figure(1),fig1,'jpeg')
 saveas(figure(2),fig2,'jpeg')
 saveas(figure(3),fig3,'jpeg')
 saveas(figure(4),fig4,'jpeg')
+
+saveas(figure(1),fig1,'png')
+saveas(figure(2),fig2,'png')
+saveas(figure(3),fig3,'png')
+saveas(figure(4),fig4,'png')
 close all
 end
