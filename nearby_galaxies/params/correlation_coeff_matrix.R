@@ -20,11 +20,11 @@ library(ggplot2)
 library(corrplot)
 pdf(outfile)
 m31 <- read.csv(infile,heade=TRUE, sep=',')
-#small_m31=m31[c(3,4,5,6,7,8),]
-small_m31 = m31
+small_m31=m31[c(3,4,5,6,7,8),]
+#small_m31 = m31
 small_m31_1=small_m31[c(4:ncol(m31))]
 x_cor=cor(small_m31_1, use='pairwise',method="pearson")
 res1 <- cor.mtest(x_cor, 0.95)
 res2 <- cor.mtest(x_cor, 0.99)
-corrplot(x_cor, method = "circle", addrect = 3,tl.cex = 0.8,tl.col='black', insig = "blank",p.mat = res1[[1]],sig.level = 0.05)
+corrplot(x_cor, method = "circle", addrect = 3,tl.cex = 0.8,tl.col='black')#, insig = "blank",p.mat = res1[[1]],sig.level = 0.05)
 dev.off()

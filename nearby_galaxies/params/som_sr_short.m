@@ -50,7 +50,8 @@ cat_fix_norm = (y_max - y_min) * (cat_fix - catt_min) ./ (catt_max - catt_min) +
  
  %cat_fix_norm= mapstd(cat_fix);
 
-annt=cat_fix_norm; %changing namme to introduce to network
+%annt=cat_fix_norm(:,2:10); %changing namme to introduce to network
+annt=cat_fix_norm;
 sz=size(annt); %finding size of original data
 nums=sz(2); % #of regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,8 +65,7 @@ nums=sz(2); % #of regions
 %>>>>  Parameters of Neighbours (n_nei) and number of training steps (n_cen) 
 %>>>> the smaler n_cen the more separated groups (more covering space) 
 %>>>> each neuran can be connected with (n_nei) nth Neighbours
-n_1=10;
-n_2=10;
+
  n1st=int2str(n_1);
  n2st=int2str(n_2);
 
@@ -161,10 +161,11 @@ figure(1)
     plotsomnd_shar(net,annt) %MATLAB som built-in SOM plots; shows distance between each neuran' Neighbours
 figure(2)
     plotsomhits_sahar(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
-figure(3)
-    plotsomplanes_sahar(net) %MATLAB som built-in SOM plots; shows density of each neurans
 figure(4)
     plotsom_sahar(net,annt) %MATLAB som built-in SOM plots; shows distance between each neuran' Neighbours
+
+    figure(3)
+    plotsompers_sahar(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,27 +174,27 @@ figure(4)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  fig1 = strcat(dir,'dist_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
-  fig2 = strcat(dir,'hits_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
-  fig4 = strcat(dir,'combine_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
-  fig3 = strcat(dir,'weigth_planes_2D_data_between_cols',col1st,'and',col2st,'.jpeg');
+  fig11 = strcat(dir,'dist_without_reg1_all.fig');
+  fig21= strcat(dir,'hits_without_reg1_all.fig');
+  fig41 = strcat(dir,'combine_without_reg1_all.fig');
+  fig31 = strcat(dir,'weigth_without_reg1_all.fig');
   %pers= strcat(dir,'pers',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
-  pos = strcat(dir,'pos_2D_data_between_cols',col1st,'and',col2st,'.csv');
-  nett= strcat(dir,'net_2D_data_between_cols',col1st,'and',col2st);
+  pos = strcat(dir,'pos_without_reg1_all.csv');
+  nett= strcat(dir,'net_without_reg1_all');
 save(nett, 'net')
 
 
-  fig1 = strcat(dir,'dist_2D_data_between_cols',col1st,'and',col2st,'.png');
-  fig2 = strcat(dir,'hits_2D_data_between_cols',col1st,'and',col2st,'.png');
-  fig4 = strcat(dir,'combine_2D_data_between_cols',col1st,'and',col2st,'.png');
-  fig3 = strcat(dir,'weigth_planes_2D_data_between_cols',col1st,'and',col2st,'.png');
+  fig1 = strcat(dir,'dist_without_reg1_all.png');
+  fig2 = strcat(dir,'hits_without_reg1_all.png');
+  fig4 = strcat(dir,'combine_without_reg1_all.png');
+  fig3 = strcat(dir,'weigth_without_reg1_all.png');
 %table = cell2table(pers_result);
 %writetable(table,pers);
 csvwrite(pos,Mtx_TAB_1); 
-saveas(figure(1),fig1,'jpeg')
-saveas(figure(2),fig2,'jpeg')
-saveas(figure(3),fig3,'jpeg')
-saveas(figure(4),fig4,'jpeg')
+saveas(figure(1),fig11,'fig')
+saveas(figure(2),fig21,'fig')
+saveas(figure(3),fig31,'fig')
+saveas(figure(4),fig41,'fig')
 
 saveas(figure(1),fig1,'png')
 saveas(figure(2),fig2,'png')

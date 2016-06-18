@@ -298,6 +298,8 @@ function plotData = update_plot(param,fig,plotData,net,inputs)
     plotData.numEdges = sum(sum(plotData.neighbors));
     plotData.patches = zeros(1,plotData.numEdges);
     plotData.text = zeros(1,plotData.numEdges);
+    plotData.textt = zeros(1,plotData.numEdges);
+    
     k = 1;
     for i=1:numNeurons
       for j=find(plotData.neighbors(i,:))
@@ -320,7 +322,7 @@ function plotData = update_plot(param,fig,plotData,net,inputs)
 %writing the number of the region on dist_map
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % Setup neurons
+   % Setup neurons
    outputs = nncalc.y(net,{inputs});
   outputs = outputs{1};
   hits = sum(outputs,2);
@@ -343,13 +345,13 @@ end
 
     for i=1:numNeurons
       fill(pos(1,i)+shapex,pos(2,i)+shapey,[1 1 1], ...
-        'FaceColor',[188./255 143./255 188./255], ... %neuron colour is putple now
+        'FaceColor',[188./255 143./255 188./255], ... %neuron colour is purple now
         'EdgeColor',[0 0 0]) %Edge colour of the neurons  
          if (hits(i) ~= 0) 
              plotData.t(i) = text(pos(1,i),pos(2,i),'', ...
             'HorizontalAlignment','center',...
             'VerticalAlignment','middle',...
-         'FontWeight','bold',...
+        'FontWeight','bold',...
          'Color',[0 0 0], ...
          'FontSize',25);
          set(plotData.t(i),'String',num2str(at{1,i}));
@@ -384,12 +386,27 @@ end
   for i=1:numNeurons
     for j=find(plotData.neighbors(i,:))
       level = 1-levels(k);
-      red = min(level*2,1); % positive
-      green = max(level*2-1,0); % very positive/negative
+%       red = min(level*2,1); % positive
+%       green = max(level*2-1,0); % very positive/negative
       %c = [red green 0];   %colours between neurons
       %c = min(1,nngui.red*2*(1-level));
       c = [1 1 1]*(level);
+     
       set(plotData.patches(k),'FaceColor',c,'EdgeColor',[0 0 0]);
+%         pdiff = pos(:,j)-pos(:,i);
+%         angle = atan2(pdiff(2),pdiff(1));
+%         [ex,ey] = rotate_xy(edgex,edgey,angle);
+%         edgePos = (pos(:,i)+pos(:,j))*0.5;
+%         p1 = (2*pos(:,i) + 1*pos(:,j))./3;
+%         p2 = (1*pos(:,i) + 2*pos(:,j))./3;
+%         text1=int2str(level*100);
+%          text(p1(1), p1(2),text1, ...
+%             'HorizontalAlignment','center',...
+%             'VerticalAlignment','middle',...
+%         'FontWeight','bold',...
+%          'Color',[1 0 0], ...
+%          'FontSize',10);
+        % set(plotData.text(k),'String',num2str(level*100));
       k = k + 1;
     end
   end

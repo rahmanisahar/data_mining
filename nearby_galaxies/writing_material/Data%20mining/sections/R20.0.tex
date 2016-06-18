@@ -1,0 +1,95 @@
+ %----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Result Part 2: 2D SOMs
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+ \section{2D SOMs}
+ Although 1D networks are great to have a general idea about the data, they are not showing a whole picture. 
+        Therefore, we created $10\times10$ 2D networks to study the data in details.
+ Since in 1D SOMs, each neuron has maximum two immediate neighbours, 1D SOMs can't provide show complicated relations in data.
+However, 
+            \subsubsubsection{Subsets}
+            In subset 0 presented the derived values and values that had not been used to create any of derived values.
+            Fig.~\ref{fig: all_derived_ones} shows the SOM and the weight plane of each input data from subset 0.
+            Regions 4 and 7 are in the top left of Fig.~\ref{fig: all_derived_ones} and in the second neighbourhood of each other, with very bright light between their nodes which represents that weight of these nodes are similar to each other. 
+            The positions of these two regions in the galaxy are really close and they both are on almost same distance from the star forming ring in galaxy.
+            Both of these regions are right on the edge of the star forming rings in the galaxy. 
+            Position of the region 3 on the SOM is close to the position of the regions 4 and 7, but with darker colour between the nodes. 
+            This region in M31 is close to regions 4 and 7 but on the outer side of the star forming ring.
+
+            Regions 5, 8 and 6 are close to each other on the SOM.
+            These three regions are around the inner ring of the galaxy.
+            Since region 5 is right outside the inner rings whereas regions 6 and 8 are in inner part of the inner ring, this region has more distance and more weight from the regions 6 and 8.
+            Regions 1 and 9 are close to each other and in the end side of the star forming ring. 
+            Region 2 is more distant from other regions in the galaxy. 
+            However, it is right out side the star forming too. 
+            Therefore, its place in SOM somehow is close to the positions of the regions 1,3 and 9.
+            The weights between region 2 and the other three regions are relatively high, due to fact that the region 2 is basically placed on the opposite side of the galaxy. 
+            Region 10 is placed in the bulge of the galaxy, and its position on the SOM is isolated from all the other regions. 
+
+            In order to analyse affect of any input data on the final SOM, we created SOMs from various subsets of data and compare their results with one another and with SOM created from all data listed in subset 0.
+            %%\subsection{Increasing dimension of input data one by one}
+            We started the analysis by creating SOMs using only PAHs data, and using all data from subset 0 except PAHs ones(Fig.~\ref{fig: PAHS_or_not_PAHs}). 
+            Then, we increased the dimension of PAH only data gradually by adding data from subset 0 to it, i.e. the first map in Fig~\ref{fig: inc_D_col3s} was created from PAHs data and H$\alpha$ emission, the second one was created from PAHs, H$\alpha$ emission and [\sii] continuum, and so on. 
+
+        \import{../sections/image_texts/}{col11by26.tex}
+        \import{../sections/image_texts/}{col3byall.tex}
+
+
+         We then generated some sub-samples of the data based on the weight planes in the Figs.~\ref{fig: all_derived_ones} to~\ref{fig: subset7}.
+        We first removed data with larger weights (with darker colours) in most of the neurons, one at a time (see tables~\ref{tab: subset1} -~\ref{tab: subset4}).
+        For subset sample 1 from Table~\ref{tab: subset1}, we used all the values from subset 0 excluding data from stellar mass. 
+        We removed IRAC 5.7 $\mu$m; [\sii] continuum and [\oiii] continuum; PAH8.3 $\mu$m, PAH12.0 $\mu$m, PAH17.0 $\mu$m, [~\oiii] continuum, stellar mass and metallicity from subset 0, and generated subset samples 2 to 4, respectively (Tables~\ref{tab: subset2} to~\ref{tab: subset4}).
+        Table~\ref{tab: subset5} shows the list of data that were used in a subset sample 5, which is data from subset 0 except the fact that instead of the individual PAH fluxes we added them together and have total PAH flux. 
+        For subset sample 6 (Table~\ref{tab: subset6}), we removed SPIRE 250 and 500~$\mu$m, and for subset sample 7 (Table~\ref{tab: subset7}) we removed [\sii] flux, SPIRE 250 and 500~$\mu$m and TIR emission from subset sample 5.
+        Figs.~\ref{fig: subset1} to~\ref{fig: subset7} show SOM and input data weight planes created from subset samples 1 to 7, respectively.
+
+        The left side of the Fig.~\ref{fig: subset1} shows SOM results from Table~\ref{tab: subset1}. 
+        In the SOM map, regions 1 and 9 are closer to region 10. 
+        The regions 1 and 9 are the ones with lowest stellar mass, on the other side region 10 has the highest stellar mass. 
+        Since the stellar mass was one of the most distinct differences between these regions, removing stellar mass from input data reduced the distance between these regions.
+        Regions 5, 6 and 8 are in the same relative distance from each other, but they all are closer to the position of the region 10.
+        Distance between regions 2 and 3 is reduced but in the meantime the colour between them became darker.
+
+        \import{../sections/tables/}{subset1.tex}
+        \import{../sections/image_texts/}{subset1.tex}
+
+%\subsubsection{subset4}
+     
+
+        Changing from separate value for each PAH to a single value for the total PAH, caused small changes to our the SOM map (Fig.~\ref{fig: subset5}). 
+        Distance between the position of the regions 6 an 8 increased significantly, while the position of region 2 moved closer to the positions of the regions 4 and 7.
+        The winner neurons for the regions 3 and 5 are moved towards each other, but the colours between them became much more darker. 
+%\subsubsection{subset5}
+        \import{../sections/tables/}{subset5.tex}
+        \import{../sections/image_texts/}{subset5.tex}
+
+        Fig.~\ref{fig: subset6} shows the results from Table~\ref{tab: subset6}, which includes all the data from Table~\ref{tab: subset5} except fluxes from SPIRE 250 and 500~$\mu$m.
+        For most of the regions although we see the changes in the positions, the colours between neurons changed, too. 
+        Which we can conclude that these changes are because of the different initial values in the weights.
+        However, the distance between the positions of the regions 4 and 2 increased.
+        The same happened for distance between regions 7, 3 and 6.
+        In both cases, flux values in SPIRE 250 and 500~$\mu$m for these regions are similar to each other, and removing these two parameters from input moved the positions of the regions further. 
+%\subsubsection{subset6}
+        \import{../sections/tables/}{subset6.tex}
+        \import{../sections/image_texts/}{subset6.tex}
+
+       
+%\subsubsection{subset7}
+       
+
+        
+    
+
+        
+        
+        
+        
+        %%What about M101; Is it going to behave in the same way! how corr matrix, look like for M101 data?
+   \subsection{ Validating networks using M101 data}
+      %%% 10x10 networks using subsets of data to create networks; make prediction based on results;
+      %%%% 10x10 checking data with M101 data
+      %%% Combine M31 + M101 data to make new prediction
+      

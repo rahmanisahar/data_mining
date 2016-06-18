@@ -1,0 +1,184 @@
+\documentclass[useAMS,usenatbib]{mn2e}
+\usepackage{amsmath}
+%\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{mn2e}
+\usepackage{times}
+\usepackage{float}
+%\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{color,soul}
+\usepackage{import}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multicol}        % Multi-column entries in tables
+\usepackage{bm}		% Bold maths symbols, including upright Greek
+\usepackage{pdflscape}	% Landscape pages
+%\usepackage{booktabs,fixltx2e}
+\usepackage[flushleft]{threeparttable}
+\usepackage{mwe}    % loads »blindtext« and »graphicx«
+\usepackage{subfig}
+
+\newcommand \kpc        {\,{\rm kpc}}
+\newcommand \sigmagas    {$\Sigma_{\rm \bld {gas }} $\ }
+\newcommand \sigmatotalgas {$\Sigma_{\rm \bld {total\, gas }} $\ }
+\newcommand \eqsigmagas    {\Sigma_{\rm \bld {gas }}}
+\newcommand \sigmasfr     {$\Sigma_{\rm \bld {SFR }} $\ }
+\newcommand \eqsigmasfr     {\Sigma_{\rm \bld {SFR }}}
+\newcommand \sigmastar    {$\Sigma_{\rm \bld {star }} $\ }
+\newcommand \eqsigmastar    {\Sigma_{\rm \bld {star }}}
+\newcommand \halpha    {H$\alpha $}
+\newcommand \um    {$\mu$m}
+%\newcommand \mice {$\mu$m}
+\newcommand \nprime {N$^\prime$}
+\newcommand \boldit {\textbf{\textit{}}}
+\newcommand \eqnprime {N^\prime}
+\newcommand \Spitzer {{\it Spitzer }}
+\newcommand \GALEX {GALEX }
+\newcommand \Herschel {{\it Herschel }}
+\newcommand{\sii}{S~{\textsc II}} 
+\newcommand{\oiii}{O~{\textsc III}} 
+\newcommand{\hi}{H~{\textsc I}\ }
+
+\newcommand \aaj {A\&A}
+\newcommand \aarv {A\&ARv}%: Astronomy and Astrophysics Review (the)
+\newcommand \aas{A\&AS}%: Astronomy and Astrophysics Supplement Series
+\newcommand \afz {Afz}%: Astrofizika
+\newcommand \aj {AJ}%: Astronomical Journal (the)
+\newcommand \apss {Ap\&SS}%: Astrophysics and Space Science
+\newcommand \apj {ApJ}
+\newcommand \apjs {ApJS}%: Astrophysical Journal Supplement Series (the)
+\newcommand \araa {ARA\&A} %: Annual Review of Astronomy and Astrophysics
+\newcommand \asp {ASP Conf. Ser.}%: Astronomy Society of the Pacific Conference Series
+\newcommand \azh {Azh}%: Astronomicheskij Zhurnal
+\newcommand \baas {BAAS}%: Bulletin of the American Astronomical Society
+\newcommand \mem {Mem. RAS}%: Memoirs of the Royal Astronomical Society
+\newcommand \mnassa {MNASSA}%: Monthly Notes of the Astronomical Society of Southern Africa
+\newcommand \mnras {MNRAS} %: Monthly Notices of the Royal Astronomical Society
+%\newcommand {Nature}%(do not abbreviate)
+\newcommand \pasj {PASJ}%: Publications of the Astronomical Society of Japan
+\newcommand \pasp {PASP}%: Publications of the Astronomical Society of the Pacific
+\newcommand \qjras {QJRAS}%: Quarterly Journal of the Royal Astronomical Society
+\newcommand \mex {Rev. Mex. Astron. Astrofis.}%: Revista Mexicana de Astronomia y Astrofisica
+%\newcommand {Science }%}%(do not abbreviate)
+\newcommand \sva {SvA}%: Soviet Astronomy
+\newcommand \aap {APP} %:American Academy of Pediatrics
+\newcommand \apjl {ApJL} %:The Astrophysical Journal Letters
+
+\begin{document}
+% TITLE
+
+\title{Mining in Nearby Galaxies}
+\author{rahmani.sahar }
+\date{\today}
+\author[S. Rahmani, et. al.]{S.~Rahmani$^{1}$\thanks{E-mail:
+srahma49@uwo.ca}, H.~Teimoorinia$^{2}$, E.~Peeters$^{1}$, P.~Barmby$^{1}$\\
+$^{1}$Department of Physics $\&$ Astronomy, Western University, London, ON N6A 3K7, Canada\\
+$^{2}$Department of Physics $\&$ Astronomy, University of Victoria, Finnerty Road, Victoria, British Columbia, V8P 1A1, Canada}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%abstract
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\begin{abstract} 
+Galaxies are very complex systems; therefore, a complete understanding of them cannot be achieved only from studying linear or logarithmic correlations between their properties and various waveband data.
+In the past few decades, a number of statistical methods have been developed and advanced to study and visualize complex big data.
+We used one of these methods to study properties of nearby galaxies and create a more clear picture of them.
+The vast availability of data for nearby galaxies makes them suitable targets for exploratory data analysis. 
+Spatially resolved maps provide us with a unique view of the inside of galaxies.%and help better understand their properties.
+In this project, we utilized the Kohonen Self Organizing Map (or self organizing map, SOM) method to study data from M31 and M101.
+%SOM is an unsupervised neural network for mapping and visualizing a complex and nonlinear high dimension data while preserving topological features of the original data. 
+%We studied 10 regions in M31 and 8 regions in M101. 
+%These regions were chosen based on the availability of mid-infrared spectroscopy data.
+%For each region in M31, we had 46 data obtained through photometry, spectroscopy, and derived quantities (i.e., star formation rate, stellar mass, gas mass, etc.). 
+%Using results from a correlation coefficient matrix, we reduced the dimension of this dataset and then trained the SOM using the new subset of data. 
+We created SOMs of various sizes and used them to extract information about the galaxies.
+Using smaller-sized SOMs the data were clustered in 2 major groups; and for each group, we found correlations that could not have otherwise seen without clustering. 
+In the maps with larger sizes, we created networks to illustrate the relative relations of the regions with one another. 
+We then applied the SOMs that were generated from the M31 data to from M101. 
+We found regions with similar properties in both galaxies placed in close regions in the SOMs.  
+These results confirm that the generated SOMs can separate regions based on their physical properties, and can be used to make predictions for other regions in nearby galaxies or other targets. 
+
+\end{abstract}
+\begin{keywords} 
+galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies: stellar content, galaxies: ISM, stars: formation, ISM: clouds, methods: observational, methods: statistical, data mining, methods:data analysis, techniques: image processing 
+\end{keywords}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Intro
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\import{../sections/}{intro0.0.tex}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%DATA
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\import{../sections/}{data0.0.tex}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Method
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\import{../sections/}{method0.0.tex}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Results
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%\import{../sections/}{results0.0.tex}
+\import{../sections/}{R10.0.tex}
+\import{../sections/}{R20.0.tex}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Discussion
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\import{../sections/}{caveat.tex}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Summery
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\section{SUMMARY}
+
+\section*{ACKNOWLEDGMENTS}
+S.R. and P.B. acknowledge research support from the Natural Sciences and Engineering Research Council of Canada. This research has made use of the NASA/IPAC Extragalactic Database (NED), which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration.
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%biblio
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\bibliographystyle{mnras}
+\bibliography{ref_mining.bib}
+\import{../sections/}{app_2d.tex}
+
+\end{document}

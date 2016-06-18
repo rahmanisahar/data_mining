@@ -51,7 +51,7 @@ cat_fix_norm = (y_max - y_min) * (cat_fix - catt_min) ./ (catt_max - catt_min) +
  
  %cat_fix_norm= mapstd(cat_fix);
 
-annt=cat_fix_norm; %changing namme to introduce to network
+annt=cat_fix_norm(:,2:10); %changing namme to introduce to network
 sz=size(annt); %finding size of original data
 nums=sz(2); % #of regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,12 +59,22 @@ nums=sz(2); % #of regions
 %%%  Create a SOM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%n_cen: Ordering phase steps
-%n_nei: Tuning phase neighborhood distance, default = 1.
-n_cen=500;
+n1st=int2str(n_1);
+ n2st=int2str(n_2);
+
+
+ost=1000;
+tnd=1;
+
+orl=.9;
+tlr=0.02;
+
+
+n_epoch =ost*2;
+
 %>>>> MATLAB NETWORK
- net = newsom(annt,[n_2,n_1],'hextop','linkdist',0.9,n_cen,0.02,1);
- net.trainParam.epochs = 2000;
+ net = newsom(annt,[n_2,n_1],'hextop','dist',orl,ost,tlr,tnd);
+ net.trainParam.epochs = n_epoch;
  net.trainParam.showWindow =false;
  net.trainParam.showCommandLine=true;
  net.trainParam.show=100;
@@ -130,11 +140,10 @@ figure(1)
     plotsomnd(net,annt) %MATLAB som built-in SOM plots; shows distance between each neuran' Neighbours
  
 figure(2)
-    plotsomhits(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
-%figure(3)
- %  plotsomplanes(net,annt)
+    plotsom_sahar(net,annt) %MATLAB som built-in SOM plots; shows density of each neurans
+
 figure(4)
-    plotsomplanes_sahar(net) %MATLAB som built-in SOM plots with small changes; shows weights for each input
+    plotsompers_sahar(net,annt) %MATLAB som built-in SOM plots with small changes; shows weights for each input
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,20 +152,24 @@ figure(4)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  fig1 = strcat(dir,'dist_',outname,'.jpeg');
-  fig2 = strcat(dir,'hits_',outname,'.jpeg');
-  %fig3 = strcat(dir,'weight_',outname,'.jpeg');
-  fig4 = strcat(dir,'weight_planes_',outname,'.jpeg');
-  %pers= strcat(dir,'pers_',outname,'.csv');
+  fig1 = strcat(dir,'dist_',outname,'.png');
+  fig2 = strcat(dir,'combine_',outname,'.png');
+  fig4 = strcat(dir,'weigh_',outname,'.png');
   pos = strcat(dir,'pos_',outname,'.csv');
   nett= strcat(dir,'net_',outname);
 save(nett, 'net')
-%table = cell2table(pers_result);
-%writetable(table,pers);
+
 csvwrite(pos,Mtx_TAB_1); 
-saveas(figure(1),fig1,'jpeg')
-saveas(figure(2),fig2,'jpeg')
-%saveas(figure(3),fig3,'jpeg')
-saveas(figure(4),fig4,'jpeg')
+saveas(figure(1),fig1,'png')
+saveas(figure(2),fig2,'png')
+saveas(figure(4),fig4,'png')
+
+ fig11 = strcat(dir,'dist_',outname,'.fig');
+  fig21 = strcat(dir,'combine_',outname,'.fig');
+  fig41 = strcat(dir,'weigh_',outname,'.fig');
+  saveas(figure(1),fig11,'fig')
+saveas(figure(2),fig21,'fig')
+saveas(figure(4),fig41,'fig')
+  
 close all
 end

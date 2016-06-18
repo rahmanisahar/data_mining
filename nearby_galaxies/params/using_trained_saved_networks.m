@@ -18,11 +18,11 @@ close all , clear, clc
  n_1=10; %number of raws in network
  n_2=10; %number of columns in network
 %%% NETWORK NAME
-net10by10=load('~/Desktop/project/data_mining/nearby_galaxies/SOM/org_colours/derived/per_arcsec_sq/subsets/net_subset1.mat'); %Load network
+net10by10=load('~/Desktop/project/data_mining/nearby_galaxies/SOM/org_colours2d/subsets/without_reg1/net_without_reg1_all.mat'); %Load network
 net=net10by10.net;
 
 %%%% Trining file
-cat_t = csvread('~/Desktop/project/data_mining/nearby_galaxies/m31/ascii_tables/subsets/subset1.csv',1,3);
+cat_t = csvread('~/Desktop/project/data_mining/nearby_galaxies/m31/ascii_tables/derived_ones_with_mean_per_arcsec.csv',2,1,[2,1,10,26]);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

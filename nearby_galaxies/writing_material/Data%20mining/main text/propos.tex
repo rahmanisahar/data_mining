@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand \Spitzer {{\it Spitzer}}
+
+\title{Mining in Nearby Galaxies}
+\author{S.~Rahmani, H.~Teimoorinia, P.~Barmby}
+\date{October 2015}
+
+\begin{document}
+
+\maketitle
+
+\section*{General Idea}
+
+Andromeda galaxy (M31) was targeted by many probes, and there are variety of data available for this particular galaxy.
+M31 was mapped from X-ray to 21 cm emission. Also, spectroscopy data of different regions of M31 is available in various band passes. Besides, physical quantities of these galaxy have been studied in great details. 
+ So this galaxy can be considered as a suitable target for data mining and finding possible patterns in the data.
+ A Self Organizing Map (SOM) is a very valuable tool to cluster data based on similarity and topology. It can reduce the dimensionality of data so it is able to visualize results in a more convenient way.
+In this project we are studying 10 regions in M31 from the bulge to the star forming ring. These regions are chosen because of availability of data from \Spitzer/Infrared Spectrograph (IRS) for them.
+Using SOM models, the aim is to cluster and visualize the regions on the SOM maps and to find relation between observational and physical quantities of the galaxy in the different regions. 
+By using similar data from other nearby spiral galaxies (as validation sets) we will check our results to see whether M31 is a unique case or the obtained relations are valid for other galaxies, too. 
+Our final goal is to create a model which predicts spiral galaxies properties using spectroscopy and photometry data of the few regions within them.
+
+\section*{Method}
+
+In order to find a relation between physical and observational quantities in the 10 regions we produce different SOM maps with different sizes and different internal parameters. 
+We consider various combinations of data and the parameters to find a optimized model. After optimization and finding a suitable model, we start investigating the relation between regions on the map and the physical parameters related to the regions. A question is that what happens if we add or omit some data of our input data and the possible effects on SOM maps.
+
+We are going to test what happens if we add data from the other spiral galaxies to our original data and create new SOM to check whether it affects our SOM or not. We also are going to validate our results using data from M101, M81 and M32.
+
+\section*{Time line}
+
+\textbf{End of October:} Know how to create SOMs and find what is the effect of each sets of data on final models; Finding optimum size for M31 SOM; What happens if we combine M101 data to M31 data and create a SOM.
+
+\textbf{End of Nov:} Have a preliminary results. Validate our map at least with one other galaxy (find the proper name)
+
+\end{document}

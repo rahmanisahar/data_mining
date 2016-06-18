@@ -298,7 +298,7 @@ function plotData = update_plot(param,fig,plotData,net)
     set(a,...
       'DataAspectRatio',[1 1 1],...
       'Box','on',...
-      'Color',[1 1 1],'FontSize',14) %background colour
+      'Color',[1 1 1]) %background colour
     hold on
 
     % Setup edges
@@ -326,7 +326,7 @@ function plotData = update_plot(param,fig,plotData,net)
     % Setup neurons
     for i=1:numNeurons
       fill(pos(1,i)+shapex,pos(2,i)+shapey,[1 1 1], ...
-        'FaceColor',[188./255 143./255 188./255], ... %neuron colour is purple now
+        'FaceColor',[188./255 143./255 188./255], ... %neuron colour is putple now
         'EdgeColor',[0 0 0]) %Edge colour of the neurons  
     end
     set(a,'XLim',[-1 (dim1-0.5)*dx + 1]);
