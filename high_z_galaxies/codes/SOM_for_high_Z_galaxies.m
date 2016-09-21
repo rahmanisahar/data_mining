@@ -35,7 +35,7 @@ catv_fix=(catv);
 %>>>>---------------------------------------------------------------------------------------------------
 %>>>> normalization data, select only one  
 %>>>> mapminmax: mormalization between -1 and 1.
-%>>>> mapstd: Gaussian normalization to sigma=1 and mean=0
+%>>>> mapstd: Gaussian normalization to sigma=1 and median=0
 %>>>> cat_fix_norm= (cat_fix)  DO Nothing 
 
 cat_fix_norm= (cat_fix);
@@ -216,7 +216,7 @@ for h1=n_1:-1:1
  for   h2=1:1:n_2
     m1=m1+1;
     
-    catm{h1,h2}=mean(annm(av{m1},:));
+    catm{h1,h2}=median(annm(av{m1},:));
     
 end
 end
@@ -380,35 +380,35 @@ for h1=n_1:-1:1
      
      m1=m1+1;
      if (type(m1) == 1) 
-       errorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sm')
+       errorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sm')
        strmax = ['(',num2str(h1),',',num2str(h2),')'];
-       text(mean(ssfr{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+       text(median(ssfr{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
        hold on
-       herrorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(ssfr{h1,h2}),'sm')
+       herrorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(ssfr{h1,h2}),'sm')
      elseif (type(m1)==2) || (type(m1)==3)
-        errorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sr')
+        errorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sr')
         strmax = ['(',num2str(h1),',',num2str(h2),')'];
-        text(mean(ssfr{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+        text(median(ssfr{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
         hold on
-       herrorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(ssfr{h1,h2}),'sr')
+       herrorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(ssfr{h1,h2}),'sr')
      elseif (type(m1)==4) || (type(m1)==5) || (type(m1)==6)
-         errorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sy')
+         errorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sy')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(ssfr{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(ssfr{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on
-       herrorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(ssfr{h1,h2}),'sy')
+       herrorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(ssfr{h1,h2}),'sy')
      elseif (type(m1)==7) || (type(m1)==8) || (type(m1)==9)
-         errorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sb')
+         errorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sb')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(ssfr{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(ssfr{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on
-       herrorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(ssfr{h1,h2}),'sb')
+       herrorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(ssfr{h1,h2}),'sb')
      else
-         errorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sk')
+         errorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sk')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(ssfr{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(ssfr{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on
-       herrorbar(mean(ssfr{h1,h2}),mean(D4000{h1,h2}),std(ssfr{h1,h2}),'sk')
+       herrorbar(median(ssfr{h1,h2}),median(D4000{h1,h2}),std(ssfr{h1,h2}),'sk')
      end
    hold on
    xlabel('log \phi [Gyr^{-1}]')
@@ -422,35 +422,35 @@ for h1=n_1:-1:1
      
      m1=m1+1;
      if (type(m1) == 1) 
-       errorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(ssfr{h1,h2}),'sm')
+       errorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(ssfr{h1,h2}),'sm')
        strmax = ['(',num2str(h1),',',num2str(h2),')'];
-       text(mean(stellar_mass{h1,h2})+0.2,mean(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+       text(median(stellar_mass{h1,h2})+0.2,median(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
        hold on
-       herrorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sm')
+       herrorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sm')
      elseif (type(m1)==2) || (type(m1)==3)
-        errorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(ssfr{h1,h2}),'sr')
+        errorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(ssfr{h1,h2}),'sr')
         strmax = ['(',num2str(h1),',',num2str(h2),')'];
-        text(mean(stellar_mass{h1,h2})+0.2,mean(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+        text(median(stellar_mass{h1,h2})+0.2,median(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
         hold on
-       herrorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sr')
+       herrorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sr')
      elseif (type(m1)==4) || (type(m1)==5) || (type(m1)==6)
-         errorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(ssfr{h1,h2}),'sy')
+         errorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(ssfr{h1,h2}),'sy')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(stellar_mass{h1,h2})+0.2,mean(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(stellar_mass{h1,h2})+0.2,median(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on
-       herrorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sy')
+       herrorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sy')
      elseif (type(m1)==7) || (type(m1)==8) || (type(m1)==9)
-         errorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(ssfr{h1,h2}),'sb')
+         errorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(ssfr{h1,h2}),'sb')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(stellar_mass{h1,h2})+0.2,mean(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(stellar_mass{h1,h2})+0.2,median(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on
-       herrorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sb')
+       herrorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sb')
      else
-         errorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(ssfr{h1,h2}),'sk')
+         errorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(ssfr{h1,h2}),'sk')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(stellar_mass{h1,h2})+0.2,mean(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(stellar_mass{h1,h2})+0.2,median(ssfr{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on
-       herrorbar(mean(stellar_mass{h1,h2}),mean(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sk')
+       herrorbar(median(stellar_mass{h1,h2}),median(ssfr{h1,h2}),std(stellar_mass{h1,h2}),'sk')
      end
    hold on 
    xlabel('log M_{star} [M_{Sun}]')
@@ -464,35 +464,35 @@ for h1=n_1:-1:1
      
      m1=m1+1;
      if (type(m1) == 1) 
-       errorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sm')
+       errorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sm')
        strmax = ['(',num2str(h1),',',num2str(h2),')'];
-       text(mean(stellar_mass{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+       text(median(stellar_mass{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
        hold on 
-       herrorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sm')
+       herrorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sm')
      elseif (type(m1)==2) || (type(m1)==3)
-        errorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sr')
+        errorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sr')
         strmax = ['(',num2str(h1),',',num2str(h2),')'];
-        text(mean(stellar_mass{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+        text(median(stellar_mass{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
         hold on 
-       herrorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sr')
+       herrorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sr')
      elseif (type(m1)==4) || (type(m1)==5) || (type(m1)==6)
-         errorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sy')
+         errorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sy')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(stellar_mass{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(stellar_mass{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on 
-       herrorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sy')
+       herrorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sy')
      elseif (type(m1)==7) || (type(m1)==8) || (type(m1)==9)
-         errorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sb')
+         errorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sb')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(stellar_mass{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(stellar_mass{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on 
-       herrorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sb')
+       herrorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sb')
      else
-         errorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(D4000{h1,h2}),'sk')
+         errorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(D4000{h1,h2}),'sk')
          strmax = ['(',num2str(h1),',',num2str(h2),')'];
-         text(mean(stellar_mass{h1,h2})+0.2,mean(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
+         text(median(stellar_mass{h1,h2})+0.2,median(D4000{h1,h2})+0.2,strmax,'HorizontalAlignment','right');
          hold on 
-       herrorbar(mean(stellar_mass{h1,h2}),mean(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sk')
+       herrorbar(median(stellar_mass{h1,h2}),median(D4000{h1,h2}),std(stellar_mass{h1,h2}),'sk')
      end
    hold on  
    xlabel('log M_{star} [M_{Sun}]')

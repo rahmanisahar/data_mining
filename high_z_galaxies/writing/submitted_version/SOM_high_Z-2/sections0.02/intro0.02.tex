@@ -1,0 +1,80 @@
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Intro
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\section{Introduction}
+\label{sec: intro}
+% categorizing galaxies based on their SED
+The light from galaxies is all the information we could get from them. 
+All the observable phenomena inside a galaxy leave footprints on spectral energy distribution (SED) of the galaxy.
+With proper modelling of various features on their SEDs, some of the galaxies' physical properties can be determined.
+The general shape of the SEDs can be used as an identifier of the morphological type of the galaxies.
+In the first attempt the morphological features of galaxies can be categorized to three main groups: elliptical, spiral or irregular galaxies.
+Each of these groups has their own characteristic features and the first two groups can be divided into many branches.
+
+Advances in imaging techniques, and photometry and spectroscopy devises help to have higher resolution data and more detailed SEDs. 
+Thus, the variations between SEDs become more clear and the classification of galaxies became more complicated.
+Many groups used data from nearby galaxies in order to composite a thorough template for categorizing the spectral type of the galaxies~\citep[e.g.][]{Kinney93}~\citep[][hereafter K96]{Kinney96}~\citep[][]{Bershady00,Mannucci01}.
+Based on the usage of the templates, these templates could be restricted to various wavelengths.
+In case of near-IR to ultraviolet (UV) wavelengths (which is pick output of stars), SED contains information about the main features of physical properties of galaxies i.e. age, star formation rate (SFR), stellar mass, wide range of the stellar population, some information on interstellar medium (ISM)'s absorption and emission lines, and extinction from ISM of the galaxies.
+
+SEDs of galaxies can be used to derive physical properties of galaxies, and morphological type galaxies.
+Since not two galaxies, even with the same morphology, have exactly the same properties, classifying the SED of the galaxies are a challenge.
+Many fitting methods are developed and used to find the best matches of template for each SED.
+$\chi^2$ minimizing method is the most commonly used method to do so. 
+Artificial neural networks (ANNs), K-mean clustering, and principal component analysis are the other methods to cluster and classifying the morphological type of the galaxies based on their SED \citep[e.g.][]{Allen13,Ordov14,Shi15}.
+
+%ANNs
+ANNs are very powerful tools to use in data processing and pattern recognition problems.
+Their information process method was inspired by the way neurons in human brains work.
+An ANN contains many interconnected units (nodes or neurons) which process data and work together to solve problems.
+It uses training methods to learn about a non-linear and complex relations between input and output data and how to apply it to new sets of data.
+Studies show that ANNs provides better fitting than minimizing chi square and would be an alternative choice for fitting data~\citep[e.g.][]{Marquez91,Moayed09}.
+In cases that both methods show the same correlation, ANNs still are a better method of fitting due their faster results in large data bases~\citep[][]{Gulati97}.
+
+Neural networks can be trained in two methods; supervised and unsupervised.
+In supervised method, a neural network would be trained using input data based on desired outcome.
+This method is very useful for classification of data with specific target values (i.e. any pattern recognition with known templates).
+On the other hand, in unsupervised method there is no prediction of output data.
+This method classifies data based on their underlying structures and hidden variables.
+The unsupervised method is a very helpful method to knowledge discovery of your data, or when the underlying structure of data is not well established (i.e. producing a template of SED of galaxies).
+
+Kohonen Self organizing map (or self organizing map, SOM) is an unsupervised neural network for mapping and visualizing a complex and non-linear high dimension data introduced by~\citep{Kohonen82}.
+The SOM is a technique that shows a simple geometry relationship of a non-linear high dimension data on a map \citep{Kohonen98}.
+%SOM in Astronomy
+The utilization of the SOM in astronomy dates back to 1990s. 
+\citet[][]{Odewahn92}, \citet[][]{Hernandez94}, and \citet[][]{Murtagh95} were among the first studies in astronomy that used SOM for their studies.
+From classifying quasars' spectra to star/galaxy classifications, from gamma-ray bursts clustering to classification of light curves, this method have been used in various aspects in astronomy \citep[e.g.][]{Maehoenen95, Miller96,Andreon00,Balastegui01,Rajaniemi02,Brett04,Scaringi09}.
+%20160509PB: suggest starting a new paragraph here, with an introductory sentence about galaxy spectra.
+%SR20160512: I start new paragraph after the next sentence not here.
+\citet{Geach12} used COSMOS data to demonstrate two of main applications of SOMs; object classification and clustering, and photometric redshift estimation. 
+The later one was subject of many studies \citep[e.g.][]{Kind14a}.
+
+Spectrum of a galaxy is from combination of spectra of million stars and clouds inside the galaxy.
+Therefore, large spectra data sets contain information of billions of stars and other objects inside galaxies, and needs to be studied carefully. %%%EEEHHHH
+\citet{In12} introduced a new clustering tool, which is based on the SOM method for analysing large data of spectra.
+They used $\sim 60000$ spectra from the Sloan Digital Sky Survey \citep[SDSS;][]{Abazajian09}
+to test their tool, and created very large SOMs to analyse the type of spectra/objects.
+They also generated SOMs from quasars' spectra in order to find unusual types of quasars' spectra. Later \citet{Meusinger16} used these SOMs and updated data from SDSS and other surveys and found a new class of quasars.
+The other application of the SOM is to find outliers or errors in the data.
+\citet{Fustes13} produced a package based on SOM to classify spectra from GAIA survey that were previously classified as "unknown" by SDSS pipeline. The package recognizes an astronomical object from artificial errors, and then classifies the object based on its spectra.
+
+%What is this paper about
+We used SED of a 142 galaxies with 0.5 < $z$ < 1 from~\citet[][hereafter T12]{Hossein12} paper.
+T12 classified SED of a sample of galaxies using supervised neural network method, based on the spectral model presented by K96.
+With supervised method, they could only classify SED of the 105 out of 142 galaxies.
+The SED of the 37 galaxies from their samples could not be matched with any of those in the K96 templates. 
+In order to classify the remaining 37 galaxies, they combined spectrum of the K96 templates.
+The latter shows that, not a single type of galaxies in K96 template could describe the SED of the 37 galaxies.
+The unsupervised methods, on the other hand, have the freedom of classifying objects between known classes, which can be used in this data to find the best SED class for the 37 galaxies.
+T12 also showed that there are tight correlations between physical properties of galaxies and these correlations might be different for each type of the galaxies.
+
+In order to compare supervised and unsupervised method, in this paper, we used data from K96 template to train unsupervised neural networks. 
+The network clustered the SEDs and mapped those clusters and their relative relations.
+We compared our results with K96 galaxies classification.
+Then we classify the SED of a sample of galaxies using the constructed SOM.
+
+ In Section $\S$~\ref{sec: data}, we present the data that we used to train and test our networks. We describe the SOM in Section $\S$~\ref{sec: method}. The results of the SED classifications and comparing them with previous studies are shown in Section $\S$~\ref{sec: result}. In Section $\S$~\ref{sec: summary}, we present the summary of our results and the future works in this subject.

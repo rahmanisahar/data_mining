@@ -1,4 +1,4 @@
-function som_subsets(infile,dir,names,outname)
+function som_subsets(infile,dir,outname)
 
 clc
 %This function creats a som for available data in m31 (54 raws for 10
@@ -51,7 +51,7 @@ cat_fix_norm = (y_max - y_min) * (cat_fix - catt_min) ./ (catt_max - catt_min) +
  
  %cat_fix_norm= mapstd(cat_fix);
 
-annt=cat_fix_norm(:,2:10); %changing namme to introduce to network
+annt=cat_fix_norm; %changing namme to introduce to network
 sz=size(annt); %finding size of original data
 nums=sz(2); % #of regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,7 +132,7 @@ end
 
  
 
-net.inputs{1}.userdata = names;
+%net.inputs{1}.userdata = names;
 
 %>>>>end
 
@@ -171,5 +171,5 @@ saveas(figure(4),fig4,'png')
 saveas(figure(2),fig21,'fig')
 saveas(figure(4),fig41,'fig')
   
-close all
+%close all
 end

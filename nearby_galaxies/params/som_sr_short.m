@@ -70,10 +70,10 @@ nums=sz(2); % #of regions
  n2st=int2str(n_2);
 
 
-ost=1000;
+ost=100;
 tnd=1;
 
-orl=.9;
+orl=0.9;
 tlr=0.02;
 
 
@@ -174,31 +174,31 @@ figure(4)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  fig11 = strcat(dir,'dist_without_reg1_all.fig');
-  fig21= strcat(dir,'hits_without_reg1_all.fig');
-  fig41 = strcat(dir,'combine_without_reg1_all.fig');
-  fig31 = strcat(dir,'weigth_without_reg1_all.fig');
+  fig11 = strcat(dir,'dist_1by3_all.fig');
+  fig21= strcat(dir,'hits_1by3_all.fig');
+  fig41 = strcat(dir,'combine_1by3_all.fig');
+  fig31 = strcat(dir,'weigth_1by3_all.fig');
   %pers= strcat(dir,'pers',n1st,'by',n2st,'_data_between_cols',col1st,'and',col2st,'.csv');
-  pos = strcat(dir,'pos_without_reg1_all.csv');
-  nett= strcat(dir,'net_without_reg1_all');
+  pos = strcat(dir,'pos_1by3_all.csv');
+  nett= strcat(dir,'net_1by3_all');
 save(nett, 'net')
 
 
-  fig1 = strcat(dir,'dist_without_reg1_all.png');
-  fig2 = strcat(dir,'hits_without_reg1_all.png');
-  fig4 = strcat(dir,'combine_without_reg1_all.png');
-  fig3 = strcat(dir,'weigth_without_reg1_all.png');
+  fig1 = strcat(dir,'dist_1by3_all.png');
+  fig2 = strcat(dir,'hits_1by3_all.png');
+  fig4 = strcat(dir,'combine_1by3_all.png');
+  fig3 = strcat(dir,'weigth_1by3_all.png');
 %table = cell2table(pers_result);
 %writetable(table,pers);
 csvwrite(pos,Mtx_TAB_1); 
-saveas(figure(1),fig11,'fig')
-saveas(figure(2),fig21,'fig')
-saveas(figure(3),fig31,'fig')
-saveas(figure(4),fig41,'fig')
+%saveas(figure(1),fig11,'fig')
+%saveas(figure(2),fig21,'fig')
+%saveas(figure(3),fig31,'fig')
+%saveas(figure(4),fig41,'fig')
 
-saveas(figure(1),fig1,'png')
-saveas(figure(2),fig2,'png')
-saveas(figure(3),fig3,'png')
-saveas(figure(4),fig4,'png')
-close all
+%saveas(figure(1),fig1,'png')
+%saveas(figure(2),fig2,'png')
+%saveas(figure(3),fig3,'png')
+%saveas(figure(4),fig4,'png')
+%close all
 end

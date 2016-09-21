@@ -1,0 +1,202 @@
+\documentclass[useAMS,usenatbib]{mn2e}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=True,
+    linkcolor=red,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=blue,
+}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{mn2e}
+\usepackage{times}
+\usepackage{float}
+%\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{color,soul}
+\usepackage{import}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multicol}        % Multi-column entries in tables
+\usepackage{bm}		% Bold maths symbols, including upright Greek
+\usepackage{pdflscape}	% Landscape pages
+%\usepackage{booktabs,fixltx2e}
+\usepackage[flushleft]{threeparttable}
+\usepackage{pgffor}
+
+
+\newcommand \kpc        {\,{\rm kpc}}
+\newcommand \halpha    {H$\alpha $\ }
+\newcommand \um    {$\mu$m\ }
+\newcommand \mice {$\mu$m}
+\newcommand \nprime {N$^\prime$}
+\newcommand \boldit {\textbf{\textit{}}}
+\newcommand \eqnprime {N^\prime}
+\newcommand \Spitzer {{\it Spitzer }}
+\newcommand \GALEX {GALEX }
+\newcommand \Herschel {{\it Herschel }}
+\newcommand{\sii}{S~{\textsc II}\ } 
+\newcommand{\oiii}{O~{\textsc III}\ } 
+\newcommand{\hi}{H~{\textsc I}\ }
+
+\newcommand \aaj {A\&A}
+\newcommand \aarv {A\&ARv}%: Astronomy and Astrophysics Review (the)
+\newcommand \aas{A\&AS}%: Astronomy and Astrophysics Supplement Series
+\newcommand \afz {Afz}%: Astrofizika
+\newcommand \aj {AJ}%: Astronomical Journal (the)
+\newcommand \apss {Ap\&SS}%: Astrophysics and Space Science
+\newcommand \apj {ApJ}
+\newcommand \apjs {ApJS}%: Astrophysical Journal Supplement Series (the)
+\newcommand \araa {ARA\&A} %: Annual Review of Astronomy and Astrophysics
+\newcommand \asp {ASP Conf. Ser.}%: Astronomy Society of the Pacific Conference Series
+\newcommand \azh {Azh}%: Astronomicheskij Zhurnal
+\newcommand \baas {BAAS}%: Bulletin of the American Astronomical Society
+\newcommand \mem {Mem. RAS}%: Memoirs of the Royal Astronomical Society
+\newcommand \mnassa {MNASSA}%: Monthly Notes of the Astronomical Society of Southern Africa
+\newcommand \mnras {MNRAS} %: Monthly Notices of the Royal Astronomical Society
+%\newcommand {Nature}%(do not abbreviate)
+\newcommand \pasj {PASJ}%: Publications of the Astronomical Society of Japan
+\newcommand \pasp {PASP}%: Publications of the Astronomical Society of the Pacific
+\newcommand \qjras {QJRAS}%: Quarterly Journal of the Royal Astronomical Society
+\newcommand \mex {Rev. Mex. Astron. Astrofis.}%: Revista Mexicana de Astronomia y Astrofisica
+%\newcommand {Science }%}%(do not abbreviate)
+\newcommand \sva {SvA}%: Soviet Astronomy
+\newcommand \aap {APP} %:American Academy of Pediatrics
+\newcommand \apjl {ApJL} %:The Astrophysical Journal Letters
+
+%\defcitealias{Hossein12}{\citetalias{Hossein12}}
+
+\begin{document}
+% TITLE
+\defcitealias{Hossein12}{T12}
+\defcitealias{Kinney96}{K96}
+\defcitealias{Noll09}{N09}
+
+\title[Classifying high-$z$ galaxy spectra]{Classifying galaxy spectra at $0.5<z<1$: an unsupervised approach}
+%\author{rahmani.sahar}
+\date{\today}
+\author[S.~Rahmani, H.~Teimoorinia and P.~Barmby]{S.~Rahmani$^{1,2}$\thanks{E-mail:
+srahma49@uwo.ca}, H.~Teimoorinia$^{3}$, P.~Barmby$^{1,2}$\\
+$^{1}$Department of Physics $\&$ Astronomy, Western University, London, ON N6A 3K7, Canada\\
+$^{2}$Center for Planetary Science \& Exploration, Western University, London, ON N6A 3K7, Canada\\
+$^{3}$Department of Physics $\&$ Astronomy, University of Victoria, Finnerty Road, Victoria, British Columbia, V8P 1A1, Canada}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%abstract
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+The spectral energy distribution (SED) of a galaxy contains information about its physical properties.
+Classifying SEDs using templates helps elucidate the nature of a galaxy's energy sources.
+However, available templates are limited, which can complicate SED classification.
+Most current classification methods cannot classify SEDs outside the range of templates, and will fail in special cases.
+In this paper, we introduce a new method of classifying the spectral
+energy distributions of high redshift galaxies: the self-organizing map.
+Self-organizing maps are a type of artificial neural network, mostly used to identify subgroups in a sample.
+We trained an unsupervised self-organizing map networks using a set of
+galaxy SED templates covering the wavelength range from far ultraviolet to near infrared.
+The trained networks were used to classify the SEDs of a sample of 142 galaxies with $0.5 < z < 1$.
+Compared to previous attempts to classify this sample, the
+self-organizing map approach was able to better classify the SEDs which had
+similarities with more than one template.
+The averaged SEDs and physical properties of the galaxies in each neuron of the self-organizing maps are consistent with other results on galaxy evolution.
+
+
+\end{abstract}
+\begin{keywords} 
+ galaxies: high red shifts, galaxies: spectral energy distribution, methods: observational, methods: statistical, data mining, methods:data analysis
+\end{keywords}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Intro
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\import{sections0.06/}{intro0.06.tex}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%DATA
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\import{sections0.06/}{data0.06.tex}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Method
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\import{sections0.06/}{method0.06.tex}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Results
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\import{sections0.06/}{results0.06.tex}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Summery
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\section{SUMMARY AND FUTURE APPLICATIONS}
+\label{sec: summary}
+Self-organizing maps can be used to classify celestial objects (e.g. stars, quasars, spectra of galaxies, light curves, etc.)
+Galaxy spectra can be classified in various networks with different sizes/dimensions based on the information needed from the data. 
+If a broad and general classification is required, networks can have one dimension with a few neurons.
+If one needs more detailed classifications, a higher number of neurons should be used.
+Since self-organizing maps do not include the uncertainty of input parameters, sometimes too much attention to detail can cause problems in classifications. 
+When using the SOM method, one should consider whether small differences between objects are physically meaningful when separating two groups from each other.
+
+We used SOMs to classify the template spectra of \citetalias{Kinney96}, made from galaxies with known morphological type, and created networks with different uses.
+By varying the size of the networks, we found the relative similarity between the \citetalias{Kinney96} template classes.
+A one-dimensional network with 22 neurons was needed in order to
+separate all 12 \citetalias{Kinney96} spectra; we concluded that \citetalias{Kinney96} types B and E, and types SB1 and SB2, are very similar to each other.
+We also showed that networks generated with the SOM method can be used to easily identify new types of spectra in large surveys.
+
+A sample of 142 high-redshift galaxy SEDs from \citetalias{Hossein12} was classified by the trained networks.
+The classification results showed that using SOMs can allow identification of galaxies with SEDs similar to two or more morphological types.
+The freedom of having in-between types is one of the main differences between supervised and unsupervised artificial neural networks.
+\citetalias{Hossein12} used a supervised training method to train networks with \citetalias{Kinney96} SED templates and classify the same sample of 142 galaxy spectra;
+however, they could not classify 37 out of 142 spectra.
+The unsupervised method used in this project was able to classify  all 142 spectra in the sample
+as belonging to one of the morphological types introduced by \citetalias{Kinney96} or a class in between those types.
+
+The properties of the galaxies in the \citetalias{Hossein12} sample using the new classification were found to be more tightly correlated in mean values of age, specific star formation rate, stellar mass, and far-UV extinction than in previous studies. 
+The properties of the galaxies in each group are in good agreement with their morphological types.
+
+\section*{ACKNOWLEDGMENTS}
+The authors thank S. Lianou and A. Tammour for their useful comments. 
+S.R. and P.B. also acknowledge research support from the Natural Sciences and Engineering Research Council of Canada. 
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%biblio
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\bibliographystyle{apalike}
+\bibliography{ref_mining_h.bib}
+
+\import{sections0.0/}{apps0.0.tex}
+\end{document}

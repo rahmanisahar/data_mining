@@ -1,0 +1,445 @@
+89,97c89,98
+< We use an unsupervised self organizing map(SOM) as a training method to train networks with a sample of galaxies with SEDs between FUV to NIR wavelengths, which their morphological types are known.
+< Since information that can be extracted from each network depends on the size and dimension of the trained networks, in this project we train networks with different grids in 1D or 2D.%%???
+< We visualise each trained network using a new version of SOM plots.
+< To test trained networks, we cluster a sample of 142 galaxies with 0.5 < $z$ < 1 using each of the trained networks.
+< We plot average SED of SEDs of galaxies in each neurons in 1D networks, to investigate the nature galaxies in new clusters.
+< For each network, we visualise the properties of galaxies in each neurons. %%%% combine 94 and 93 
+< We compare mean physical properties of the galaxies in each neuron such as age, specific star formation rate, stellar mass, and FUV extinction, with each other and found a tight correlations between them. 
+< Comparing our results with clustering results from supervised artificial neural networks, show us using SOM we can classify galaxies in between types of original spectral types. %%rephrase
+< As a result we have a power tool to classify spectral galaxies based on their SEDs which also can  identify galaxies with a new shape of SEDs.
+---
+> We use an unsupervised self-organizing map (SOM) as a method to train networks containing a sample of galaxies with SEDs ranging from FUV to NIR wavelengths
+> The morphological types of these galaxies are known.
+> The information that can be extracted from each network depends on the size and dimension of the trained networks, and therefore, in this project we train networks with different grid sized (?) in 1D and 2D.%%???
+> We take a new approach to plot the SOMs in order to enhance the visualization of each trained network.
+> To test each of the trained networks by using them to cluster a sample of 142 galaxies with 0.5 < $z$ < 1.
+> To investigate the nature of galaxies in a new cluster, we plot the SED that is averaged over galaxies in each neuron in a 1D network.
+> For each network, we visualise the properties of galaxies in each neurons. (<- this sentence really does not belong here. And I cannot figure out where it belongs either. In general, you need to rearrange the sentences.) %%%% combine 94 and 93 
+> We compare mean physical properties (mean physical property???) of the galaxies in each neuron such as age, specific star formation rate, stellar mass, and FUV extinction with each other and find a tight (tight?) correlations between them. 
+> Comparing our results with clustering results from supervised artificial neural networks, shows us using SOM we can classify galaxies in between types of original spectral types.(<- I can't understand this sentence. Therefore, I can't change it.) %%rephrase
+> As a result we have a power tool (``power'' can wither be a verb or a noun. ``tool'' is usually a noun and sometimes is used as a verb. ``power-tool'' sounds odd but legal, and can be the name of a product. ``power tool'' is a tool that is actuated by an additional power source and mechanism other than the solely manual labour used with hand tools. maybe you mean powerful tool?) to classify spectral glaxies (really? there is a type of galaxy called spectral galaxy? do you mean galaxy spectra?) based on their SEDs which also can (can also) identify (what can identify? break the sentence into several sentences to make it easier to read) galaxies with a new shape of SEDs (Does it identify galaxies that have new shape of SEDs, or it identify galaxies using (with) new shape of SEDs?).
+105c106
+<  galaxies: high red shifts, galaxies: spectral energy distribution, methods: observational, methods: statistical, data mining, methods:data analysis
+---
+>  galaxies: high red shifts, galaxies: spectral energy distribution, methods: observational, methods: statistical, data mining, methods: data analysis
+117c118
+< All the information we can obtain from a galaxy is encapsulated in the light it emits; every observable phenomenon in a galaxy leaves a footprint on the spectral energy distribution (SED) of that galaxy.
+---
+> All information we can obtain from a galaxy is encapsulated in the light it emits; every observable phenomenon in a galaxy leaves a footprint on the spectral energy distribution (SED) of that galaxy.
+120,121c121,122
+< Considering the main features of the SEDs galaxies can be categorized in two main groups: elliptical, or spiral.
+< Each group has its own characteristic features and can be divided into many sub-branches.
+---
+> Considering the main features of SEDs, galaxies can be categorized into two main groups: elliptical, or spiral.
+> Each group has its own characteristic features and can in turn be divided into many sub-branches.
+126c127
+< In near-infrared (NIR) to ultraviolet (UV) domain of wavelengths (the region where output of stars peaks), SED contains information about the main physical properties of galaxies, e.g., age, star formation rate (SFR), stellar mass, wide range of the stellar population, some information on interstellar medium (ISM)'s absorption and emission lines, and extinction from ISM of the galaxies.
+---
+> In near-infrared (NIR) to ultraviolet (UV) domain of wavelengths (the region where output of stars peak), SED contains information about the main physical properties of galaxies, e.g., age, star formation rate (SFR), stellar mass, wide range of the stellar population, some information on interstellar medium (ISM)'s absorption and emission lines, and extinction from ISM.
+132,136c133,136
+< This has helped to see the more detailed SEDs, which made classification of galaxies more complex.
+< Since no two galaxies, even with the same morphology, have exactly the same properties, classifying the SED of the galaxies using the templates are a challenge.
+< Many fitting methods are developed and used to find the best matches of template for each SED.
+< $\chi^2$ minimizing method is the most commonly used method to do so. 
+< Artificial neural networks (ANNs), K-mean clustering, and principal component analysis are the other methods to cluster and classifying the morphological type of the galaxies based on their SED \citep[e.g.][]{Allen13,Ordov14,Shi15}.
+---
+> Although this has resulted in a more detailed observation of SEDs, it has also made classification of galaxies more complex.
+> Since no two galaxies, even with the same morphology, have exactly the same properties, classifying the SED of the galaxies using the templates is very challenging.
+> To overcome this challenge, many fitting methods have been developed and used to find the best template match for each SED, with $\chi^2$ minimizing method being the most commonly used. 
+> Artificial neural networks (ANNs), K-mean clustering, and principal component analysis are some other methods used to cluster and classify the morphological type of the galaxies based on their SED \citep[e.g.][]{Allen13,Ordov14,Shi15}.
+139,140c139
+< ANNs are very powerful tools to use in data processing and pattern recognition problems.
+< Their information process method was inspired by the way neurons in human brains work.
+---
+> ANNs, which are inspired by the way neurons in a human brain route and process data, are very powerful tools that are used in data processing and pattern recognition problems.
+142,144c141,143
+< It uses set of training methods to learn about a non-linear and complex relations between input and output data and how to apply it to new sets of data.
+< Studies show that ANNs provides better fitting than minimizing chi-square and would be an alternative choice for fitting data~\citep[e.g.][]{Marquez91,Moayed09}.
+< In cases that both methods show the same correlation, ANNs still are a better method of fitting due their faster results in large data bases~\citep[][]{Gulati97}.
+---
+> It uses a set of training methods to learn about nonlinear and complex relations between input and output data, and how to apply these relations to new sets of data.
+> Studies have shown that ANNs outperform chi-square minimizing technique and can be used as an alternative choice for fitting data~\citep[e.g.][]{Marquez91,Moayed09}.
+> Specifically, ANNs perform faster in large databases~\citep[][]{Gulati97}.
+148c147
+< In supervised method, a neural network would be trained using input data based on desired outcome.
+---
+> In supervised method, a neural network would be trained using input data based on a desired outcome.
+150,152c149,151
+< On the other hand, in unsupervised method there is no prediction of output data.
+< This method classifies data based on their underlying structures and hidden variables.
+< The unsupervised method is a very helpful method to knowledge discovery of your data, or when the underlying structure of data is not well established (e.g. producing a template of SED of galaxies).
+---
+> On the other hand, in unsupervised method there is no prediction of output.
+> This method classifies data based on their underlying structures and hidden patterns.
+> The unsupervised method is very helpful to obtain knowledge from the data, or when the underlying structure of data is not well established (e.g. producing a template of SED of galaxies).
+155,156c154,155
+< Kohonen Self organizing map (or self organizing map, SOM) is an unsupervised neural network for mapping and visualizing a complex and non-linear high dimension data introduced by~\citep{Kohonen82}.
+< The SOM is a technique that shows a simple geometry relationship of a non-linear high dimension data on a map \citep{Kohonen98}.
+---
+> Kohonen Self organizing map (also called self organizing map, SOM) is an unsupervised neural network for mapping and visualizing a complex and nonlinear high dimension data introduced by~\citep{Kohonen82}.
+> It shows a simple geometrical relationship of a non-linear high dimension data on a map \citep{Kohonen98}.
+158,160c157,159
+< The utilization of the SOM in astronomy dates back to 1990s. 
+< \citet[][]{Odewahn92}, \citet[][]{Hernandez94}, and \citet[][]{Murtagh95} were among the first studies in astronomy that used SOM for their studies.
+< From classifying quasars' spectra to star/galaxy classifications, from gamma-ray bursts clustering to classification of light curves, this method have been used in various aspects in astronomy \citep[e.g.][]{Maehoenen95, Miller96,Andreon00,Balastegui01,Rajaniemi02,Brett04,Scaringi09}.
+---
+> The utilization of the SOM in astronomy dates back to 1990s, and \citet[][]{Odewahn92}, \citet[][]{Hernandez94}, and \citet[][]{Murtagh95} were among the first to use SOM in their studies.
+> \citet{Geach12} used COSMOS data to demonstrate two of the main applications of SOM: object classification and clustering, and photometric redshift estimation; the later one was the subject of many other studies \citep[e.g.][]{Kind14a}.
+> From classifying quasars' spectra to star/galaxy classifications, from gamma-ray bursts clustering to classification of light curves, this method has proved to be useful in various fields of astronomy \citep[e.g.][]{Maehoenen95, Miller96,Andreon00,Balastegui01,Rajaniemi02,Brett04,Scaringi09}.
+163,164c162
+< \citet{Geach12} used COSMOS data to demonstrate two of main applications of SOMs; object classification and clustering, and photometric redshift estimation. 
+< The later one was subject of many studies \citep[e.g.][]{Kind14a}.
+---
+> 
+167,174c165,172
+< Spectrum of a galaxy is a combination of spectra of million stars and clouds inside the galaxy.
+< Therefore, large spectra data sets contain information of billions of stars and other objects inside galaxies, and needs to be studied carefully. %%%EEEHHHH
+< \citet{In12} introduced a new clustering tool, which is based on the SOM method for analysing large data of spectra.
+< They used $\sim 60000$ spectra from the Sloan Digital Sky Survey \citep[SDSS;][]{Abazajian09}
+< to test their tool, and created very large SOMs to analyse the type of spectra/objects.
+< They also generated SOMs from quasars' spectra in order to find unusual types of quasars' spectra. Later \citet{Meusinger16} used these SOMs and updated data from SDSS and other surveys and found a new class of quasars.
+< The other application of the SOM is to find outliers or errors in the data.
+< \citet{Fustes13} produced a package based on SOM to classify spectra from GAIA survey that were previously classified as "unknown" by SDSS pipeline. The package recognizes an astronomical object from artificial errors, and then classifies the object based on its spectra.
+---
+> Spectrum of a galaxy contains the spectra of million stars and clouds inside the galaxy.
+> Therefore, the spectra datasets are typically very large and very complex to study. %%%EEEHHHH
+> \citet{In12} introduced a new clustering tool, which was based on the SOM method for analyzing these large datasets.
+> They used $\sim 60000$ spectra from the Sloan Digital Sky Survey \citep[SDSS;][]{Abazajian09} to test their tool, and created very large SOMs to analyze the type of spectra/objects.
+> They also generated SOMs from quasars' spectra in order to find unusual types of spectra. 
+> Later \citet{Meusinger16} used these SOMs, and updated data from SDSS and other surveys, and found a new class of quasars.
+> The other application of SOMs is to find outliers or errors in the data.
+> \citet{Fustes13} produced a package based on SOM to classify spectra from GAIA survey that were previously classified as ``unknown'' by SDSS pipeline. This package can recognize an astronomical object from artificial errors, and then classifies the objects based on its spectra.
+177,178c175,176
+< ~\citet[][hereafter T12]{Hossein12} classified SEDs of this sample of galaxies using supervised neural network method, based on the spectral template presented by K96.
+< With supervised method, they could only classify SED of the 105 out of 142 galaxies.
+---
+> ~\citet[][hereafter T12]{Hossein12} classified SEDs of this(??what does ``this'' refer to??) sample of galaxies using supervised neural network method, based on the spectral template presented by K96.
+> With supervised method, they could only classify SED of 105 out of the 142 galaxies.
+182,183c180,181
+< Since the SOM have the freedom of classifying objects in between the known classes, it be applied on this data to find the best SED class for the 37 galaxies.
+< T12 also showed that there are tight correlations between physical properties of galaxies and these correlations might be different for each type of the galaxies.
+---
+> Since the SOM have the freedom to classify objects in between the known classes, it could be applied on this data to find the best SED class for the remaining 37 galaxies.
+> T12 also showed that there are tight correlations between physical properties of galaxies, and these correlations might be different for each type of galaxies.
+186,190c184,191
+< In order to compare supervised and unsupervised methods directly, we used exactly the same data as T12 used.  
+< First, we trained SOMs using data from K96 and compared our classification with K96 galaxies classification.
+< Then, we used the trained network to classify the SEDs of 142 galaxies with 0.5 < $z$ < 1 from T12 paper.
+< Same as T12, We also plotted the properties of the T12 galaxies based on the new clusters and compared them with previuse works.
+< In Section $\S$~\ref{sec: data}, we present the data that we used to train and test our networks. We describe the SOM methos in Section $\S$~\ref{sec: method}. The results of the SED classifications and comparing them with previous studies are shown in Section $\S$~\ref{sec: result}. In Section $\S$~\ref{sec: summary}, we present the summary of our results and the future works in this subject.
+---
+> In order to compare supervised and unsupervised methods directly, we use exactly the same data as T12.  
+> First, we train SOMs using data from K96 and compare our classification with K96 galaxies classification.
+> Then, we use the trained network to classify the SEDs of 142 galaxies with 0.5 < $z$ < 1 from T12 paper.
+> Same as T12, we also plot the properties of the T12 galaxies based on the new clusters and compare them with previous works.
+> In Section $\S$~\ref{sec: data}, we present the data that we use to train and test our networks. 
+> We describe the SOM methods in Section $\S$~\ref{sec: method}. 
+> The results of the SED classifications and a comparison with previous studies are presented in Section $\S$~\ref{sec: result}. 
+> In Section $\S$~\ref{sec: summary}, we summarize our results and discuss the future works in this subject.
+202,204c203,205
+< We used SED templates from K96, to train neural networks.
+< To test the trained networks, we used SED and physical properties of 142 galaxies at 0.5 < $z$ < 1 from T12.
+< Following of T12 work, we chose these two sets of data to not only show the application of SOMs in SED clustering, but also to easily compare both supervised and unsupervised methods.
+---
+> We use SED templates from K96 to train neural networks.
+> To test the trained networks, we use SED and physical properties of 142 galaxies at 0.5 < $z$ < 1 from T12.
+> Following the T12 work, we chose these two sets of data not only to show the application of SOMs in SED clustering, but also to easily compare both supervised and unsupervised methods.
+210c211
+<         \caption{K96 spectra template for 12 types of galaxies from T12 paper (Fig. 1 in T12).Type of each template is shown in each frame. Plots B, E, S0, Sa, Sb and SC show spectra that belongs to early type galaxies. Starburst galaxies spectra are indicated with SB 1 to 6. Higher numbers represent more intrinsic colour extinction.}
+---
+>         \caption{K96 spectra template for 12 types of galaxies from T12 paper (Fig. 1 in T12). The type of each template is shown in each frame. Plots B, E, S0, Sa, Sb and SC show spectra that belong to the early types galaxies. Starburst galaxies spectra are indicated with SB 1 to 6. Higher numbers represent more intrinsic colour extinction.}
+214,217c215,218
+<     K96 used UV-optical spectra of 70 star forming and quiescent nearby galaxies to produce a template that contains 12 types of SEDs.
+<     These templates are widely used in many studies to determine morphological type of galaxies, or find properties of specific types of galaxies in many studies \citep[e.g.][]{Shakouri16,Paiano16,Laporte16,Holden16}.
+<     K96 mentioned that one of the usage of these templates can be classifying the SED of the high redshift galaxies. 
+<     The 12 types of spectra are divided based on their morphological types for early type galaxies or their extinction for starburst galaxies (Fig.~\ref{fig: k96}). 
+---
+>     K96 used UV-optical spectra of 70 star forming and quiescent nearby galaxies to produce a template that contained 12 types of SEDs.
+>     These templates were widely used in many studies to determine morphological type of galaxies or properties of specific types of galaxies\citep[e.g.][]{Shakouri16,Paiano16,Laporte16,Holden16}.
+>     K96 claims that these templates can also be used to classifying the SED of the high redshift galaxies. 
+>     The 12 types (what 12 types? the SEDs? in that case this sentence does not belong here at all) of spectra are divided based on their morphological types for early type galaxies or their extinction for starburst galaxies (Fig.~\ref{fig: k96}). 
+220,222c221,222
+<     Bulge group represents galaxies similar to M31 and M81, which their UV and optical spectroscopy dominated by the stellar population in their bulges.
+<     
+<     The starburst galaxies are divided into six groups (SB1 - SB6) based on their intrinsic extinctions ($E(B-V)$). 
+---
+>     Bulge group represents galaxies similar to M31 and M81, which their UV and optical spectroscopy is dominated by the stellar population in their bulges.
+>     The starburst galaxies are divided into six groups (SB1 to SB6) based on their intrinsic extinctions ($E(B-V)$). 
+225,226c225,226
+<     K96 spectra spans from $\sim1200-10000$\AA with resolution of $\sim 10$\AA~.
+<     However, we only used data between $\sim1200-8000$\AA~to train our networks. 
+---
+>     K96 spectra spans from $\sim1200$\AA to $10000$\AA with a resolution of $\sim 10$\AA~.
+>     However, in this letter we only use data between $\sim1200$\AA to $8000$\AA~to train our networks. 
+228,229c228,229
+<     In early type galaxies' spectra (B to Sb), the spectrum is redder and strong absorption lines, and 4000\AA~break is distinguishable. 
+<     While SEDs of starburst galaxies are more flat on the optical and NIR part than early type one and show strong emission lines.
+---
+>     In early type galaxies' spectra (B to Sb), the spectrum is redder, and strong absorption lines and 4000\AA~break are distinguishable. (I am confused: I corrected this sentence assuming the strong absorption lines and 4000blah blah are distinguishable. If it is wrong, then correct it. However, the sentence, as it were, was wrong.) 
+>     While SEDs of starburst galaxies are more flat on the optical and NIR region than those of the the early types and show strong emission lines (this sentence is incomplete. It starts with while, which creates a clause, but then the second clause is missing. Was this sentence suppose to be a part of previous sentence?).
+236c236
+<     The 142 galaxies had been selected in T12 due to availability of data from HST/ACS; VLA/ISAAC; and \Spitzer/MIPS and IRAC for whole galaxies. 
+---
+>     The 142 galaxies were selected in T12 based on the availability of data from HST/ACS, VLA/ISAAC, \Spitzer/MIPS, and IRAC for whole galaxies (check the commas in this sentence. Semicolons are definitely not grammatically correct.). 
+245c245
+<     Assuming decreasing SFR and visual attenuation ($\tau$) model, Salpeter initial mass function~\citep{Salpeter55} and old stellar population with age of $\sim 10$~Gyr, they derived physical properties of galaxies such as age, and stellar mass.
+---
+>     Assuming decreasing SFR and visual attenuation ($\tau$) model, Salpeter initial mass function~\citep{Salpeter55}, and old stellar population with age of $\sim 10$~Gyr, they derived physical properties of galaxies such as age, and stellar mass.
+247c247
+<     In the Sec.~\ref{sec: 1D}, we studied these properties for each categorization.
+---
+>     In the Sec.~\ref{sec: 1D}, we study these properties for each categorization.
+277c277
+<     For testing the created networks, we used SEDs that were produced by T12. 
+---
+>     For testing the created networks, we use SEDs that were produced by T12. 
+279c279
+<     Since we have used the T12 SEDs to test trained network, we only used the part of the SEDs that have a same wavelength range as K96 templates.  
+---
+>     Since we have used the T12 SEDs to test the trained network, we only used the part of the SEDs that have a same wavelength range as K96 templates.  
+319,324c319,326
+<  The SOM is a clustering method which reduces the dimension of data to lower dimensions, usually 1 or 2D, while preserving topological features of the original data.
+<  Results of SOM contain nodes (neurons) that arranged in 1D or 2D arrays \citep{Kohonen98}. 
+<  
+<  Each node may contain one or more samples from input data and distance between nodes represents similarity or dissimilarity of underlying samples. 
+<  In the way that similar data are closer together in the array and the further nodes go from each other, the more dissimilarity appears between their samples.
+<  A weight vector ``\boldit{W}" with same dimension of the input data associates with each node which will be changed during the process and has a key factor in a position of nodes in the map.
+---
+>  The SOM is a clustering method which reduces the dimension of the data, usually to 1D or 2D, while preserving topological features of the original dataset.
+>  Results of SOM contain nodes (neurons) that are arranged in a 1D or 2D arrays \citep{Kohonen98}. 
+>  Each node may contain one or more samples from the input data.
+>  The distance between the nodes represents similarity or dissimilarity of underlying samples, i.e., similar data are closer together in the array and the longer the distance between two nodes, the more dissimilar are their samples.
+>  A weight vector ``\boldit{W}" with the same dimension as the input data is associated with each node, which will be varied during the training process.
+>  This vector is the key factor in determining the position of the nodes in a map.
+>  \cite{Geach12} presented the application of the SOM and discussed its algorithm in detail.
+>  In this section we briefly discuss the algorithm of SOM, how we create our maps and a present a  test model which will help interpreting our results. 
+326d327
+<  \cite{Geach12} presented the application of the SOM and demonstrate the algorithm of the SOM in detail. In this section we are going to talk briefly about the algorithm of the SOM, how we create our maps and a test model which will help to interpret our results. 
+329c330
+<      Assuming we have a data set which contains vectors, \boldit{V} $\in \Re^n$, and we want to map them on S1 by S2 map. 
+---
+>      Assume we have a dataset which contains vectors, \boldit{V} $\in \Re^n$, and we want to map them on an S1 by S2 map. 
+331,334c332,335
+<      The initial arrangement of these neurons depends on a map's topology provided by users.
+<      In the case of the 1D maps, since each neuron has two immediate neighbours the topology of the map does not have any effect on the final result and we can choose any topology.
+<      However, in 2D maps, the shape of the neurons specifies the number of the immediate neighbours for each neuron and it is up to user that which shape is more suitable for their data.
+<      In this paper, we chose hexagonal topology which gives each neuron six neighbours, and causes more interactions between neurons.
+---
+>      The initial arrangement of these neurons depends on the map's topology provided by the user.
+>      In the case of the 1D maps, since each neuron has two immediate neighbours the topology of the map does not have any effect on the final result and any topology can be chosen.
+>      However, in 2D maps, the shape of the neurons specifies the number of immediate neighbours for each neuron and it is up to user to chose the most suitable shape based on the data.
+>      In this paper, we chose hexagonal topology, which gives each neuron six neighbours, and provides more interactions between neurons.
+336c337
+<      The process of creating SOM, happens over series of $N$ iterations. 
+---
+>      The process of creating SOM happens over a series of $N$ iterations. 
+338c339
+<       In each iteration SOM code:
+---
+>       In each iteration, the SOM code:
+340,342c341,343
+<         \item Chooses a random vector from our data set ($V_i$).
+<         \item Calculates the Euclidean distance for each node, $j$, as  $D_j^2= \sum_{i=0}^{i=n} (V_i - W_i)^2$, and finds a neuron with minimum $D_j$, (``$D_{j_{min}}$"). This neuron is the winner node and is called the Best Matching Unit (BMU). 
+<         \item  Computes the radius of the neighbourhood of the BMU to find nodes within this radius. The weight vectors of these nodes will be affected in the next steps. This value is arbitrary and initially can be set to be as high as half of the SOM size and then it decades exponentially over each iteration:
+---
+>         \item chooses a random vector from the dataset ($V_i$).
+>         \item calculates the Euclidean distance for each node (between each node and what? the initial vector V_i?), $j$, as  $D_j^2= \sum_{i=0}^{i=n} (V_i - W_i)^2$, and finds a neuron with minimum $D_j$, (``$D_{j_{min}}$"). This neuron is the winner node and is called the Best Matching Unit (BMU). 
+>         \item  computes the radius of the neighbourhood of the BMU to find nodes within this radius. The weight vectors of these nodes will be affected in the next steps. This value is initially arbitrary and can be set to be as high as half of the SOM size. It then decays exponentially over each iteration as
+346,347c347,348
+<         where $\tau$ is a decay constant and usually set to be the same as the number of iterations, $N$. $r^0_{BMU}$ and $r^t_{BMU}$ is the radius of the neighbourhood at 0th and $t$th iteration, respectively. 
+<         \item Changes the weight vectors of the BMU, and all the nodes within $r^t_{BMU}$ as:
+---
+>         where $\tau$ is a decay constant and is usually set to be the same as the number of iterations, $N$. $r^0_{BMU}$ and $r^t_{BMU}$ are the radii of the neighbourhood at 0th and $t$th iteration, respectively. 
+>         \item changes the weight vectors of the BMU and all the nodes within $r^t_{BMU}$ as:
+352,353c353
+<         where $L(t) = L_0 e^{(-t/\tau)}$ is the learning factor which prevents divergence of the SOM and $R(t)=\exp(-\frac{D_j^2}{2r^t_{BMU}})$ is the influence rate. $R(t)$ determines how the weight of nodes in the neighbourhood of BMU will change.
+<         \item  Repeats these steps for $N$ times.
+---
+>         where $L(t) = L_0 e^{(-t/\tau)}$ is the learning factor, which prevents the divergence of the SOM and $R(t)=\exp(-\frac{D_j^2}{2r^t_{BMU}})$ is the influence rate. $R(t)$ determines how the weight of each node in the neighbourhood of BMU will change.
+354a355
+>      These steps are then repeated $N$ times.
+358,359c359
+<      In order to create SOM, we used {\tiny MATLAB} neural network 
+<      toolbox~\citep[NNT,][]{matlabtolbox}.
+---
+>      In order to create SOM, we use {\tiny MATLAB} neural network toolbox~\citep[NNT,][]{matlabtolbox}.
+362,367c362,368
+<      SOM in {\tiny NNT} can be created by {\tiny NEWSOM} or {\tiny SELFORGMAP} library which both work in two phases. 
+<      Phase one is the ``ordering phase". 
+<      This phase starts with maximum neighbourhood distance, and initial high learning factor usually 0.9 which is provided by the user. 
+<      The ordering phase continues for the requested number of iterations.
+<      During the iterations, the learning factor reduces to tuning phase leaning factor and the neighbourhood distance reaches to tuning phase neighbourhood distance which both of the numbers set by the user.
+<      In the ordering phase, the changes in the learning factor and the neighbourhood distance adjust with the number of the iterations, in the way that at the last iteration, these two values reach to the initial values for the second phase.
+---
+>      SOM in {\tiny NNT} can be created by {\tiny NEWSOM} or {\tiny SELFORGMAP} library, both of which work in two phases. 
+>      The first phase is called the ``ordering phase". 
+>      This phase starts with maximum neighbourhood distance, and an initial high learning factor (usually 0.9), which is provided by the user. 
+>      The ordering phase continues for a requested number of iterations.
+>      During the iterations, the learning factor decreases to the tuning phase (introduced below) learning factor and the neighbourhood distance reaches that of the tuning phase as well.
+>      Both the learning factor and the neighbourhood of the tuning phase are set by the user. (<-- you cannot start using tuning phase before introducing them!)
+>      The amount by which these two factors change in each iteration depends on the number of iterations.
+369,373c370,375
+<      The second phase is the ``tuning phase".
+<      In this phase the neighbourhood distance is at its minimum, but learning factor decreases very slowly.
+<      This minimum neighbourhood distance and slowly decreasing the leaning factor helps to fine tune the topology results and causes the more stable SOM. 
+<      The number of iterations in this tuning phase most be much more than the number iterations in ordering phase, to allow the tuning to happen slowly. %cite kohenen book?!
+<      We chose the number of epochs the tuning phase to be 3 times more than the number of epochs in the ordering phase.
+---
+>      The second phase is called the ``tuning phase".
+>      During this phase, the neighbourhood distance is kept at the user-defined minimum.
+>      The learning factor, however, decreases gradually.
+>      The gradual change in the leaning factor helps fine tunning the topology results, leading to a more stable SOM. 
+>      To allow the fine tuning, The number of iterations in this phase must be much larger than the that of the ordering phase. %cite kohenen book?!
+>      We chose the number of epochs (of? in?) the tuning phase to be 3 times the number of epochs in the ordering phase.
+375,377c377,379
+<      To show our results, we used two of the {\tiny NNT}'s built-in plots.
+<      These plots, which are evolved version of old SOM plots, are designed to show distance between each clusters more clear.
+<      A Hits map, which shows the number of the times each neuron become the winner (hits), and a distance map, which shows the same neurons as the hits map and the distance between them.
+---
+>      To present our results, we use the {\tiny NNT}'s built-in plotting tool.
+>      ThIS tool, which is the evolved (enhanced instead of evolved?) version of the old SOM plots, are designed to show the distance between each cluster more clearly.
+>      Specifically, we use two of the plots in this tool: Hits map, which shows the number of times each neuron has won (hits), and distance map, which shows the distance between those neurons.
+380,381c382,383
+<      The darker colour represents the larger distance between neurons; whilst the lighter colours means there is a small distance between neurons.
+<      In hit maps, neurons with zero hit left empty.
+---
+>      The darker the colour, the larger distance between neurons.
+>      In the hit maps, neurons with zero hits are left empty.
+383,384c385,386
+<     Size of SOM maps is arbitrary and there is no rules or restrictions on choosing the size of the maps. 
+<     Although \cite{Vesanto05} suggested that the total number of  $5\sqrt{n}$ neurons provides the most sufficient size, users usually choose the size of grids based on their data set and their usages of the results.
+---
+>     The sizes of the SOM maps are arbitrary and there are no rules regarding choosing one over the other. 
+>     However, \cite{Vesanto05} suggested that the total number of $5\sqrt{n}$ neurons is the most sufficient size, but users usually choose the size of the grids based on their dataset and their application of the results.
+398c400
+<             \caption{SOM of the mock sample. In both plots, the axes show the position of the neurons. Hexagonal shapes represent the neurons. The upper plot is a distance map. The grey cycle colours show the differences between weight of each neuron with white is the minimum differences and black has the maximum one. The lower plot is a hit plot. It represents the number of samples in each neuron, while the empty with neurons means zero hit. In this sample the 27 galaxies clustered in 4 groups of 8, 7, 6 and 6 galaxies.}
+---
+>             \caption{SOM of the mock sample. In both plots, the axes show the position of the neurons. Hexagonal shapes represent the neurons. The top plot is a distance map. The grey cycle colours show the differences between the weights of each neuron with white being the minimum differences and black being the maximum one. The lower plot is a hit(s?) plot. It represents the number of samples in each neuron, where empty means zero hits. In this sample, the 27 galaxies clustered in 4 groups, containing 8, 7, 6 and 6 galaxies respectively.}
+402,410c404,413
+<  We created  a mock sample of 27 galaxies to show how this method works, illustrate the results of SOMs, and how they can be analysed.
+<  The mock sample contains two information from each galaxy; The type of galaxies: type 1 or type 2, and either they are high or low star forming galaxies. 
+<  We generated a SOM with the size of $10 \times 10$ using the same initial values mentioned in the Section ~\ref{sec: create_som}.
+< 
+<  Fig. ~\ref{fig: sample} shows the SOM of the mock sample. 
+<  The upper plot is a distance map. 
+<  The axes show the position of the neurons in a $10 \times 10$ network.
+<  The lower plot in the Fig.~\ref{fig: sample} shows a hit map.
+<  On this map similar to the distance map the axes show the position of the neurons where the hexagonal shapes are the neurons.
+---
+>  To illustrate how this method works, we create a mock sample of 27 galaxies.
+> % We create a mock sample of 27 galaxies to show how this method works, illustrate the results of SOMs, and how they can be analysed.(<- I don't like this sentence)
+>  The mock sample contains two attributions of each galaxy: the type (type 1 or type 2), and the start formation rate (high or low). 
+>  We generated a SOM sized $10 \times 10$ using the same initial values mentioned in Section ~\ref{sec: create_som}.
+> 
+>  Fig. ~\ref{fig: sample} shows the SOM of this mock sample. 
+>  The upper plot is the distance map. 
+>  The axes show the position of the neurons in the $10 \times 10$ network.
+>  The lower plot in the Fig.~\ref{fig: sample} shows the hit map.
+>  On this map, similar to the distance map, the axes show the position of the neurons and the hexagonal shapes are the neurons.
+412,413c415,416
+<  Colour coverage of neurons is different and depends on the number of the hits on the sample.
+<  The neuron with the maximum number of hits is completely coloured while the empty neurons are white.
+---
+>  Colour coverage of neurons depends on the number of the hits on the sample.
+>  The neuron with the maximum number of hits is darkly coloured while the empty neurons are left uncoloured (white.)
+415c418
+< Using this method, as we predicted, we were able to divide the mock sample galaxies into 4 distinct groups: Type 1 with high SFR, type 1 with low SFR, type 2 with high SFR and type 2 with low SFR. 
+---
+> Using this method, as expected, we are able to divide the mock sample galaxies into 4 distinct groups: Type 1 with high SFR, type 1 with low SFR, type 2 with high SFR and type 2 with low SFR. 
+417,420c420,423
+< In that plot, the upper part belongs to high star forming galaxies, while the lower part belongs to the low star forming galaxies.
+< The left part of the plot, is where type 1 galaxies belong to and the right side is for type 2 galaxies.
+< Grey to black colours shows the border between regions.
+< The lower plot in Fig.~\ref{fig: sample} shows only 4 neurons out of 100 were occupied. 
+---
+> In that plot, the upper half belongs to high star forming galaxies, while the lower half belongs to the low star forming galaxies.
+> The left half of the plot is where type 1 galaxies belong to, and type 2 galaxies reside in the right side.
+> Different shades of gray show the border between regions.
+> The lower plot in Fig.~\ref{fig: sample} shows that only 4 neurons (out of 100) are occupied. 
+422,430c425,431
+< Since the input data are so simple, each entry only could get either 0 or 1 as a type of galaxy and 0 or 0.5 as an indicator of  high or low SFR, only four of the neurons were filled.
+< 
+< We can conclude that although each galaxy had enough space to occupy any of the neurons in the network, because of the similarity of values they stayed only in four groups.
+< This network is considered as a train network, and if there are any data set with similar entries, we can use this network to cluster the new data set.
+< 
+< As we show in the following sections, in the real world with the real data, we never have two galaxies with exactly the same information, we have more than 2 dimensions, and more galaxy types. 
+< Therefore, if the network has high enough neurons, the input data would eventually separate from each other and cluster into smaller and smaller groups. 
+< However, if the information of the input data is very similar to each other, the number of neurons is going to be much higher than the number of input samples, to be able to separate the groups from each other. 
+< Therefore, it is up to the users that decide the similarity or dissimilarity between the input data based on number of neurons. 
+---
+> %Since the input data are chosen to not to be complex, each entry only could get either 0 or 1 as a type of galaxy and 0 or 0.5 as an indicator of  high or low SFR, only four of the neurons were filled. (*******The sentence is very awkward and not necessary******)
+> We can conclude that although each galaxy had [enough space(???)] the chance to occupy any of the neurons in the network, because of the similarity in the values of their attributions, they remained only in four groups.
+> This network is considered as a train network and can be used to cluster any new dataset with similar entries.
+> However, as will become clear in the following sections, once we use data from real galaxies, we see that the number of dimensions are more than two and we end of with more occupied neurons.
+> Therefore, if the network has high enough neurons, the input data would eventually separate from each other and cluster into smaller groups. 
+> It is worth noting that if the input data are vastly similar, one needs many neurons in order to finely and properly cluster the data.
+> Therefore, it is up to the user to decide on the number of neurons based on the the similarity of the data.
+445,446c446,448
+<     In this section we are showing the results of trained neural networks, using K96 data.
+<     Training networks with K96 templates, provides us networks that have regions with known morphological types. The trained networks can be used to categorize other galaxies.
+---
+>     In this section we show the results of the neural networks that are trained using K96 data.
+>     Training with K96 templates results in networks that have regions with known morphological types. 
+>     The trained networks can then be used to categorize other galaxies.
+449,453c451,455
+<     In order to find sufficient size for the trained networks, we created maps with sizes from $1\times2$ to $50\times50$.
+<     Varying grid of the maps helps us to monitor whether grouping galaxies in smaller maps is based on their similar SEDs or its for the shortage of the neurons.
+<     Based on size the data and SOM results, we chose maximum of the grid size to be $1\times22$ and $12\times12$ in 1D and 2D maps, respectively. 
+<     For each grid we created different SOMs with different learning factors, neighbourhood distances, and iteration numbers to find the optimum result for our sample.
+<     We created the final SOMs with following initial values: number of iterations in ordering phase, ordering phase learning factor, tuning phase learning factor, and tuning phase neighbourhood distance to be 1000, 0.9, 0.02, and 1, respectively.
+---
+>     In order to find sufficient size for the trained networks, we create maps with sizes ranging from $1\times2$ to $50\times50$.
+>     Varying grid size of the maps helps us monitor whether grouping galaxies in smaller maps is based on their similar SEDs or its for the shortage of the neurons (this sentence is definitely wrong and I don't understand what you are trying to say to fix it.).
+>     Based on size the data and SOM results, we found the optimum grid size to be $1\times22$ and $12\times12$ in 1D and 2D maps, respectively. 
+>     For each grid we created different SOMs with different learning factors, neighbourhood distances, and number of iterations to find the optimum.
+>     We create the final SOMs with initial values for number of iterations in ordering phase, ordering phase learning factor, tuning phase learning factor, and tuning phase neighbourhood distance of 1000, 0.9, 0.02, and 1, respectively.
+455,457c457,459
+<     We started our analysis by creating 1D SOMs. 
+<     First, we created SOMs with only two neurons ($1\times2$ map), and then we increased number of neurons one at a time in the 1D case (Sec.~\ref{sec: 1D}).
+<     We generated 2D networks (Sec.~\ref{sec: 2D}), and once again we start with the smallest number of neuron possible (4 neurons in $2\times2$ map), and then increased the number of neurons to 144 in $12\times12$ map.
+---
+>     We start our analysis by creating 1D SOMs. 
+>     First, we created SOMs with only two neurons ($1\times2$ map), and then we increase the number of neurons one at a time in the 1D case (Sec.~\ref{sec: 1D}).
+>     We generate 2D networks (Sec.~\ref{sec: 2D}), and once again we start with the smallest number of neuron possible (4 neurons in $2\times2$ map), and then increase them to 144 in a $12\times12$ map.
+459,460c461,462
+<     For each generated network, we compared the results with K96 categorization.
+<     We also used these networks to classify the T12 galaxies samples, and compared them with classifications from supervised networks in T12.
+---
+>     For each generated network, we compare the results with K96 categorization.
+>     We also use these networks to classify the T12 galaxy samples, and compare them with classifications from supervised networks in T12.
+465,472c467,474
+<             To start our clustering, we assumed that galaxies can be divided only in two general types; quiescent and starburst.
+<             In this case, we generated a network with only two neurons.
+<             We increased the size of the map gradually till we separated the input 12 sample galaxies into the 12 neurons. 
+<         
+<             Figs.~\ref{fig: 1by2T} -~\ref{fig: 1by22T} show results of training networks.
+<             Similar to Fig.~\ref{fig: sample}, the upper part of the figures shows neurons and their relative distances, $D_j$, from each other.
+<             As it was mentioned in the Sec.~\ref{sec: method}, the colours between neurons represents the relative distance between the neurons and the darker is the colour the more relative distance is between them.
+<             The lower part shows how many galaxies from K96 template places in each neuron. 
+---
+>             To start our clustering, we assume that galaxies can be divided into only two general types; quiescent and starburst.
+>             In this case, we generate a network with only two neurons.
+>             We increased the size of the map gradually until the 12 input sample galaxies divide into the 12 neurons. 
+>         
+>             Figs.~\ref{fig: 1by2T} -~\ref{fig: 1by22T} show results of the training networks.
+>             Similar to Fig.~\ref{fig: sample}, the upper part of the figures shows neurons and their relative distances, $D_j$.
+>             As it was mentioned in the Sec.~\ref{sec: method}, increase in the darkness of colours between neurons represents the the increase in relative distance between the neurons.
+>             The lower parts (of what?) show the number galaxies from K96 template that are placed in each neuron. 
+487,488c489,490
+<             In the upper map in Fig.~\ref{fig: 1by2T}, the dark colour between two neurons indicates that the relative distance between these two groups are relatively high, and these two groups are distinguishable groups.
+<             In the lower part of Fig.~\ref{fig: 1by2T}, we see galaxies divided to two groups of 5 and 7.
+---
+>             In the upper map in Fig.~\ref{fig: 1by2T}, the dark colour between two neurons indicates that the relative distance between these two groups are relatively high, and these two groups are distinguishable groups.(why do you keep reaping that?)
+>             In the lower part of Fig.~\ref{fig: 1by2T}, we see that galaxies are divided into two groups of 5 and 7.
+490c492
+<             In this method, the Sc galaxies have been categorized as starburst galaxy due to the relatively higher amount of the disk stellar population relative to the bulge ones. 
+---
+>             In this method, the Sc galaxies have been categorized as starburst galaxy due to the relatively higher amounts of disk stellar population relative to that of the bulge. 
+495,496c497,499
+<             In these plots we forced the galaxies to categorize themselves in maximum 3 groups. 
+<             If the galaxies in Fig.~\ref{fig: 1by2T} were very similar to each other or were exactly the same, they still wanted to be divided into two groups and left the middle node empty. 
+---
+>             In these plots we force the galaxies to be categorize in a maximum 3 groups. 
+>             If the galaxies in Fig.~\ref{fig: 1by2T} were very similar to each other or were exactly the same, they still wanted to be divided into two groups and left the middle node empty(this sentence does not make much sense. I kind of think I know what you're trying to say (because once I translate this sentence to farsi word by word, it kind of comes together) but please phrase it more carefully.).
+>             [suggested sentence: If the galaxies in Fig.~\ref{fig: 1by2T} were truly belong in two groups, they would be grouped into two groups yet again, even when we try to cluster them into three.] 
