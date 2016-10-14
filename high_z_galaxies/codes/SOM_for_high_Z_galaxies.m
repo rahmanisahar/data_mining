@@ -60,7 +60,7 @@ annv=catv_fix_norm';
 %>>>> the smaler n_cen the more separated groups (more covering space) 
 %>>>> each neuran can be connected with (n_nei) nth Neighbours
 n_1=1;
-n_2=22;
+n_2=12;
  n1st=int2str(n_1);
  n2st=int2str(n_2);
 
@@ -76,12 +76,12 @@ n_epoch =ost*2;
 %>>>>---------------------------------------------------------------------------------------------------
 %>>>> MATLAB NETWORK  ; should not change
 %net = newsom(PR,[D1,D2,...],TFCN,DFCN,OLR,OSTEPS,TLR,TND)
- net = newsom(annt,[n_2,n_1],'hextop','dist',orl,ost,tlr,tnd);
+ net = newsom(annt,[n_2,n_1],'hextop','dotprod',orl,ost,tlr,tnd);
  %net = newsom(annt,[n_2,n_1]);
  net.trainParam.epochs = n_epoch;
  net.trainParam.showWindow =false;
  net.trainParam.showCommandLine=true;
-net.trainParam.show=10;
+ net.trainParam.show=100;
  net = train(net,annt);
   sim_t=sim(net,annt);
   sim_v=sim(net,annv);
@@ -120,9 +120,9 @@ figure(2)
 plotsomhits_sahar(net,annt)
  %figure(3)
  %plotsom_sahar(net,annt)
-saveas(figure(1),colorim,'fig')
-saveas(figure(2),hitim_t,'fig')
-%saveas(figure(3),plot_combined,'fig')
+%saveas(figure(1),colorim,'fig')
+%saveas(figure(2),hitim_t,'fig')
+%%saveas(figure(3),plot_combined,'fig')
 %-------------------
 
 for k1=1:n_1*n_2
@@ -152,7 +152,7 @@ hitim_v= strcat(dir,'hit_v_',n1st,'_by_',n2st,'.fig');
 %  plotsomnd(net,annv)
 figure(3)
 plotsomhits(net,annv)
-saveas(figure(3),hitim_v,'fig')
+%saveas(figure(3),hitim_v,'fig')
 
 if n_1==1
 
@@ -193,7 +193,7 @@ if n_1==1
     set(gca,'xtick',1:n_2);
     title('log(f_{burst})')
 prop= strcat(dir,'prop',n1st,'_by_',n2st,'.fig');
-saveas(figure(5),prop,'fig')
+%saveas(figure(5),prop,'fig')
 end
  
 
@@ -239,19 +239,21 @@ for h1=1:1:n_1
     for n1=1:1:12
        chi = 0;
        for i = 1:1:630
-           chi = chi+(a(i)-kinney(i,n1))^2/kinney(i,n1);
+           chi = (a(i)-kinney(i,n1))^2/kinney(i,n1);
+           chi2= (1- dot(a,kinney(:,n1))/(norm(kinney(:,n1))*norm(a)));
        end
-       chi_s(n1)=chi;
+       chi_s(n1)=chi2;
     end   
     [dum,num_kinney]=min(chi_s(:));
    index=find(min(chi_s));
-    %m1=m1+1;
+   % m1=m1+1;
     subplot(n_1,n_2,m1)
     plot(xx,catm{h1,h2},'K')%,xlim([1 630])
     type(m1)=num_kinney;
-    %plot(xx,kinney(1:630,num_kinney),'r')%,xlim([1 630])
-    %strmax = ['Type = ',num2str(num_kinney)];
-    %text(3500,2,strmax,'HorizontalAlignment','right');
+    hold on
+    plot(xx,kinney(1:630,num_kinney),'r')%,xlim([1 630])
+    strmax = ['Type = ',num2str(num_kinney)];
+    text(3500,2,strmax,'HorizontalAlignment','right');
    ylabel('flux (arbitary unit)')
    xlabel('Wavelength($$\AA$$)','Interpreter', 'Latex' ) 
      end    
@@ -260,7 +262,7 @@ for h1=1:1:n_1
 end
 %text(-10,10.2,'Wavelength(\AA)')
 SEDim = strcat(dir,'SED_total',n1st,'by',n2st,'.fig');
-saveas(figure(10),SEDim,'fig')
+%saveas(figure(10),SEDim,'fig')
 % figure(11)
 % m1=0;
 % 
@@ -502,7 +504,7 @@ end
 end   
 
 rep = strcat(dir,'prop_vs_prop',n1st,'by',n2st,'.fig');
- saveas(figure(12),rep,'fig')
+ %saveas(figure(12),rep,'fig')
 
 
 %>>>>---------------------------------------------------------------------------------------------------

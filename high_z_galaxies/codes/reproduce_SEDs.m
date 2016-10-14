@@ -90,7 +90,7 @@ for h1=n_1:-1:1
     check_s=CATv_1{h1,h2};
                size_ch=size(check_s);
     if (size_ch(2) > 1)
-    catm{h1,h2}=mean(annm(av{m1},:));
+    catm{h1,h2}=median(annm(av{m1},:));
     elseif (size_ch(2) == 1)
         catm{h1,h2}=annm(av{m1},:);
     end

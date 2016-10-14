@@ -1,6 +1,6 @@
-clear, clc
-n_1=12; n_2=12;
-net10by10=load('~/Desktop/project/data_mining/high_z_galaxies/results_SED/2D/new_type_of_plots/net_12_by_self_org_res_12.mat');
+% clear, clc
+n_1=1; n_2=22;
+net10by10=load('~/Desktop/project/data_mining/high_z_galaxies/results_SED/2D/net_1_by_22.mat');
 net=net10by10.net;
 dir='~/Desktop/project/data_mining/high_z_galaxies/results_SED/2D/new_type_of_plots/new_colours/';
 load ~/Desktop/project/data_mining/high_z_galaxies/data/kinney_n.txt
@@ -69,8 +69,8 @@ end
 colorim = strcat(dir,'dist_',n1st,'_by_self_org_res_',n2st,'.fig');
 hitim_t= strcat(dir,'hit_t_',n1st,'_by_self_org_res_',n2st,'.fig');
 hitim_v= strcat(dir,'hit_v_',n1st,'_by_self_org_res_',n2st,'.fig');
-saveas(figure(1),colorim,'fig')
-saveas(figure(2),hitim_t,'fig')
-saveas(figure(3),hitim_v,'fig')
+% saveas(figure(1),colorim,'fig')
+% saveas(figure(2),hitim_t,'fig')
+% saveas(figure(3),hitim_v,'fig')
 
 
