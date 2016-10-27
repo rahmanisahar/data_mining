@@ -1,5 +1,5 @@
 clear, close all,  clc
-dir ='~/Desktop/project/data_mining/high_z_galaxies/results_SED/after_referee/kmeans/';
+dir ='~/Desktop/';
 load ~/Desktop/project/data_mining/high_z_galaxies/data/kinney_n.txt
 cat=kinney_n(:,1:end);
 
@@ -54,7 +54,7 @@ annv=annv';
 k = 22;
 %[idx,C] = kmeans(annt,k);
 opts = statset('Display','final');
-[idx,C] = kmeans(annv,k,'Distance','cityblock',...
+[idx,C] = kmeans(annv,k,'Distance','cosine',...
     'Replicates',5,'Options',opts);
 
 if (size (annv(idx==1))==1) 
