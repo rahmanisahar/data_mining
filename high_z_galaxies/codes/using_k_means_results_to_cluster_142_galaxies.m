@@ -38,13 +38,13 @@ for h=1:sz_cnt(1)
 end
 
 
-csvwrite(strcat(dir,'closest_cluster_for_142_in_',num2str(k),'_k_means_clusters.csv'),closest_cluster)
-csvwrite(strcat(dir,'medians_of_142_galaxies_in_each_cluster_in_',num2str(k),'_k_means_clusters.csv'),medians_for_plotting)
+csvwrite(strcat(dir,'closest_cluster_for_142_in_',num2str(sz_cnt(1)),'_k_means_clusters.csv'),closest_cluster)
+csvwrite(strcat(dir,'medians_of_142_galaxies_in_each_cluster_in_',num2str(sz_cnt(1)),'_k_means_clusters.csv'),medians_for_plotting)
 
  
 colorVec = hsv(sz_cnt(1));
 figure(1);
-  for h=1:k
+  for h=1:sz_cnt(1)
     plot(xx,medians_for_plotting(h,:),'Color',colorVec(h,:),'MarkerSize',12)
     hold on
   end
